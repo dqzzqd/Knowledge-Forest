@@ -36,11 +36,14 @@ export default function DayReplay({
   contents,
   forest,
   cicada,
+  hour,
 }: {
   contents: ContentItem[];
   forest: ForestSnapshot;
   /** 精灵状态（后端决策）。回放的是历史帧，精灵只跟着"现在"走 */
   cicada?: CicadaState;
+  /** 当前小时（0–23）：决定场景的昼夜氛围。由服务端算好传下来 */
+  hour?: number;
 }) {
   // 进来先看到**完整的森林**。生长过程要用户主动点才播——
   // 自动播放会让人一进页面就懵：画面自己在动，却不知道在看什么。
@@ -195,6 +198,7 @@ export default function DayReplay({
           cicada={liveCicada ?? cicada}
           onFeedback={onFeedback}
           feedbackPending={pending}
+          hour={hour}
         />
 
         {/* 回放条。

@@ -1,13 +1,28 @@
 import DayReplay from "@/components/DayReplay";
 import { nowIso } from "@/lib/api";
+import { atmosphereFor, hourFromIso } from "@/lib/atmosphere";
 import { deriveCicada } from "@/lib/cicada";
 import { loadDemoUser, loadForest } from "@/lib/forest";
 
-export default function Forest() {
+export default async function Forest({
+  searchParams,
+}: {
+  searchParams: Promise<{ hour?: string | string[] }>;
+}) {
   const user = loadDemoUser("user-a");
   const forest = loadForest("user-a");
   // 精灵的"此刻"在服务端定一次，随首屏一起送达，前端不用再拉一次接口
-  const cicada = deriveCicada(forest, nowIso());
+  const now = nowIso();
+  const cicada = deriveCicada(forest, now);
+  // 昼夜氛围也按这个时刻定：服务端算好传下去，避免两端算出不同的时段。
+  // `?hour=` 只是给演示/自检用的手动覆盖，正常走真实时间。
+  const raw = (await searchParams).hour;
+  const forced = typeof raw === "string" ? Number(raw) : NaN;
+  const hour =
+    Number.isInteger(forced) && forced >= 0 && forced <= 23
+      ? forced
+      : hourFromIso(now);
+  const atm = atmosphereFor(hour);
 
   return (
     <main className="flex min-h-[100dvh] flex-col bg-gradient-to-b from-[#EAF3E4] to-[#DCE9D0]">
@@ -31,11 +46,19 @@ export default function Forest() {
           </p>
           <p className="truncate text-[11px] text-[#6E7A66]">
             {user.tags.join(" · ")}
+            <span className="ml-2 rounded-full bg-white/70 px-2 py-0.5 text-[10px] text-[#4a5b47]">
+              此刻 {atm.label} · 森林随现实时间换光
+            </span>
           </p>
         </div>
       </header>
 
-      <DayReplay contents={user.contents} forest={forest} cicada={cicada} />
+      <DayReplay
+        contents={user.contents}
+        forest={forest}
+        cicada={cicada}
+        hour={hour}
+      />
 
       {/* 溯源声明：合规要求，压到最小但必须留 */}
       <footer className="px-4 pb-3 text-center text-[10px] leading-relaxed text-[#7C876F] sm:px-6">

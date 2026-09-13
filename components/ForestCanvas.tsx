@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Cicada from "@/components/Cicada";
+import { atmosphereFor, type Atmosphere } from "@/lib/atmosphere";
 import {
   CATEGORY_COLORS,
   CATEGORY_LABELS,
@@ -210,6 +211,7 @@ export default function ForestCanvas({
   cicada,
   onFeedback,
   feedbackPending = false,
+  hour = 12,
 }: {
   forest: ForestSnapshot;
   /** 后端算好的精灵状态；不传就不画精灵（回放各帧没有精灵） */
@@ -217,7 +219,10 @@ export default function ForestCanvas({
   /** 不传就不给操作入口（回放的是历史帧，改不了） */
   onFeedback?: FeedbackHandler;
   feedbackPending?: boolean;
+  /** 当前小时（0–23），决定昼夜氛围。由服务端算好传下来 */
+  hour?: number;
 }) {
+  const atm = useMemo(() => atmosphereFor(hour), [hour]);
   // 只记 leafId，不存整个对象——回放时 forest 每帧都变，
   // 存对象会让卡片停留在旧的一天（叶子已消失却还在显示）。
   const [activeId, setActiveId] = useState<string | null>(null);
@@ -256,17 +261,17 @@ export default function ForestCanvas({
       >
         <defs>
           <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#DCEBF3" />
-            <stop offset="52%" stopColor="#EFF6EC" />
-            <stop offset="100%" stopColor="#F6FAF0" />
+            <stop offset="0%" stopColor={atm.sky[0]} />
+            <stop offset="52%" stopColor={atm.sky[1]} />
+            <stop offset="100%" stopColor={atm.sky[2]} />
           </linearGradient>
           <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#DCE8CE" />
-            <stop offset="100%" stopColor="#BBD3A9" />
+            <stop offset="0%" stopColor={atm.ground[0]} />
+            <stop offset="100%" stopColor={atm.ground[1]} />
           </linearGradient>
           <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
-            <stop offset="0%" stopColor="#FFF7DC" stopOpacity="0.85" />
-            <stop offset="100%" stopColor="#FFF7DC" stopOpacity="0" />
+            <stop offset="0%" stopColor={atm.light} stopOpacity={atm.lightOpacity} />
+            <stop offset="100%" stopColor={atm.light} stopOpacity="0" />
           </radialGradient>
           <filter id="haze" x="-20%" y="-20%" width="140%" height="140%">
             <feGaussianBlur stdDeviation="9" />
@@ -278,27 +283,27 @@ export default function ForestCanvas({
         {/* 斜上方的光，给画面一个光源 */}
         <ellipse cx={W * 0.26} cy={HORIZON * 0.34} rx={W * 0.4} ry={HORIZON * 0.5} fill="url(#sun)" />
 
-        {/* 远山：三层，越远越淡（空气透视） */}
+        {/* 远山：三层，越远越淡（空气透视）。颜色跟着时段走 */}
         <path
           d={`M0 ${HORIZON} Q ${W * 0.16} ${HORIZON - 96} ${W * 0.38} ${HORIZON - 26}
               T ${W * 0.72} ${HORIZON - 54} T ${W} ${HORIZON - 16}
               L ${W} ${HORIZON + 60} L 0 ${HORIZON + 60} Z`}
-          fill="var(--forest-far)"
+          fill={atm.hill}
           opacity={0.34}
           filter="url(#haze)"
         />
         <path
           d={`M0 ${HORIZON + 6} Q ${W * 0.24} ${HORIZON - 62} ${W * 0.5} ${HORIZON + 4}
               T ${W} ${HORIZON - 34} L ${W} ${HORIZON + 70} L 0 ${HORIZON + 70} Z`}
-          fill="var(--forest-mid)"
+          fill={atm.hill}
           opacity={0.26}
           filter="url(#haze)"
         />
         <path
           d={`M0 ${HORIZON + 26} Q ${W * 0.34} ${HORIZON - 24} ${W * 0.62} ${HORIZON + 30}
               T ${W} ${HORIZON + 12} L ${W} ${HORIZON + 80} L 0 ${HORIZON + 80} Z`}
-          fill="var(--forest-mid)"
-          opacity={0.34}
+          fill={atm.hill}
+          opacity={0.4}
         />
 
         {/* 林地 */}
@@ -320,10 +325,22 @@ export default function ForestCanvas({
 
         {/* 树名统一压在最后，不会被别的树盖住 */}
         {trees.map((tree) => (
-          <TreeLabel key={tree.treeId} tree={tree} />
+          <TreeLabel key={tree.treeId} tree={tree} atm={atm} />
         ))}
 
-        {/* 精灵画在最后 = 叠在最上层（技术设计 §5.1） */}
+        {/* 换光：叠一层色罩。树还是那棵树，只是换了光线——
+            直接改插画配色的话，一到夜里就糊了 */}
+        <rect
+          width={W}
+          height={H}
+          fill={atm.tint}
+          opacity={atm.tintOpacity}
+          pointerEvents="none"
+        />
+        {atm.stars > 0 ? <Stars opacity={atm.stars} /> : null}
+
+        {/* 精灵画在最后 = 叠在最上层，且**在色罩之上**——
+            夜里它是唯一还亮着的东西（技术设计 §5.1） */}
         {cicada && cicadaAnchor ? (
           <Cicada cicada={cicada} anchor={cicadaAnchor} canvasWidth={W} />
         ) : null}
@@ -432,9 +449,13 @@ function TreeShape({
  * 现在所有树画完再统一画名字，谁也不会挡住谁。
  * 描一圈浅色底，压在草地上也读得清。
  */
-function TreeLabel({ tree }: { tree: PlacedTree }) {
+function TreeLabel({ tree, atm }: { tree: PlacedTree; atm: Atmosphere }) {
   const baseY = tree.y + tree.height;
-  const outline = { stroke: "#F4F9EE", strokeWidth: 3.5, paintOrder: "stroke" as const };
+  const outline = {
+    stroke: atm.labelStroke,
+    strokeWidth: 3.5,
+    paintOrder: "stroke" as const,
+  };
   return (
     <g aria-hidden="true">
       <text
@@ -443,7 +464,7 @@ function TreeLabel({ tree }: { tree: PlacedTree }) {
         textAnchor="middle"
         fontSize={16}
         fontWeight={600}
-        fill="#33472F"
+        fill={atm.labelFill}
         {...outline}
       >
         {tree.name}
@@ -453,11 +474,34 @@ function TreeLabel({ tree }: { tree: PlacedTree }) {
         y={baseY + 45}
         textAnchor="middle"
         fontSize={12}
-        fill="#5C6B54"
+        fill={atm.labelFill}
+        opacity={0.82}
         {...outline}
       >
         {tree.total} 条 · {STAGE_LABELS[tree.stage]}
       </text>
+    </g>
+  );
+}
+
+/** 星空：只在夜里画。位置用三角函数算，**不能用 Math.random**——
+ *  服务端和客户端得画出同一片天，否则会 hydration 不一致。 */
+function Stars({ opacity }: { opacity: number }) {
+  const stars = useMemo(
+    () =>
+      Array.from({ length: 48 }, (_, i) => ({
+        x: (((i * 137.508) % 100) / 100) * W,
+        y: (((i * 61.803) % 46) / 100) * HORIZON,
+        r: 0.8 + ((i * 7) % 5) * 0.32,
+        o: 0.3 + ((i * 3) % 6) * 0.1,
+      })),
+    [],
+  );
+  return (
+    <g pointerEvents="none" opacity={opacity}>
+      {stars.map((s, i) => (
+        <circle key={i} cx={s.x} cy={s.y} r={s.r} fill="#F4F8FF" opacity={s.o} />
+      ))}
     </g>
   );
 }
