@@ -5,6 +5,7 @@ const LINKS = [
   { href: "/forest", label: "森林" },
   { href: "/diary", label: "农夫日记" },
   { href: "/report", label: "光合作用" },
+  { href: "/profile", label: "灵魂画像" },
 ];
 
 export default function SiteNav({ current }: { current: string }) {

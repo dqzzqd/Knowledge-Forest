@@ -16,12 +16,23 @@ interface CicadaProps {
   canvasWidth: number;
 }
 
+/**
+ * 精灵贴图。原图是 2048×2048 的白底 jpg，抠底后裁到精灵包围盒、
+ * 压成 640px WebP（55KB）。见 imgtool/cutout.mjs。
+ */
+const SPRITE_SRC = "/cicada-640.webp";
+/** 贴图原始宽高比（640×490），用它算高度才不会拉伸 */
+const SPRITE_RATIO = 640 / 490;
+/** 显示尺寸（SVG 用户坐标）——比树冠小一档，是"落在一棵树上"的比例 */
+const SPRITE_W = 64;
+const SPRITE_H = Math.round(SPRITE_W / SPRITE_RATIO);
+
 /** 台词气泡的安全边距（用户坐标） */
 const EDGE = 10;
 /** 台词字号；中日韩字符约等于 1em，用它估算气泡宽度 */
 const FONT_SIZE = 18;
 /** 气泡到精灵头顶的距离 */
-const BUBBLE_OFFSET = 48;
+const BUBBLE_OFFSET = 54;
 
 const clamp = (value: number, min: number, max: number) =>
   max < min ? value : Math.min(max, Math.max(min, value));
@@ -50,39 +61,15 @@ export default function Cicada({ cicada, anchor, canvasWidth }: CicadaProps) {
       style={{ transform: `translate(${anchor.x}px, ${anchor.y}px)` }}
     >
       <g className="cicada__body">
-        {/* 翅膀在下、身体在上——SVG 按文档顺序绘制 */}
-        <ellipse className="cicada__wing cicada__wing--left" cx={-10} cy={-5} rx={18} ry={7} transform="rotate(-26 -10 -5)" />
-        <ellipse className="cicada__wing cicada__wing--right" cx={10} cy={-5} rx={18} ry={7} transform="rotate(26 10 -5)" />
-
-        <ellipse cx={0} cy={3} rx={11} ry={16} fill="#8B6239" />
-        <circle cx={0} cy={-13} r={9.5} fill="#5E4022" />
-
-        <circle cx={-4.5} cy={-14} r={2.6} fill="#2F3A2E" />
-        <circle cx={4.5} cy={-14} r={2.6} fill="#2F3A2E" />
-        <circle cx={-3.7} cy={-15} r={0.9} fill="#FFFFFF" opacity={0.9} />
-        <circle cx={5.3} cy={-15} r={0.9} fill="#FFFFFF" opacity={0.9} />
-
-        <path
-          d="M -4 -21 C -8 -29, -12 -31, -15 -30"
-          stroke="#5E4022"
-          strokeWidth={1.6}
-          strokeLinecap="round"
-          fill="none"
-        />
-        <path
-          d="M 4 -21 C 8 -29, 12 -31, 15 -30"
-          stroke="#5E4022"
-          strokeWidth={1.6}
-          strokeLinecap="round"
-          fill="none"
-        />
-
-        <path
-          d="M -3 -9 Q 0 -6.5 3 -9"
-          stroke="#2F3A2E"
-          strokeWidth={1.4}
-          strokeLinecap="round"
-          fill="none"
+        {/* 贴图：身体略微上移，让视觉重心落在锚点上 */}
+        <image
+          className="cicada__sprite"
+          href={SPRITE_SRC}
+          x={-SPRITE_W / 2}
+          y={-SPRITE_H * 0.7}
+          width={SPRITE_W}
+          height={SPRITE_H}
+          preserveAspectRatio="xMidYMid meet"
         />
 
         {action === "water" ? <Droplets /> : null}

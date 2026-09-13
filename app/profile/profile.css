@@ -1,0 +1,216 @@
+/* 知了森林 · 灵魂画像
+   与日记页同一套材质（纸、木、林），但这一页只讲「你是谁」。
+   印章是整页唯一的重音。 */
+
+.portrait {
+  --paper: #fbfdf7;
+  --rule: rgba(139, 98, 57, 0.2);
+  --seal: #9d4231;
+  --muted: #6f7568;
+
+  min-height: 100dvh;
+  background: var(--mist);
+  padding: clamp(1.5rem, 5vh, 3.25rem) 1.15rem clamp(3rem, 8vh, 5rem);
+}
+
+.portrait__page {
+  width: 100%;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.cover {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+}
+
+.cover__avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  flex: none;
+  box-shadow: 0 3px 10px rgba(47, 85, 65, 0.18);
+}
+
+.cover__name {
+  font-family: var(--font-cute);
+  font-size: 1.6rem;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  color: var(--forest-near);
+}
+
+.cover__kind {
+  margin-top: 0.15rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.anchor {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.35rem;
+  align-items: start;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  padding: 1.35rem;
+  box-shadow: 0 10px 26px rgba(47, 85, 65, 0.09);
+}
+
+/* 印章：整页唯一一处「重音」。竖排是中文印章的本来写法。 */
+.seal {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  display: inline-block;
+  /* 限高让长标签自动折成第二列，得到接近方形的印面 */
+  max-height: 7.5rem;
+  padding: 0.65rem 0.45rem;
+  border: 2px solid var(--seal);
+  border-radius: 5px;
+  color: var(--seal);
+  font-family: var(--font-cute);
+  font-size: 1rem;
+  letter-spacing: 0.14em;
+  text-indent: 0.14em;
+  transform: rotate(-2.5deg);
+  box-shadow: inset 0 0 0 1px rgba(157, 66, 49, 0.28);
+  user-select: none;
+}
+
+.anchor__desc {
+  font-size: 0.95rem;
+  line-height: 1.95;
+  color: var(--ink);
+}
+
+.anchor__emoji {
+  margin-right: 0.35rem;
+}
+
+.anchor__traits {
+  list-style: none;
+  margin: 0.9rem 0 0;
+  padding: 0;
+}
+
+.trait {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 0.75rem;
+  padding: 0.55rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.trait__label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--forest-near);
+}
+
+.trait__score {
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--wood-dark);
+}
+
+.trait__evidence {
+  grid-column: 1 / -1;
+  margin-top: 0.15rem;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* 注意力分布：大类占比 */
+.cats {
+  margin-top: 2.5rem;
+}
+
+.cats__title {
+  font-family: var(--font-cute);
+  font-size: 1.3rem;
+  letter-spacing: 0.1em;
+  color: var(--forest-near);
+  padding-bottom: 1.1rem;
+}
+
+.cats__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.cat {
+  display: grid;
+  grid-template-columns: 4rem 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.cat__name {
+  color: var(--ink);
+}
+
+.cat__track {
+  height: 9px;
+  border-radius: 999px;
+  background: rgba(93, 146, 112, 0.14);
+  overflow: hidden;
+}
+
+.cat__fill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  transform-origin: left center;
+  animation: cat-grow 620ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+
+.cat__weight {
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+
+@keyframes cat-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.portrait__foot {
+  margin-top: 2.5rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.76rem;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+@media (max-width: 30rem) {
+  .anchor {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  /* 窄屏下印章横过来，免得占掉半屏高度 */
+  .seal {
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    justify-self: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cat__fill {
+    animation: none;
+  }
+}

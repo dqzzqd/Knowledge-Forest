@@ -1,7 +1,7 @@
 import type { CSSProperties } from "react";
 import SiteNav from "@/components/SiteNav";
 import "./diary.css";
-import { DIARY_WINDOW_DAYS, getDiary, getProfile } from "@/lib/ai/serve";
+import { DIARY_WINDOW_DAYS, getDiary } from "@/lib/ai/serve";
 import { loadDemoUser } from "@/lib/forest";
 import { TOTAL_DAYS, dayToDate } from "@/lib/replay";
 import type { DiaryEventType } from "@/lib/contract";
@@ -24,7 +24,6 @@ const DEMO_USER = "user-a";
 export default function DiaryPage() {
   const userId = DEMO_USER;
   const user = loadDemoUser(userId);
-  const profile = getProfile(userId);
 
   const fromDay = TOTAL_DAYS - DIARY_WINDOW_DAYS + 1;
   // getDiary 已经按时间排好序并补上了 day，页面只管渲染
@@ -50,28 +49,7 @@ export default function DiaryPage() {
           </div>
         </header>
 
-        {/* 画像锚：先立住「你是谁」，再往下读「你变了什么」 */}
-        <section className="anchor" aria-label="兴趣画像">
-          <span className="seal">{profile.soulType}</span>
-          <div>
-            <p className="anchor__desc">
-              <span className="anchor__emoji" aria-hidden="true">
-                {profile.soulTypeEmoji}
-              </span>
-              {profile.description}
-            </p>
-            <ul className="anchor__traits">
-              {profile.traits.map((trait) => (
-                <li key={trait.label} className="trait">
-                  <span className="trait__label">{trait.label}</span>
-                  <span className="trait__score">{trait.score}</span>
-                  <span className="trait__evidence">{trait.evidence}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
+        {/* 画像已经独立成 /profile，这一页只留日记本身 */}
         <section className="entries" aria-labelledby="entries-title">
           <div className="entries__head">
             <h2 className="entries__title" id="entries-title">
