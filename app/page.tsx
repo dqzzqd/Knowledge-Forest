@@ -1,11 +1,10 @@
-import ForestCanvas from "@/components/ForestCanvas";
-import { forestStats, loadDemoUser, loadForest } from "@/lib/forest";
+import DayReplay from "@/components/DayReplay";
+import { loadDemoUser, loadForest } from "@/lib/forest";
 import { CATEGORY_LABELS, type TopicCategory } from "@/lib/contract";
 
 export default function Home() {
   const user = loadDemoUser("user-a");
   const forest = loadForest("user-a");
-  const stats = forestStats(forest);
 
   const categories = forest.trees
     .map((t) => CATEGORY_LABELS[t.category as TopicCategory])
@@ -13,7 +12,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-[#F7FBF4] to-[#EEF6EA]">
-      <header className="mx-auto w-full max-w-6xl px-6 pt-10 pb-2">
+      <header className="mx-auto w-full max-w-6xl px-6 pt-10 pb-6">
         <div className="flex items-start gap-5">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -46,22 +45,9 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-        <dl className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-          <Stat label="主题树" value={stats.trees} />
-          <Stat label="叶子" value={stats.totalLeaves} />
-          <Stat label="内容" value={stats.totalContents} />
-          <Stat
-            label="枯萎中"
-            value={stats.fading + stats.withered}
-            hint={`其中 ${stats.withered} 片已枯萎`}
-          />
-        </dl>
       </header>
 
-      <section className="mx-auto w-full max-w-6xl px-6 pb-16">
-        <ForestCanvas forest={forest} />
-      </section>
+      <DayReplay contents={user.contents} forest={forest} />
 
       <footer className="mx-auto w-full max-w-6xl space-y-1 px-6 pb-10 text-xs leading-relaxed text-stone-400">
         <p>
@@ -72,23 +58,5 @@ export default function Home() {
         <p>主题大类：{categories.join(" · ")}</p>
       </footer>
     </main>
-  );
-}
-
-function Stat({
-  label,
-  value,
-  hint,
-}: {
-  label: string;
-  value: number;
-  hint?: string;
-}) {
-  return (
-    <div className="rounded-xl bg-white/70 px-4 py-3 ring-1 ring-stone-200/70">
-      <dt className="text-xs text-stone-400">{label}</dt>
-      <dd className="mt-0.5 text-2xl font-semibold text-stone-700">{value}</dd>
-      {hint ? <p className="mt-0.5 text-[11px] text-stone-400">{hint}</p> : null}
-    </div>
   );
 }

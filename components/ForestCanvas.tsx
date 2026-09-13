@@ -104,47 +104,60 @@ function leafTone(leaf: Leaf) {
 }
 
 export default function ForestCanvas({ forest }: { forest: ForestState }) {
-  const [active, setActive] = useState<PlacedLeaf | null>(null);
+  // 只记 leafId，不存整个对象——回放时 forest 每帧都变，
+  // 存对象会让卡片停留在旧的一天（叶子已消失却还在显示）。
+  const [activeId, setActiveId] = useState<string | null>(null);
   const trees = useMemo(() => buildTrees(forest), [forest]);
 
+  const active = useMemo(() => {
+    if (!activeId) return null;
+    for (const t of trees) {
+      const found = t.leaves.find((l) => l.leafId === activeId);
+      if (found) return found;
+    }
+    return null;
+  }, [activeId, trees]);
+
   return (
-    <div className="relative w-full">
-      <svg
-        viewBox={`0 110 ${W} ${H - 110}`}
-        className="h-auto w-full select-none"
-        role="img"
-        aria-label="知了森林"
-      >
-        <defs>
-          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#EAF4FB" />
-            <stop offset="55%" stopColor="#F6FBF6" />
-            <stop offset="100%" stopColor="#EFF6E8" />
-          </linearGradient>
-          <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#DCE9D0" />
-            <stop offset="100%" stopColor="#C9DCBA" />
-          </linearGradient>
-          <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="10" />
-          </filter>
-        </defs>
-
-        <rect width={W} height={H} fill="url(#sky)" />
-        <ellipse cx={W / 2} cy={GROUND_Y + 90} rx={W * 0.62} ry={150} fill="url(#ground)" />
-
-        {trees.map((t) => (
-          <TreeShape
-            key={t.layout.treeId}
-            tree={t}
-            onLeaf={setActive}
-            activeId={active?.leafId ?? null}
-          />
-        ))}
-      </svg>
-
-      <LeafCard leaf={active} onClose={() => setActive(null)} />
+    <div className="w-full">
       <Legend />
+      <div className="relative w-full">
+        <svg
+          viewBox={`0 110 ${W} ${H - 110}`}
+          className="h-auto w-full select-none"
+          role="img"
+          aria-label="知了森林"
+        >
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#EAF4FB" />
+              <stop offset="55%" stopColor="#F6FBF6" />
+              <stop offset="100%" stopColor="#EFF6E8" />
+            </linearGradient>
+            <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#DCE9D0" />
+              <stop offset="100%" stopColor="#C9DCBA" />
+            </linearGradient>
+            <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="10" />
+            </filter>
+          </defs>
+
+          <rect width={W} height={H} fill="url(#sky)" />
+          <ellipse cx={W / 2} cy={GROUND_Y + 90} rx={W * 0.62} ry={150} fill="url(#ground)" />
+
+          {trees.map((t) => (
+            <TreeShape
+              key={t.layout.treeId}
+              tree={t}
+              onLeaf={(l) => setActiveId(l?.leafId ?? null)}
+              activeId={active?.leafId ?? null}
+            />
+          ))}
+        </svg>
+
+        <LeafCard leaf={active} onClose={() => setActiveId(null)} />
+      </div>
     </div>
   );
 }
@@ -172,6 +185,7 @@ function TreeShape({
         ry={trunkW * 1.3}
         fill="#A8BC9C"
         opacity={0.3}
+        style={{ transition: "rx 0.5s ease" }}
       />
 
       {/* 树干 */}
@@ -185,6 +199,7 @@ function TreeShape({
               ${tree.baseX + trunkW / 2.4} ${tree.baseY - trunkH * 0.5},
               ${tree.baseX + trunkW / 2} ${tree.baseY} Z`}
         fill="#A9856B"
+        style={{ transition: "d 0.5s ease" }}
       />
 
       {/* 树冠光晕 */}
@@ -195,6 +210,7 @@ function TreeShape({
         fill={color}
         opacity={0.16}
         filter="url(#blur)"
+        style={{ transition: "r 0.5s ease, cy 0.5s ease" }}
       />
 
       {/* 叶簇：每个小主题 = 一簇小叶 */}
@@ -223,7 +239,8 @@ function TreeShape({
                 transform={`rotate(${m.rot} ${leaf.cx + m.dx} ${leaf.cy + m.dy})`}
                 stroke={isActive ? "#3F3F3F" : "rgba(255,255,255,.5)"}
                 strokeWidth={isActive ? 1.6 : 0.8}
-                className="transition-all duration-200 hover:brightness-110"
+                style={{ transition: "cx 0.5s ease, cy 0.5s ease, rx 0.5s ease" }}
+                className="duration-500 hover:brightness-110"
               />
             ))}
           </g>
@@ -277,7 +294,7 @@ function LeafCard({ leaf, onClose }: { leaf: PlacedLeaf | null; onClose: () => v
 
 function Legend() {
   return (
-    <div className="absolute top-3 right-3 flex flex-wrap justify-end gap-x-3 gap-y-1 text-xs text-stone-500">
+    <div className="flex flex-wrap justify-end gap-x-3 gap-y-1 px-1 pb-2 text-xs text-stone-500">
       {Object.entries(CATEGORY_COLORS)
         .filter(([k]) => k !== "other")
         .map(([k, c]) => (

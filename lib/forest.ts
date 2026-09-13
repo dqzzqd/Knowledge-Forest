@@ -7,7 +7,7 @@
 import "server-only";
 import fs from "node:fs";
 import path from "node:path";
-import type { ContentItem, ForestState, TopicTree } from "./contract";
+import type { ContentItem, ForestState } from "./contract";
 
 const ROOT = process.cwd();
 const MOCK_DIR = path.join(ROOT, "mock-data");
@@ -56,34 +56,5 @@ export function loadUpToDay(id: DemoUserId, day: number): ContentItem[] {
   return out;
 }
 
-export const TOTAL_DAYS = 30;
-
-/** 第 N 天对应的日期（2026-08-15 起） */
-export function dayToDate(day: number): string {
-  const d = new Date(Date.UTC(2026, 7, 15));
-  d.setUTCDate(d.getUTCDate() + day - 1);
-  return d.toISOString().slice(0, 10);
-}
-
-/** 按树聚合叶子，便于渲染 */
-export function groupLeaves(forest: ForestState) {
-  const byTree = new Map<string, ForestState["leaves"]>();
-  for (const leaf of forest.leaves) {
-    const list = byTree.get(leaf.treeId) ?? [];
-    list.push(leaf);
-    byTree.set(leaf.treeId, list);
-  }
-  return byTree;
-}
-
-/** 森林概览统计 */
-export function forestStats(forest: ForestState) {
-  const totalLeaves = forest.leaves.length;
-  const withered = forest.leaves.filter((l) => l.state === "withered").length;
-  const fading = forest.leaves.filter((l) => l.state === "fading").length;
-  const totalContents = forest.trees.reduce(
-    (s: number, t: TopicTree) => s + t.totalContentCount,
-    0,
-  );
-  return { totalLeaves, withered, fading, totalContents, trees: forest.trees.length };
-}
+// 日期换算（dayToDate / dayIndexOf）与统计（replayStats）见 lib/replay.ts，
+// 那里是纯函数、客户端也能用，避免两处各写一份日口径。
