@@ -11,7 +11,7 @@ import { CATEGORY_LABELS } from "@/lib/contract";
 import type {
   ContentItem,
   DiaryEntry,
-  ForestState,
+  ForestSnapshot,
   PersonalityProfile,
   PhotosynthesisReport,
   TopicCategory,
@@ -19,7 +19,7 @@ import type {
 import { dayIndexOf, dayToDate, forestAtDay } from "@/lib/replay";
 
 /** 内容 → 所属树，用于把当天内容按树归拢 */
-function contentToTree(forest: ForestState): Map<string, string> {
+function contentToTree(forest: ForestSnapshot): Map<string, string> {
   const map = new Map<string, string>();
   for (const leaf of forest.leaves) {
     for (const id of leaf.contentIds) map.set(id, leaf.treeId);
@@ -43,7 +43,7 @@ function categoryWeights(contents: ContentItem[]): { category: TopicCategory; we
 export function fallbackReport(
   userId: string,
   contents: ContentItem[],
-  forest: ForestState,
+  forest: ForestSnapshot,
   day: number,
 ): PhotosynthesisReport {
   const date = dayToDate(day);
@@ -101,7 +101,7 @@ export function fallbackReport(
 export function fallbackDiary(
   userId: string,
   contents: ContentItem[],
-  forest: ForestState,
+  forest: ForestSnapshot,
   periodStart: number,
   periodEnd: number,
   limit = 8,
@@ -193,7 +193,7 @@ export function fallbackDiary(
 export function fallbackProfile(
   userId: string,
   contents: ContentItem[],
-  forest: ForestState,
+  forest: ForestSnapshot,
 ): PersonalityProfile {
   const topCategories = categoryWeights(contents);
   const top = topCategories[0];
@@ -223,7 +223,7 @@ const EMOJI_BY_CATEGORY: Record<TopicCategory, string> = {
 };
 
 function buildTraits(
-  forest: ForestState,
+  forest: ForestSnapshot,
   topCategories: { category: TopicCategory; weight: number }[],
 ) {
   const top = topCategories[0];

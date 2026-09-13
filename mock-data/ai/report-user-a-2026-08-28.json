@@ -1,0 +1,31 @@
+{
+  "reportId": "report_20260828",
+  "userId": "user-a",
+  "date": "2026-08-28",
+  "headline": "一边照见自己，一边追问模型",
+  "highlights": [
+    {
+      "treeId": "tree_psych",
+      "treeName": "心理学",
+      "category": "science",
+      "summary": "读了一篇讲拖延本质的文章，说拖延是不爱自己、爱的是虚假的自己，共 1 篇、4 赞。",
+      "contentIds": [
+        "content_6410185912056953085"
+      ]
+    },
+    {
+      "treeId": "tree_ai",
+      "treeName": "人工智能",
+      "category": "tech",
+      "summary": "读了一篇讨论大模型上下文从 8K 扩到 128K 的工程价值与实现，共 1 篇。",
+      "contentIds": [
+        "content_-2186890878705454622"
+      ]
+    }
+  ],
+  "stats": {
+    "newLeafCount": 2,
+    "newTreeCount": 1,
+    "totalContentCount": 2
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "reportId": "report_20260826",
+  "userId": "user-a",
+  "date": "2026-08-26",
+  "headline": "两棵树各落一片新叶，光合缓慢而稳",
+  "highlights": [
+    {
+      "treeId": "tree_ai",
+      "treeName": "人工智能",
+      "category": "tech",
+      "summary": "在人工智能树下读了 1 篇《SAG 深度解析》，7 次点赞，看下一代 RAG 的雏形。",
+      "contentIds": [
+        "content_-268800570750048561"
+      ]
+    },
+    {
+      "treeId": "tree_startup",
+      "treeName": "创业与产品",
+      "category": "business",
+      "summary": "在创业与产品树下收下 1 篇产品经理核心能力问答，1 次收藏，慢慢咀嚼。",
+      "contentIds": [
+        "content_6258658961083924871"
+      ]
+    }
+  ],
+  "stats": {
+    "newLeafCount": 0,
+    "newTreeCount": 0,
+    "totalContentCount": 2
+  }
+}

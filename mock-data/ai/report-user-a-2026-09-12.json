@@ -1,0 +1,23 @@
+{
+  "reportId": "report_20260912",
+  "userId": "user-a",
+  "date": "2026-09-12",
+  "headline": "在AI的土壤里，种下两粒思考的种子",
+  "highlights": [
+    {
+      "treeId": "tree_ai",
+      "treeName": "人工智能",
+      "category": "tech",
+      "summary": "你读了AI Agent架构三要素与落地场景两篇，共2份内容，从循环到沙盒，也看见了模型走向现实的路径。",
+      "contentIds": [
+        "content_5344680263155401837",
+        "content_-4224391432615174344"
+      ]
+    }
+  ],
+  "stats": {
+    "newLeafCount": 0,
+    "newTreeCount": 0,
+    "totalContentCount": 2
+  }
+}

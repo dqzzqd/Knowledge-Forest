@@ -3,11 +3,16 @@
 这个目录存放**由大模型预生成**的「光合作用报告 / 农夫日记 / 兴趣画像」。
 
 ```
-report-user-a.json     PhotosynthesisReport
-diary-user-a.json      DiaryEntry[]
-profile-user-a.json    PersonalityProfile
-（user-b / user-c 同）
+report-<user>-<YYYY-MM-DD>.json   PhotosynthesisReport（每天一份）
+diary-<user>.json                 DiaryEntry[]
+profile-<user>.json               PersonalityProfile
 ```
+
+`user` 取 `user-a` / `user-b` / `user-c`。演示用户 `user-a` 覆盖了全部 28 个有内容的日子
+（08-21 与 09-06 当天没有内容，故没有报告）；`user-b` / `user-c` 目前各一份（09-13）。
+
+报告按天存，是为了让 `/report` 页能按天翻看 —— 每天的收藏量差别极大
+（有的日子三条内容都是 1 赞，08-23 那天有一条 8716 赞），翻一下比只看一天更能说明产品。
 
 读取方：`lib/ai/artifacts.ts`（zod 校验）→ `app/api/{report,diary,profile}/route.ts`。
 
@@ -33,7 +38,10 @@ profile-user-a.json    PersonalityProfile
 ```bash
 cd D:/workspace/ai-gen
 cp .env.example .env.local     # 填入 LLM_BASE_URL / LLM_API_KEY / LLM_MODEL
-node generate.mjs              # 全部生成；也可 --only=diary --user=user-a
+node generate.mjs              # 全部生成
+node generate.mjs --only=report --user=user-a --days=27,28,29,30   # 只补几天的报告
+node generate.mjs --only=diary --window=21                         # 只重生成日记
+node generate.mjs --count-only --window=21                          # 不联模型，只看事件条数
 ```
 
 ## 产物缺失会怎样

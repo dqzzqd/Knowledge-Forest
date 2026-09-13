@@ -1,0 +1,31 @@
+{
+  "reportId": "report_20260818",
+  "userId": "user-a",
+  "date": "2026-08-18",
+  "headline": "一棵树回望来路，一棵树望向AI前沿",
+  "highlights": [
+    {
+      "treeId": "tree_career",
+      "treeName": "职业发展",
+      "category": "life",
+      "summary": "在职业发展树下读了一篇《35岁以后的程序员何去何从?》，10个赞同，是回望来路时的一次深呼吸。",
+      "contentIds": [
+        "content_-5886806095436182125"
+      ]
+    },
+    {
+      "treeId": "tree_ai",
+      "treeName": "人工智能",
+      "category": "tech",
+      "summary": "在人工智能树下读了一篇Graph-R1智能体式GraphRAG框架，2个赞同，向技术深处又探了一寸。",
+      "contentIds": [
+        "content_7164934587917917083"
+      ]
+    }
+  ],
+  "stats": {
+    "newLeafCount": 1,
+    "newTreeCount": 0,
+    "totalContentCount": 2
+  }
+}

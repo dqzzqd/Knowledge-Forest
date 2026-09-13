@@ -1,0 +1,25 @@
+{
+  "reportId": "report_20260905",
+  "userId": "user-a",
+  "date": "2026-09-05",
+  "headline": "四篇智能体，读懂AI Agent的骨架与风向",
+  "highlights": [
+    {
+      "treeId": "tree_ai",
+      "treeName": "人工智能",
+      "category": "tech",
+      "summary": "你读了4篇AI Agent文章：千赞框架通解、万字核心概念、千问实测与工信部新政解读，从原理到落地。",
+      "contentIds": [
+        "content_6548322861314323791",
+        "content_-2960356255725204410",
+        "content_3169485591707754151",
+        "content_-5901010886917430576"
+      ]
+    }
+  ],
+  "stats": {
+    "newLeafCount": 0,
+    "newTreeCount": 0,
+    "totalContentCount": 4
+  }
+}

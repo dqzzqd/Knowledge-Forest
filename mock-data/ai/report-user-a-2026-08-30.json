@@ -1,0 +1,31 @@
+{
+  "reportId": "report_20260830",
+  "userId": "user-a",
+  "date": "2026-08-30",
+  "headline": "两棵树各落一片叶，产品与智能体",
+  "highlights": [
+    {
+      "treeId": "tree_startup",
+      "treeName": "创业与产品",
+      "category": "business",
+      "summary": "你读了《产品经理职业发展路径是怎样的?》，1 篇，4 赞，像给这棵树的枝条轻轻压了一道。",
+      "contentIds": [
+        "content_-5749208038893646752"
+      ]
+    },
+    {
+      "treeId": "tree_ai",
+      "treeName": "人工智能",
+      "category": "tech",
+      "summary": "你收藏了《你在用哪些 AI Agent(智能体)?》，1 篇，22 赞，这颗种子吸饱了光。",
+      "contentIds": [
+        "content_-5792607152362813352"
+      ]
+    }
+  ],
+  "stats": {
+    "newLeafCount": 0,
+    "newTreeCount": 0,
+    "totalContentCount": 2
+  }
+}

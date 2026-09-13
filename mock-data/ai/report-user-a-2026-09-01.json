@@ -1,0 +1,31 @@
+{
+  "reportId": "report_20260901",
+  "userId": "user-a",
+  "date": "2026-09-01",
+  "headline": "今日两棵老树各抽新叶，向内与向外同频",
+  "highlights": [
+    {
+      "treeId": "tree_psych",
+      "treeName": "心理学",
+      "category": "science",
+      "summary": "读了1篇心理学文章，从心理学角度剖析拖延症的根源，收获15个赞同，你开始向内看清自己。",
+      "contentIds": [
+        "content_-673152830778326265"
+      ]
+    },
+    {
+      "treeId": "tree_ai",
+      "treeName": "人工智能",
+      "category": "tech",
+      "summary": "读了1篇人工智能文章，关于从单次RAG到智能体AI的重试、工具调用与自我修正，你向外看见系统的生长。",
+      "contentIds": [
+        "content_7183632955015752336"
+      ]
+    }
+  ],
+  "stats": {
+    "newLeafCount": 0,
+    "newTreeCount": 0,
+    "totalContentCount": 2
+  }
+}

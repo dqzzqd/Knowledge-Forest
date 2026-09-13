@@ -1,0 +1,31 @@
+{
+  "reportId": "report_20260831",
+  "userId": "user-a",
+  "date": "2026-08-31",
+  "headline": "两棵树各抽一叶，落地与冷启动",
+  "highlights": [
+    {
+      "treeId": "tree_ai",
+      "treeName": "人工智能",
+      "category": "tech",
+      "summary": "你在人工智能树下收下一片叶子，读了大模型落地实战，看它如何走进医疗信息化。",
+      "contentIds": [
+        "content_616620069960059012"
+      ]
+    },
+    {
+      "treeId": "tree_startup",
+      "treeName": "创业与产品",
+      "category": "business",
+      "summary": "创业与产品树新添一叶，你读了新产品与新账号如何从零熬过冷启动期。",
+      "contentIds": [
+        "content_3291608302736951935"
+      ]
+    }
+  ],
+  "stats": {
+    "newLeafCount": 0,
+    "newTreeCount": 0,
+    "totalContentCount": 2
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "reportId": "report_20260904",
+  "userId": "user-a",
+  "date": "2026-09-04",
+  "headline": "三棵树各添一片新叶，静静生长",
+  "highlights": [
+    {
+      "treeId": "tree_ai",
+      "treeName": "人工智能",
+      "category": "tech",
+      "summary": "你读了 LLM 学习第 18 课，1 篇关于长上下文与 RAG 的内容，把技术脉络又捋清了一点。",
+      "contentIds": [
+        "content_8355056534664891481"
+      ]
+    },
+    {
+      "treeId": "tree_psych",
+      "treeName": "心理学",
+      "category": "science",
+      "summary": "你读了拖延症系列的第 2 篇，1 篇讲如何自我观察拖延，学着温柔地看见自己。",
+      "contentIds": [
+        "content_2180691112543697961"
+      ]
+    },
+    {
+      "treeId": "tree_startup",
+      "treeName": "创业与产品",
+      "category": "business",
+      "summary": "你收藏了 1 篇新品类 GEO 冷启动实战，为空白赛道里的品类认知添了一块砖。",
+      "contentIds": [
+        "content_5578052809382735541"
+      ]
+    }
+  ],
+  "stats": {
+    "newLeafCount": 0,
+    "newTreeCount": 0,
+    "totalContentCount": 3
+  }
+}

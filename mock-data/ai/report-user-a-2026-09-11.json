@@ -1,0 +1,31 @@
+{
+  "reportId": "report_20260911",
+  "userId": "user-a",
+  "date": "2026-09-11",
+  "headline": "两棵树各落一片叶，向内看心，向外看AI",
+  "highlights": [
+    {
+      "treeId": "tree_psych",
+      "treeName": "心理学",
+      "category": "science",
+      "summary": "读了一篇关于拖延症心理机制的收藏，41 赞，追问懒之外的深层原因。",
+      "contentIds": [
+        "content_-7350170398462347579"
+      ]
+    },
+    {
+      "treeId": "tree_ai",
+      "treeName": "人工智能",
+      "category": "tech",
+      "summary": "读了一篇大模型落地实战，DeepSeek 智能体用于糖尿病预治，1 赞。",
+      "contentIds": [
+        "content_584687001361631122"
+      ]
+    }
+  ],
+  "stats": {
+    "newLeafCount": 0,
+    "newTreeCount": 0,
+    "totalContentCount": 4
+  }
+}

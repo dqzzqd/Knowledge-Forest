@@ -1,0 +1,39 @@
+/* 知了森林 · 页面导航 */
+
+.sitenav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.35rem;
+  padding-bottom: 1.35rem;
+}
+
+.sitenav__link {
+  font-size: 0.86rem;
+  letter-spacing: 0.04em;
+  color: var(--forest-mid);
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: color 140ms ease, border-color 140ms ease;
+}
+
+.sitenav__link:hover {
+  color: var(--forest-near);
+}
+
+.sitenav__link[aria-current="page"] {
+  color: var(--forest-near);
+  border-bottom-color: var(--wood);
+}
+
+.sitenav__link:focus-visible {
+  outline: 3px solid var(--forest-near);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sitenav__link {
+    transition: none;
+  }
+}

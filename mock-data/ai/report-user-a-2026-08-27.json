@@ -1,0 +1,40 @@
+{
+  "reportId": "report_20260827",
+  "userId": "user-a",
+  "date": "2026-08-27",
+  "headline": "三棵树各落一片叶，关于出路与坚持",
+  "highlights": [
+    {
+      "treeId": "tree_career",
+      "treeName": "职业发展",
+      "category": "life",
+      "summary": "你读了一篇大龄程序员的现状与出路，425 赞的高票回答，像替自己先探了探路。",
+      "contentIds": [
+        "content_-5242646674445849003"
+      ]
+    },
+    {
+      "treeId": "tree_fitness",
+      "treeName": "健身",
+      "category": "life",
+      "summary": "你收藏了一篇长期坚持健身的方法帖，只有 2 赞，却刚好是你此刻最想弄明白的事。",
+      "contentIds": [
+        "content_-391246591451418702"
+      ]
+    },
+    {
+      "treeId": "tree_startup",
+      "treeName": "创业与产品",
+      "category": "business",
+      "summary": "你点赞了一个反套路出圈的社交产品案例，看它如何闯进全球多市场 App Store 榜单。",
+      "contentIds": [
+        "content_-5170281578929468354"
+      ]
+    }
+  ],
+  "stats": {
+    "newLeafCount": 0,
+    "newTreeCount": 0,
+    "totalContentCount": 4
+  }
+}

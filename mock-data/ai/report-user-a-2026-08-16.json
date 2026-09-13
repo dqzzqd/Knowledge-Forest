@@ -1,0 +1,22 @@
+{
+  "reportId": "report_20260816",
+  "userId": "user-a",
+  "date": "2026-08-16",
+  "headline": "新苗破土，电商冷启动点亮第一片叶",
+  "highlights": [
+    {
+      "treeId": "tree_startup",
+      "treeName": "创业与产品",
+      "category": "business",
+      "summary": "你读了一篇电商新店冷启动攻略，讲零资源新手如何撬动自然流量，1 篇内容落下第一片叶。",
+      "contentIds": [
+        "content_1571858750158316890"
+      ]
+    }
+  ],
+  "stats": {
+    "newLeafCount": 1,
+    "newTreeCount": 1,
+    "totalContentCount": 1
+  }
+}

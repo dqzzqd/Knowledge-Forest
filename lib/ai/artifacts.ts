@@ -110,8 +110,23 @@ function readArtifact<T>(file: string, schema: z.ZodType<T>): T | null {
   }
 }
 
-export const loadReportArtifact = (userId: string) =>
-  readArtifact(`report-${userId}.json`, reportSchema);
+/** 光合作用报告按天存：report-<user>-<YYYY-MM-DD>.json */
+export const loadReportArtifact = (userId: string, date: string) =>
+  readArtifact(`report-${userId}-${date}.json`, reportSchema);
+
+/** 该用户已经生成过报告的所有日期（升序）。用于报告页的按天切换。 */
+export function listReportDates(userId: string): string[] {
+  const prefix = `report-${userId}-`;
+  try {
+    return fs
+      .readdirSync(AI_DIR)
+      .filter((name) => name.startsWith(prefix) && name.endsWith(".json"))
+      .map((name) => name.slice(prefix.length, -".json".length))
+      .sort();
+  } catch {
+    return [];
+  }
+}
 
 export const loadDiaryArtifact = (userId: string) =>
   readArtifact(`diary-${userId}.json`, diarySchema);

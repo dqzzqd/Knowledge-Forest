@@ -1,0 +1,23 @@
+{
+  "reportId": "report_20260909",
+  "userId": "user-a",
+  "date": "2026-09-09",
+  "headline": "在智能体循环里，安静扎根的一天",
+  "highlights": [
+    {
+      "treeId": "tree_ai",
+      "treeName": "人工智能",
+      "category": "tech",
+      "summary": "你读了两篇人工智能：一篇讲 Agent Loop 的智能体原理，一篇追问大模型落地，共两片新叶。",
+      "contentIds": [
+        "content_6141645053902793139",
+        "content_-3959452118377799065"
+      ]
+    }
+  ],
+  "stats": {
+    "newLeafCount": 0,
+    "newTreeCount": 0,
+    "totalContentCount": 2
+  }
+}

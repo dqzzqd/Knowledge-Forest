@@ -1,0 +1,22 @@
+{
+  "reportId": "report_20260910",
+  "userId": "user-a",
+  "date": "2026-09-10",
+  "headline": "一篇文章，把RAG的脉络理清了",
+  "highlights": [
+    {
+      "treeId": "tree_ai",
+      "treeName": "人工智能",
+      "category": "tech",
+      "summary": "在人工智能树下读了1篇《一文搞懂:RAG》，把检索增强生成的来龙去脉收进心里。",
+      "contentIds": [
+        "content_-1480968154277707521"
+      ]
+    }
+  ],
+  "stats": {
+    "newLeafCount": 0,
+    "newTreeCount": 0,
+    "totalContentCount": 1
+  }
+}

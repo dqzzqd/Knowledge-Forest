@@ -1,0 +1,22 @@
+{
+  "reportId": "report_20260824",
+  "userId": "user-a",
+  "date": "2026-08-24",
+  "headline": "今天你在AI树下读懂了一个新词",
+  "highlights": [
+    {
+      "treeId": "tree_ai",
+      "treeName": "人工智能",
+      "category": "tech",
+      "summary": "读了一篇《AI agent是什么意思?》，32 个赞同，AI 树下新添一片叶。",
+      "contentIds": [
+        "content_13929762785838304"
+      ]
+    }
+  ],
+  "stats": {
+    "newLeafCount": 0,
+    "newTreeCount": 0,
+    "totalContentCount": 1
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "reportId": "report_20260907",
+  "userId": "user-a",
+  "date": "2026-09-07",
+  "headline": "算法与出路，两棵树各落一片叶",
+  "highlights": [
+    {
+      "treeId": "tree_ai",
+      "treeName": "人工智能",
+      "category": "tech",
+      "summary": "在人工智能树下读了1篇Harness Engineering工程体系解析，拆解大模型可控落地的原理与路径，还点了赞。",
+      "contentIds": [
+        "content_6080690946121193222"
+      ]
+    },
+    {
+      "treeId": "tree_career",
+      "treeName": "职业发展",
+      "category": "life",
+      "summary": "在职业发展树下收藏1篇Python程序员35岁危机自救指南，讲了从被裁到年薪80W的3条转型路径。",
+      "contentIds": [
+        "content_-5996964858832634582"
+      ]
+    }
+  ],
+  "stats": {
+    "newLeafCount": 0,
+    "newTreeCount": 0,
+    "totalContentCount": 2
+  }
+}

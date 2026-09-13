@@ -1,0 +1,40 @@
+{
+  "reportId": "report_20260819",
+  "userId": "user-a",
+  "date": "2026-08-19",
+  "headline": "三棵树各落一片新叶，光落在坚持上",
+  "highlights": [
+    {
+      "treeId": "tree_ai",
+      "treeName": "人工智能",
+      "category": "tech",
+      "summary": "读了一篇AI Agent核心基础解析，396赞，把智能体的脉络从头梳理了一遍。",
+      "contentIds": [
+        "content_1740081956534276639"
+      ]
+    },
+    {
+      "treeId": "tree_startup",
+      "treeName": "创业与产品",
+      "category": "business",
+      "summary": "搜到一篇产品经理能力提升路径，3赞，不长，却把成长的台阶标了出来。",
+      "contentIds": [
+        "content_627464268139015526"
+      ]
+    },
+    {
+      "treeId": "tree_fitness",
+      "treeName": "健身",
+      "category": "life",
+      "summary": "读了一篇讲如何让运动变成日常习惯的文章，0赞，但正是你需要的答案。",
+      "contentIds": [
+        "content_-872584045088146593"
+      ]
+    }
+  ],
+  "stats": {
+    "newLeafCount": 1,
+    "newTreeCount": 0,
+    "totalContentCount": 4
+  }
+}

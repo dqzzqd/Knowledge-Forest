@@ -1,0 +1,31 @@
+{
+  "reportId": "report_20260815",
+  "userId": "user-a",
+  "date": "2026-08-15",
+  "headline": "两棵新树苗，从职业到身体",
+  "highlights": [
+    {
+      "treeId": "tree_career",
+      "treeName": "职业发展",
+      "category": "life",
+      "summary": "你种下职业发展这棵新树，读了一篇关于大龄程序员现状与出路的讨论，77 人赞同。",
+      "contentIds": [
+        "content_6216625634508704943"
+      ]
+    },
+    {
+      "treeId": "tree_fitness",
+      "treeName": "健身",
+      "category": "life",
+      "summary": "健身树苗也冒了芽，你翻到一篇每天只用 30 分钟如何高效锻炼的问答，收获 2 个赞同。",
+      "contentIds": [
+        "content_6189577376296321789"
+      ]
+    }
+  ],
+  "stats": {
+    "newLeafCount": 2,
+    "newTreeCount": 2,
+    "totalContentCount": 2
+  }
+}

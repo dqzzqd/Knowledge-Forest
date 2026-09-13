@@ -1,0 +1,31 @@
+{
+  "reportId": "report_20260902",
+  "userId": "user-a",
+  "date": "2026-09-02",
+  "headline": "两粒种子落进土里，等一场雨",
+  "highlights": [
+    {
+      "treeId": "tree_ai",
+      "treeName": "人工智能",
+      "category": "tech",
+      "summary": "你读了一篇关于中小企业落地大模型的文章，点赞收下，像给新枝浇了第一瓢水。",
+      "contentIds": [
+        "content_4343400662026589739"
+      ]
+    },
+    {
+      "treeId": "tree_career",
+      "treeName": "职业发展",
+      "category": "life",
+      "summary": "你默默收藏了那篇35岁程序员的去向之问，没有点赞，却把它藏进了年轮里。",
+      "contentIds": [
+        "content_-1532636752199318756"
+      ]
+    }
+  ],
+  "stats": {
+    "newLeafCount": 0,
+    "newTreeCount": 0,
+    "totalContentCount": 2
+  }
+}

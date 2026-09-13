@@ -1,0 +1,31 @@
+{
+  "reportId": "report_20260817",
+  "userId": "user-a",
+  "date": "2026-08-17",
+  "headline": "一棵新树发芽，两片叶子吸收阳光",
+  "highlights": [
+    {
+      "treeId": "tree_ai",
+      "treeName": "人工智能",
+      "category": "tech",
+      "summary": "在人工智能树下读了一篇Agent对比，比较了Claude Code等国内外工具，获152个赞。",
+      "contentIds": [
+        "content_-6975097988772876776"
+      ]
+    },
+    {
+      "treeId": "tree_fitness",
+      "treeName": "健身",
+      "category": "life",
+      "summary": "在健身树下读了一篇新手如何开始运动，从零培养习惯，收获4个赞。",
+      "contentIds": [
+        "content_6962057522120248756"
+      ]
+    }
+  ],
+  "stats": {
+    "newLeafCount": 1,
+    "newTreeCount": 1,
+    "totalContentCount": 2
+  }
+}

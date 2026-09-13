@@ -1,0 +1,22 @@
+{
+  "reportId": "report_20260825",
+  "userId": "user-a",
+  "date": "2026-08-25",
+  "headline": "种下一棵想长久的树",
+  "highlights": [
+    {
+      "treeId": "tree_fitness",
+      "treeName": "健身",
+      "category": "life",
+      "summary": "你读了一篇关于长期坚持健身的问答，30 个赞同，像是给这棵树浇了第一瓢水。",
+      "contentIds": [
+        "content_3989587771711350094"
+      ]
+    }
+  ],
+  "stats": {
+    "newLeafCount": 0,
+    "newTreeCount": 0,
+    "totalContentCount": 1
+  }
+}

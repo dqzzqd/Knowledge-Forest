@@ -1,0 +1,31 @@
+{
+  "reportId": "report_20260820",
+  "userId": "user-a",
+  "date": "2026-08-20",
+  "headline": "两棵树各抽新芽，技术与产品并进",
+  "highlights": [
+    {
+      "treeId": "tree_ai",
+      "treeName": "人工智能",
+      "category": "tech",
+      "summary": "在人工智能树下，你读了1篇RAG知识库详解，为检索增强生成补上关键一课。",
+      "contentIds": [
+        "content_-9051047881747515914"
+      ]
+    },
+    {
+      "treeId": "tree_startup",
+      "treeName": "创业与产品",
+      "category": "business",
+      "summary": "创业与产品树上落下1篇新品冷启动指南，你读完如何为产品找到最初的光。",
+      "contentIds": [
+        "content_-2528382414626386130"
+      ]
+    }
+  ],
+  "stats": {
+    "newLeafCount": 0,
+    "newTreeCount": 0,
+    "totalContentCount": 2
+  }
+}

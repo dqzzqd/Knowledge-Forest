@@ -1,0 +1,31 @@
+{
+  "reportId": "report_20260903",
+  "userId": "user-a",
+  "date": "2026-09-03",
+  "headline": "两棵树各落一叶，产品的根与AI的枝",
+  "highlights": [
+    {
+      "treeId": "tree_startup",
+      "treeName": "创业与产品",
+      "category": "business",
+      "summary": "在创业与产品树下读到一篇《产品经理新人如何成长》，3票收藏，替无经验者问路。",
+      "contentIds": [
+        "content_302029200610576126"
+      ]
+    },
+    {
+      "treeId": "tree_ai",
+      "treeName": "人工智能",
+      "category": "tech",
+      "summary": "人工智能树下收了一篇AI agent选购指南，23票收藏，从价格与实用两端挑工具。",
+      "contentIds": [
+        "content_-3001923579393130564"
+      ]
+    }
+  ],
+  "stats": {
+    "newLeafCount": 0,
+    "newTreeCount": 0,
+    "totalContentCount": 2
+  }
+}

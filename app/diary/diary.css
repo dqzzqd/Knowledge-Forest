@@ -1,0 +1,309 @@
+/* 知了森林 · 农夫日记（田间笔记）
+   延续开始页的材质语汇：纸、木、林。
+   颜色只用来承载信息（事件类型），不做装饰。 */
+
+.notebook {
+  --paper: #fbfdf7;
+  --rule: rgba(139, 98, 57, 0.2);
+  --spine: rgba(200, 155, 106, 0.85);
+  --seal: #9d4231;
+  --muted: #6f7568;
+
+  min-height: 100dvh;
+  background: var(--mist);
+  padding: clamp(1.5rem, 5vh, 3.25rem) 1.15rem clamp(3rem, 8vh, 5rem);
+}
+
+.notebook__page {
+  width: 100%;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+/* ── 封面：身份与画像锚 ───────────────────────────── */
+
+.cover {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+}
+
+.cover__avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  flex: none;
+  box-shadow: 0 3px 10px rgba(47, 85, 65, 0.18);
+}
+
+.cover__name {
+  font-family: var(--font-cute);
+  font-size: 1.6rem;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  color: var(--forest-near);
+}
+
+.cover__kind {
+  margin-top: 0.15rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.anchor {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.35rem;
+  align-items: start;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  padding: 1.35rem;
+  box-shadow: 0 10px 26px rgba(47, 85, 65, 0.09);
+}
+
+/* 印章：整页唯一一处「重音」。竖排是中文印章的本来写法。 */
+.seal {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  display: inline-block;
+  /* 限高让长标签自动折成第二列，得到接近方形的印面 */
+  max-height: 7.5rem;
+  padding: 0.65rem 0.45rem;
+  border: 2px solid var(--seal);
+  border-radius: 5px;
+  color: var(--seal);
+  font-family: var(--font-cute);
+  font-size: 1rem;
+  letter-spacing: 0.14em;
+  text-indent: 0.14em;
+  transform: rotate(-2.5deg);
+  box-shadow: inset 0 0 0 1px rgba(157, 66, 49, 0.28);
+  user-select: none;
+}
+
+.anchor__desc {
+  font-size: 0.95rem;
+  line-height: 1.95;
+  color: var(--ink);
+}
+
+.anchor__emoji {
+  margin-right: 0.35rem;
+}
+
+.anchor__traits {
+  list-style: none;
+  margin: 0.9rem 0 0;
+  padding: 0;
+}
+
+.trait {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 0.75rem;
+  padding: 0.55rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.trait__label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--forest-near);
+}
+
+.trait__score {
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--wood-dark);
+}
+
+.trait__evidence {
+  grid-column: 1 / -1;
+  margin-top: 0.15rem;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* ── 日记流 ─────────────────────────────────────── */
+
+.entries {
+  margin-top: 2.5rem;
+}
+
+.entries__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1.1rem;
+}
+
+.entries__title {
+  font-family: var(--font-cute);
+  font-size: 1.3rem;
+  letter-spacing: 0.1em;
+  color: var(--forest-near);
+}
+
+.entries__range {
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+
+.vine {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 时间轴：虚线更像「刻度」而不是分隔线 */
+.vine::before {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  left: calc(2.6rem + 0.55rem);
+  width: 2px;
+  background: repeating-linear-gradient(
+    180deg,
+    var(--spine) 0 5px,
+    transparent 5px 11px
+  );
+}
+
+.vine__entry {
+  display: grid;
+  grid-template-columns: 2.6rem 1.1rem 1fr;
+  column-gap: 0.5rem;
+  padding-bottom: 1.9rem;
+  animation: notebook-rise 560ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+  /* 靠后的条目不再无限延后，避免长列表要等很久 */
+  animation-delay: calc(min(var(--i), 8) * 55ms + 100ms);
+}
+
+/* 事件类型 → 标记色 + 标签底色。
+   同一天可能既有爆发又有凋零，靠颜色才分得开，所以标签也要跟着变色。 */
+.vine__entry[data-event="newTree"] {
+  --marker: var(--forest-far);
+  --chip-bg: rgba(169, 201, 176, 0.42);
+  --chip-ink: #3c6549;
+}
+.vine__entry[data-event="surge"] {
+  --marker: var(--wood-light);
+  --chip-bg: rgba(220, 182, 132, 0.45);
+  --chip-ink: #7a5218;
+}
+.vine__entry[data-event="decay"] {
+  --marker: var(--wood-dark);
+  --chip-bg: rgba(139, 98, 57, 0.2);
+  --chip-ink: #6b4a25;
+}
+.vine__entry[data-event="revive"] {
+  --marker: var(--forest-mid);
+  --chip-bg: rgba(93, 146, 112, 0.24);
+  --chip-ink: #2f5541;
+}
+
+.vine__date {
+  text-align: right;
+  padding-top: 0.2rem;
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+
+.vine__marker {
+  justify-self: center;
+  width: 0.66rem;
+  height: 0.66rem;
+  margin-top: 0.34rem;
+  border-radius: 50%;
+  background: var(--marker);
+  /* 用底色描一圈，让标记「浮」在虚线上 */
+  box-shadow: 0 0 0 3px var(--mist);
+}
+
+.vine__body {
+  min-width: 0;
+}
+
+.vine__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.vine__event {
+  font-size: 0.72rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  color: var(--chip-ink);
+  background: var(--chip-bg);
+}
+
+.vine__tree {
+  font-family: var(--font-cute);
+  font-size: 1.02rem;
+  letter-spacing: 0.05em;
+  color: var(--forest-near);
+}
+
+.vine__message {
+  margin-top: 0.4rem;
+  font-size: 0.95rem;
+  line-height: 1.95;
+  color: var(--ink);
+}
+
+.vine__hint {
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  color: var(--wood-dark);
+}
+
+@keyframes notebook-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ── 页脚 ───────────────────────────────────────── */
+
+.notebook__foot {
+  margin-top: 2.5rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.76rem;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+@media (max-width: 30rem) {
+  .anchor {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  /* 窄屏下印章横过来，免得占掉半屏高度 */
+  .seal {
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    justify-self: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vine__entry {
+    animation: none;
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "reportId": "report_20260829",
+  "userId": "user-a",
+  "date": "2026-08-29",
+  "headline": "一边向内看拖延，一边向外问检索",
+  "highlights": [
+    {
+      "treeId": "tree_psych",
+      "treeName": "心理学",
+      "category": "science",
+      "summary": "你读了两篇关于拖延的文字，一篇讲害怕成功，一篇讲大脑的保护机制，共获十五个赞同。",
+      "contentIds": [
+        "content_8738210618819052711",
+        "content_6194438982547501042"
+      ]
+    },
+    {
+      "treeId": "tree_ai",
+      "treeName": "人工智能",
+      "category": "tech",
+      "summary": "你读了一篇讨论 RAG 系统难点的帖子，两票赞同，像在给技术树浇了一小杯水。",
+      "contentIds": [
+        "content_6919631488279675276"
+      ]
+    }
+  ],
+  "stats": {
+    "newLeafCount": 0,
+    "newTreeCount": 0,
+    "totalContentCount": 3
+  }
+}

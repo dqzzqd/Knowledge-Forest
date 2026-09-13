@@ -1,0 +1,40 @@
+{
+  "reportId": "report_20260822",
+  "userId": "user-a",
+  "date": "2026-08-22",
+  "headline": "三棵树各添一片叶，生长各有方向",
+  "highlights": [
+    {
+      "treeId": "tree_startup",
+      "treeName": "创业与产品",
+      "category": "business",
+      "summary": "读了1篇产品经理成长路径的文章，2个赞同，像是给创业树浇了一小瓢水。",
+      "contentIds": [
+        "content_2328476430242496548"
+      ]
+    },
+    {
+      "treeId": "tree_fitness",
+      "treeName": "健身",
+      "category": "life",
+      "summary": "读了1篇关于长期坚持健身方法的回答，14个赞同，健身树今天晒到了实在的太阳。",
+      "contentIds": [
+        "content_-1622048627020020783"
+      ]
+    },
+    {
+      "treeId": "tree_career",
+      "treeName": "职业发展",
+      "category": "life",
+      "summary": "收藏了1篇大龄程序员现状与出路的讨论，205个赞同，职业树吸收了最浓的一束光。",
+      "contentIds": [
+        "content_6220582337524808287"
+      ]
+    }
+  ],
+  "stats": {
+    "newLeafCount": 0,
+    "newTreeCount": 0,
+    "totalContentCount": 3
+  }
+}

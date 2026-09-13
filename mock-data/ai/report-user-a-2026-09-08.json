@@ -1,0 +1,31 @@
+{
+  "reportId": "report_20260908",
+  "userId": "user-a",
+  "date": "2026-09-08",
+  "headline": "两棵树上各停了一片叶子",
+  "highlights": [
+    {
+      "treeId": "tree_ai",
+      "treeName": "人工智能",
+      "category": "tech",
+      "summary": "在人工智能树下读了一篇关于RAG是否会消亡的讨论，101个赞同，来自收藏夹的一束光。",
+      "contentIds": [
+        "content_4486185755650126463"
+      ]
+    },
+    {
+      "treeId": "tree_psych",
+      "treeName": "心理学",
+      "category": "science",
+      "summary": "心理学树下收下一篇拖延症根源的问答，18个赞同，是你点下喜欢时留下的一片叶。",
+      "contentIds": [
+        "content_1696643782419318984"
+      ]
+    }
+  ],
+  "stats": {
+    "newLeafCount": 0,
+    "newTreeCount": 0,
+    "totalContentCount": 2
+  }
+}
