@@ -10,12 +10,35 @@ const ENTER_DELAY_MS = 260;
 /** 标题图实际宽高比（3014×650），用它算高度才不会拉伸 */
 const TITLE_RATIO = 3014 / 650;
 
+const COVER_BG = "/cover-bg.jpg";
+const COVER_TITLE = "/cover-title.webp";
+/** 冷启动最多重试几次（再多就是服务真挂了，刷下去也没用） */
+const MAX_IMAGE_RETRIES = 3;
+
 export default function StartPage() {
   const router = useRouter();
   const [entering, setEntering] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
   const closeRef = useRef<HTMLButtonElement>(null);
   const leaveRef = useRef<HTMLButtonElement>(null);
+
+  // 云端冷启动时第一张图可能拉不到，而 SVG 的 <image> 加载失败是**静默的、
+  // 不会自动重试**——于是只剩米白兜底，必须手动刷新才出来。
+  // 这里补一个有上限的自动重试：换一个带 query 的地址强制重新请求。
+  const [bgSrc, setBgSrc] = useState(COVER_BG);
+  const [titleSrc, setTitleSrc] = useState(COVER_TITLE);
+  const retryCount = useRef(0);
+
+  const retryImage = useCallback((which: "bg" | "title") => {
+    if (retryCount.current >= MAX_IMAGE_RETRIES) return;
+    retryCount.current += 1;
+    const n = retryCount.current;
+    const base = which === "bg" ? COVER_BG : COVER_TITLE;
+    window.setTimeout(() => {
+      if (which === "bg") setBgSrc(`${base}?r=${n}`);
+      else setTitleSrc(`${base}?r=${n}`);
+    }, 400);
+  }, []);
 
   // 弹窗打开时把焦点送进去。
   // 用 setTimeout 而不是 rAF：rAF 在窗口不可见时不触发，焦点会静默丢失。
@@ -68,9 +91,10 @@ export default function StartPage() {
         >
           {/* 米白纸底：背景图加载失败时的兜底 */}
           <rect x="0" y="0" width="1600" height="900" fill="#F8F5EC" />
-          {/* 背景图：铺满画布，居中裁切、不变形 */}
+          {/* 背景图：铺满画布，居中裁切、不变形。加载失败会自动重试 */}
           <image
-            href="/cover-bg.jpg"
+            href={bgSrc}
+            onError={() => retryImage("bg")}
             x="0"
             y="0"
             width="1600"
@@ -79,7 +103,8 @@ export default function StartPage() {
           />
           {/* 标题：独立透明 PNG，居中置于顶部 */}
           <image
-            href="/cover-title.webp"
+            href={titleSrc}
+            onError={() => retryImage("title")}
             x="140"
             y="52"
             width="1320"

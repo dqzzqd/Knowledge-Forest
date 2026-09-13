@@ -1,10 +1,9 @@
-import SiteNav from "@/components/SiteNav";
+import ExitForest from "@/components/ExitForest";
 import ShareCard from "@/components/ShareCard";
 import "./card.css";
 import { getProfile, getReport } from "@/lib/ai/serve";
 import { loadDemoUser, loadForest } from "@/lib/forest";
-
-const DEMO_USER = "user-a";
+import { getDemoUserId } from "@/lib/session";
 
 /**
  * GET /card?type=profile|report&date=YYYY-MM-DD
@@ -18,7 +17,7 @@ export default async function CardPage({
   searchParams: Promise<{ type?: string | string[]; date?: string | string[] }>;
 }) {
   const params = await searchParams;
-  const userId = DEMO_USER;
+  const userId = await getDemoUserId();
   const user = loadDemoUser(userId);
   const forest = loadForest(userId);
 
@@ -54,7 +53,7 @@ export default async function CardPage({
   return (
     <main className="cardpage">
       <div className="cardpage__inner">
-        <SiteNav current="/card" />
+        <ExitForest />
         <h1 className="cardpage__title">
           {isReport ? "光合作用报告卡" : "灵魂画像卡"}
         </h1>

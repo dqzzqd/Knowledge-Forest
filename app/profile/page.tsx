@@ -1,14 +1,13 @@
 import Link from "next/link";
-import SiteNav from "@/components/SiteNav";
+import ExitForest from "@/components/ExitForest";
 import "./profile.css";
 import { getProfile } from "@/lib/ai/serve";
 import { loadDemoUser, loadForest } from "@/lib/forest";
+import { getDemoUserId } from "@/lib/session";
 import { CATEGORY_COLORS, CATEGORY_LABELS } from "@/lib/contract";
 
-const DEMO_USER = "user-a";
-
-export default function ProfilePage() {
-  const userId = DEMO_USER;
+export default async function ProfilePage() {
+  const userId = await getDemoUserId();
   const user = loadDemoUser(userId);
   const forest = loadForest(userId);
   const profile = getProfile(userId);
@@ -18,7 +17,7 @@ export default function ProfilePage() {
   return (
     <main className="portrait">
       <div className="portrait__page">
-        <SiteNav current="/profile" />
+        <ExitForest />
 
         <header className="cover">
           {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -413,6 +413,42 @@
   }
 }
 
+/* 窄屏与平板：画框被锁成 16:9，375px 宽时只有二百来像素高，
+   而按钮压在 70%、卡片贴在底部 7% —— 绝对定位必然互相盖住。
+   改成纵向排布：画当横幅，按钮与卡片回到正常文档流。
+   放在 560px 那组之后，靠顺序覆盖它针对绝对布局做的尺寸调整。 */
+@media (max-width: 900px) {
+  .scene {
+    align-items: flex-start;
+    width: 100%;
+    overflow: visible;
+  }
+
+  .book-frame {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 18px 16px 32px;
+  }
+
+  .forest-entry,
+  .feature-preview {
+    position: static;
+    left: auto;
+    top: auto;
+    bottom: auto;
+    transform: none;
+    width: 100%;
+  }
+
+  .feature-preview {
+    flex-wrap: wrap;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .book,
   .entry-card,

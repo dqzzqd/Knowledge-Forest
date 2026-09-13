@@ -1,16 +1,20 @@
 import DayReplay from "@/components/DayReplay";
+import UserSwitcher from "@/components/UserSwitcher";
 import { nowIso } from "@/lib/api";
 import { atmosphereFor, hourFromIso } from "@/lib/atmosphere";
 import { deriveCicada } from "@/lib/cicada";
-import { loadDemoUser, loadForest } from "@/lib/forest";
+import { listDemoUsers, loadDemoUser, loadForest } from "@/lib/forest";
+import { getDemoUserId } from "@/lib/session";
 
 export default async function Forest({
   searchParams,
 }: {
   searchParams: Promise<{ hour?: string | string[] }>;
 }) {
-  const user = loadDemoUser("user-a");
-  const forest = loadForest("user-a");
+  // 当前看谁的森林：由 cookie 决定（切换器写、这里读）
+  const userId = await getDemoUserId();
+  const user = loadDemoUser(userId);
+  const forest = loadForest(userId);
   // 精灵的"此刻"在服务端定一次，随首屏一起送达，前端不用再拉一次接口
   const now = nowIso();
   const cicada = deriveCicada(forest, now);
@@ -31,7 +35,7 @@ export default async function Forest({
       <header className="mx-auto flex w-full max-w-[1500px] items-center gap-3 px-4 pt-4 pb-2 sm:px-6">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/avatars/user-a.svg"
+          src={`/avatars/${userId}.svg`}
           alt=""
           width={36}
           height={36}
@@ -51,9 +55,11 @@ export default async function Forest({
             </span>
           </p>
         </div>
+        <UserSwitcher users={listDemoUsers()} current={userId} />
       </header>
 
       <DayReplay
+        userId={userId}
         contents={user.contents}
         forest={forest}
         cicada={cicada}

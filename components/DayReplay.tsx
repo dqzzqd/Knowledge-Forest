@@ -13,6 +13,7 @@ import {
   type ReplayEventKind,
 } from "@/lib/replay";
 import { applyOverlay, type FeedbackOverlay } from "@/lib/feedback";
+import type { DemoUserId } from "@/lib/demo-user";
 import type {
   ApiEnvelope,
   CicadaState,
@@ -33,11 +34,18 @@ const EVENT_STYLE: Record<ReplayEventKind, string> = {
 };
 
 export default function DayReplay({
+  userId,
   contents,
   forest,
   cicada,
   hour,
 }: {
+  /**
+   * 演示用户的**键**（"user-a"），不是森林数据里的 userId。
+   * 数据里那个是 "user_a_shenqian" 这种展示用 ID，接口白名单不认它——
+   * 之前直接把 forest.userId 提交上去，导致浇水/修剪永远被拒。
+   */
+  userId: DemoUserId;
   contents: ContentItem[];
   forest: ForestSnapshot;
   /** 精灵状态（后端决策）。回放的是历史帧，精灵只跟着"现在"走 */
@@ -118,7 +126,7 @@ export default function DayReplay({
         const res = await fetch("/api/feedback", {
           method: "POST",
           headers: { "content-type": "application/json" },
-          body: JSON.stringify({ userId: forest.userId, treeId, leafId, action }),
+          body: JSON.stringify({ userId, treeId, leafId, action }),
         });
         const body = (await res.json()) as ApiEnvelope<FeedbackResult>;
 
@@ -141,7 +149,7 @@ export default function DayReplay({
         setPending(false);
       }
     },
-    [forest.userId],
+    [userId],
   );
 
   return (

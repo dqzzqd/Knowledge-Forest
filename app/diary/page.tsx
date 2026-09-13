@@ -1,8 +1,9 @@
 import type { CSSProperties } from "react";
-import SiteNav from "@/components/SiteNav";
+import ExitForest from "@/components/ExitForest";
 import "./diary.css";
 import { DIARY_WINDOW_DAYS, getDiary } from "@/lib/ai/serve";
 import { loadDemoUser } from "@/lib/forest";
+import { getDemoUserId } from "@/lib/session";
 import { TOTAL_DAYS, dayToDate } from "@/lib/replay";
 import type { DiaryEventType } from "@/lib/contract";
 
@@ -19,10 +20,8 @@ const ACTION_HINT: Record<"water" | "prune" | "none", string | null> = {
   none: null,
 };
 
-const DEMO_USER = "user-a";
-
-export default function DiaryPage() {
-  const userId = DEMO_USER;
+export default async function DiaryPage() {
+  const userId = await getDemoUserId();
   const user = loadDemoUser(userId);
 
   const fromDay = TOTAL_DAYS - DIARY_WINDOW_DAYS + 1;
@@ -32,7 +31,7 @@ export default function DiaryPage() {
   return (
     <main className="notebook">
       <div className="notebook__page">
-        <SiteNav current="/diary" />
+        <ExitForest />
 
         <header className="cover">
           {/* eslint-disable-next-line @next/next/no-img-element */}

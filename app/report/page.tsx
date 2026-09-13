@@ -1,8 +1,9 @@
 import Link from "next/link";
-import SiteNav from "@/components/SiteNav";
+import ExitForest from "@/components/ExitForest";
 import "./report.css";
 import { availableReportDates, getReport } from "@/lib/ai/serve";
 import { loadDemoUser } from "@/lib/forest";
+import { getDemoUserId } from "@/lib/session";
 import { dayIndexOf } from "@/lib/replay";
 import {
   CATEGORY_COLORS,
@@ -10,14 +11,12 @@ import {
   type ContentItem,
 } from "@/lib/contract";
 
-const DEMO_USER = "user-a";
-
 export default async function ReportPage({
   searchParams,
 }: {
   searchParams: Promise<{ date?: string | string[] }>;
 }) {
-  const userId = DEMO_USER;
+  const userId = await getDemoUserId();
   const user = loadDemoUser(userId);
 
   const dates = availableReportDates(userId);
@@ -64,7 +63,7 @@ export default async function ReportPage({
   return (
     <main className="sheet">
       <div className="sheet__page">
-        <SiteNav current="/report" />
+        <ExitForest />
 
         <div className="rpt__head">
           <h1 className="rpt__title">光合作用报告</h1>

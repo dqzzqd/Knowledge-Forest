@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Cicada from "@/components/Cicada";
 import { atmosphereFor, type Atmosphere } from "@/lib/atmosphere";
 import {
@@ -228,6 +228,22 @@ export default function ForestCanvas({
   const [activeId, setActiveId] = useState<string | null>(null);
   const trees = useMemo(() => buildScene(forest), [forest]);
 
+  // 鼠标移开叶子就收起卡片。但**不能立刻收**——
+  // 从叶子移到卡片上也会触发"离开"，那样就点不到浇水/修剪了。
+  // 所以延时收，指针一进卡片就取消。
+  const closeTimer = useRef<number | null>(null);
+  const cancelClose = () => {
+    if (closeTimer.current !== null) {
+      window.clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+  };
+  const scheduleClose = () => {
+    cancelClose();
+    closeTimer.current = window.setTimeout(() => setActiveId(null), 280);
+  };
+  useEffect(() => cancelClose, []);
+
   const active = useMemo(() => {
     if (!activeId) return null;
     for (const t of trees) {
@@ -318,7 +334,11 @@ export default function ForestCanvas({
           <TreeShape
             key={tree.treeId}
             tree={tree}
-            onLeaf={(l) => setActiveId(l?.leafId ?? null)}
+            onLeaf={(l) => {
+              cancelClose();
+              setActiveId(l?.leafId ?? null);
+            }}
+            onLeafLeave={scheduleClose}
             activeId={active?.leafId ?? null}
           />
         ))}
@@ -354,6 +374,8 @@ export default function ForestCanvas({
       <LeafCard
         leaf={active}
         onClose={() => setActiveId(null)}
+        onEnter={cancelClose}
+        onLeave={scheduleClose}
         onFeedback={onFeedback}
         pending={feedbackPending}
       />
@@ -372,10 +394,12 @@ export default function ForestCanvas({
 function TreeShape({
   tree,
   onLeaf,
+  onLeafLeave,
   activeId,
 }: {
   tree: PlacedTree;
   onLeaf: (l: PlacedLeaf | null) => void;
+  onLeafLeave: () => void;
   activeId: string | null;
 }) {
   const baseColor = CATEGORY_COLORS[tree.category];
@@ -424,6 +448,7 @@ function TreeShape({
             key={leaf.leafId}
             className="cursor-pointer"
             onMouseEnter={() => onLeaf(leaf)}
+            onMouseLeave={onLeafLeave}
             onClick={() => onLeaf(leaf)}
           >
             {/* 命中区，比叶子本身大得多，好点 */}
@@ -509,11 +534,17 @@ function Stars({ opacity }: { opacity: number }) {
 function LeafCard({
   leaf,
   onClose,
+  onEnter,
+  onLeave,
   onFeedback,
   pending,
 }: {
   leaf: PlacedLeaf | null;
   onClose: () => void;
+  /** 指针进卡片：取消"移开叶子就收起"的延时，否则点不到按钮 */
+  onEnter: () => void;
+  /** 指针离开卡片：同样延时收起 */
+  onLeave: () => void;
   onFeedback?: FeedbackHandler;
   pending: boolean;
 }) {
@@ -527,7 +558,11 @@ function LeafCard({
 
   // 叶子本身已经带着大类颜色，把大类名写出来，就省掉了单独的图例
   return (
-    <div className="absolute bottom-3 left-3 right-3 rounded-2xl border border-stone-200 bg-white/95 p-4 shadow-lg backdrop-blur sm:bottom-[5.5rem] sm:left-5 sm:right-auto sm:w-80">
+    <div
+      className="absolute bottom-3 left-3 right-3 rounded-2xl border border-stone-200 bg-white/95 p-4 shadow-lg backdrop-blur sm:bottom-[5.5rem] sm:left-5 sm:right-auto sm:w-80"
+      onMouseEnter={onEnter}
+      onMouseLeave={onLeave}
+    >
       <div className="flex items-start justify-between gap-3">
         <h3 className="text-base font-semibold text-stone-800">{leaf.name}</h3>
         <button

@@ -8,12 +8,18 @@ import "server-only";
 import fs from "node:fs";
 import path from "node:path";
 import type { ContentItem, ForestSnapshot } from "./contract";
+// 用户清单定义在 lib/demo-user.ts（不含 server-only，客户端也要用），这里只做转发
+import {
+  DEMO_USERS,
+  type DemoUserId,
+  type DemoUserEntry,
+} from "./demo-user";
+
+export { DEMO_USERS };
+export type { DemoUserId, DemoUserEntry };
 
 const ROOT = process.cwd();
 const MOCK_DIR = path.join(ROOT, "mock-data");
-
-export const DEMO_USERS = ["user-a", "user-b", "user-c"] as const;
-export type DemoUserId = (typeof DEMO_USERS)[number];
 
 export interface DemoUser {
   userId: string;
@@ -57,6 +63,27 @@ export function loadUpToDay(id: DemoUserId, day: number): ContentItem[] {
   const out: ContentItem[] = [];
   for (let d = 1; d <= day; d++) out.push(...loadDay(id, d));
   return out;
+}
+
+let userIndex: DemoUserEntry[] | null = null;
+
+/**
+ * 用户清单，供「切换用户」用。
+ * 每读一个用户都要解析 40KB 的正文，所以进程内缓存一份——
+ * 这个清单在一次演示里不会变。
+ */
+export function listDemoUsers(): DemoUserEntry[] {
+  if (userIndex) return userIndex;
+  userIndex = DEMO_USERS.map((id) => {
+    const u = loadDemoUser(id);
+    return {
+      id,
+      nickname: u.nickname,
+      displayName: u.displayName,
+      avatar: `/avatars/${id}.svg`,
+    };
+  });
+  return userIndex;
 }
 
 // 日期换算（dayToDate / dayIndexOf）与统计（replayStats）见 lib/replay.ts，
