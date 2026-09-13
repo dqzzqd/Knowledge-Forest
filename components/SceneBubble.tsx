@@ -3,35 +3,35 @@ import type { ReactNode } from "react";
 import "./SceneBubble.css";
 
 /**
- * 场景里的悬浮气泡入口。
+ * 场景里的悬浮入口 —— 挂在画面上的**木牌**。
  *
- * 气泡的尖角朝向森林（tail 决定方向），所以它是"从森林里冒出来的话"，
- * 而不是压在画面上的按钮。
+ * 用的是做好的木牌贴图（public/plank.webp：一块带绳环的木板，
+ * 由 imgtool/cutout.mjs 抠底后裁到内容框、压成 WebP）。
+ * 木牌上面约三分之一是绳环，文字压在下半的板面上。
  */
 export default function SceneBubble({
   href,
   label,
   hint,
   icon,
-  tail,
 }: {
   href: string;
   label: string;
   hint: string;
   icon: ReactNode;
-  /** 尖角朝向：气泡贴在左侧就朝右，贴在右侧就朝左 */
-  tail: "left" | "right";
 }) {
   return (
-    <Link href={href} className={`bubble bubble--tail-${tail}`}>
-      <span className="bubble__icon" aria-hidden="true">
-        <svg viewBox="0 0 32 32" fill="none">
-          {icon}
-        </svg>
-      </span>
-      <span className="bubble__text">
-        <strong>{label}</strong>
-        <small>{hint}</small>
+    <Link href={href} className="plankbtn">
+      <span className="plankbtn__face">
+        <span className="plankbtn__icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none">
+            {icon}
+          </svg>
+        </span>
+        <span className="plankbtn__text">
+          <strong>{label}</strong>
+          <small>{hint}</small>
+        </span>
       </span>
     </Link>
   );

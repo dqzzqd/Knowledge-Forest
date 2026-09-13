@@ -48,12 +48,21 @@
   color: var(--muted);
 }
 
+/* 框里换成纸纹（public/paper-grain.webp）。
+   原图四周有一圈焦边（最暗到 55），直接铺会压住贴着边的字，所以生成贴图时
+   先把外圈 6% 裁掉再放大——铺进框里最暗也不低于 148。
+   cover：两个页面上的框长短差很多，cover 保证铺满又不会重复出网格。 */
 .anchor {
+  /* 纸面上的字色：muted / wood-dark 原是为白纸挑的，挪到暖纸上偏灰偏弱
+     （实测对比度 3.0 / 3.4，小字要 ≥4.5）。在框上覆盖这两个变量，
+     换成暖色深棕后分别是 5.1 / 4.6——只影响框内，框外仍是浅底那套。 */
+  --muted: #5f4e33;
+  --wood-dark: #7a4e1a;
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 1.35rem;
   align-items: start;
-  background: var(--paper);
+  background: url("/paper-grain.webp") center / cover no-repeat;
   border: 1px solid var(--rule);
   border-radius: 14px;
   padding: 1.35rem;

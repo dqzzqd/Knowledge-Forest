@@ -13,10 +13,32 @@
   padding: clamp(1.5rem, 5vh, 3.25rem) 1.15rem clamp(3rem, 8vh, 5rem);
 }
 
+/* 日记写在**一本笔记本的长页**上：贴图 public/notebook-paper.webp
+ * （imgtool/notebook-bg.mjs 从原图抠底后拼出来——线圈按周期纵向平铺所以不变形，
+ *  纸面纵向拉长，宽高比对齐内容列，铺满时几乎不拉伸）。
+ * 左侧那圈螺旋占图宽 6.75%，所以内容列往右让出 3rem，
+ * 文字正好落在纸面的书写区、螺旋留在左边装订位。
+ *
+ * 窄屏文字折行多、页面长得多（实测 1:5.5 对 1:2.6），沿用同一张图会被拉长一倍多、
+ * 线圈变椭圆，所以换一张纵向更长的。 */
 .notebook__page {
   width: 100%;
   max-width: 40rem;
   margin: 0 auto;
+  /* 左边让出 3rem 给装订螺旋，文字落在纸面书写区 */
+  padding-left: 3rem;
+  /* 右边也要让：纸的右缘是**撕边**，最深处比图右缘缩进 2.4%
+     （宽 640 的内容列约 15px），不让开的话行末会有一两个字掉到页底色上 */
+  padding-right: 1.5rem;
+  /* 底下留一点：否则页脚那行正好压在纸的撕边上 */
+  padding-bottom: 1.6rem;
+  background: url("/notebook-paper.webp") left top / 100% 100% no-repeat;
+}
+
+@media (max-width: 640px) {
+  .notebook__page {
+    background-image: url("/notebook-paper-tall.webp");
+  }
 }
 
 /* ── 封面：身份与画像锚 ───────────────────────────── */

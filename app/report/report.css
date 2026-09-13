@@ -92,8 +92,12 @@
   outline-offset: 2px;
 }
 
+/* 框里换成纸纹（public/paper-grain.webp，说明见 profile.css）。
+   同样在框上覆盖两个弱色变量——纸面上它们读不出来。 */
 .rpt__panel {
-  background: var(--paper);
+  --muted: #5f4e33;
+  --wood-dark: #7a4e1a;
+  background: url("/paper-grain.webp") center / cover no-repeat;
   border: 1px solid var(--rule);
   border-radius: 14px;
   padding: clamp(1.2rem, 4vw, 1.6rem);

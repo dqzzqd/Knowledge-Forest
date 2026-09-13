@@ -2,8 +2,10 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import ForestCanvas from "@/components/ForestCanvas";
+import ForestCanvas, { Legend } from "@/components/ForestCanvas";
 import SceneBubble, { DiaryIcon, ReportIcon } from "@/components/SceneBubble";
+// 回放条也用同一份木料；显式引入，不依赖 SceneBubble 间接带上
+import "./wood.css";
 import {
   TOTAL_DAYS,
   dayToDate,
@@ -154,38 +156,39 @@ export default function DayReplay({
 
   return (
     <section className="relative mx-auto w-full max-w-[1500px] flex-1 px-3 pb-3 sm:px-6">
-      {/* 三个入口。
-          窄屏排在场景上方——手机上的场景只有两百来像素高，再往上叠 UI 会糊成一团。
-          桌面才浮到天区两角，那时场景够大，压不到树。 */}
-      <div className="mb-2 flex flex-wrap items-start justify-between gap-x-3 gap-y-2 px-1 sm:pointer-events-none sm:absolute sm:inset-x-0 sm:top-3 sm:z-20 sm:mb-0 sm:px-5">
-        <div className="flex items-start gap-3">
-          <div className="pointer-events-auto">
-            <SceneBubble
-              href="/diary"
-              label="农夫日记"
-              hint="了解最近的自己"
-              icon={DiaryIcon}
-              tail="right"
-            />
-          </div>
-
-          <Link
-            href="/profile"
-            className="group pointer-events-auto flex flex-col items-center gap-1"
-          >
-            <span className="grid h-14 w-14 place-items-center overflow-hidden rounded-full bg-white/92 shadow-lg ring-2 ring-white transition-transform duration-200 group-hover:-translate-y-1 sm:h-16 sm:w-16">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/cicada-640.webp"
-                alt=""
-                className="h-[84%] w-[84%] object-contain"
-              />
-            </span>
-            <span className="rounded-full bg-white/85 px-2 py-0.5 text-[11px] text-[#4a5b47] backdrop-blur">
-              灵魂画像
-            </span>
-          </Link>
+      {/* 三个入口：木牌 — 花环精灵 — 木牌，左右两块等宽、等距。
+          木牌**做小了、也往上提了一点**，把画面让给树。
+          窄屏排在场景上方；桌面浮在天区，往中间收，不贴着画布边缘。
+          这一排和底部回放条是"周边"，都要比树小一号——它们是入口，不是主角。 */}
+      <div className="mb-2 flex flex-wrap items-start justify-between gap-x-4 gap-y-2 px-3 sm:pointer-events-none sm:absolute sm:inset-x-0 sm:-top-2 sm:z-20 sm:mb-0 sm:px-[8%] lg:px-[11%]">
+        <div className="pointer-events-auto">
+          <SceneBubble
+            href="/diary"
+            label="农夫日记"
+            hint="了解最近的自己"
+            icon={DiaryIcon}
+          />
         </div>
+
+        {/* 花环精灵。**不带木底座**——贴图自己就是完整的圆环构图；
+            下面的「灵魂画像」也**不再是木牌**，就是一行文字。
+            往下让一点点，免得顶着画面最上沿像要掉出去 */}
+        <Link
+          href="/profile"
+          className="group pointer-events-auto mt-1 flex flex-col items-center gap-0.5 sm:mt-2"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/wreath.webp"
+            alt=""
+            className="h-14 w-14 object-contain transition-transform duration-200 group-hover:-translate-y-1 lg:h-[4.5rem] lg:w-[4.5rem]"
+          />
+          {/* 标签就是下面这行文字，不放在木牌上。
+              窄屏要小一号：场景矮，台词气泡的像素位置更靠上，花环大了就压上去 */}
+          <span className="text-[10px] font-bold tracking-[0.16em] text-[#2F554A] [text-shadow:0_1px_2px_rgba(255,255,255,0.9),0_0_8px_rgba(255,255,255,0.75)]">
+            灵魂画像
+          </span>
+        </Link>
 
         <div className="pointer-events-auto">
           <SceneBubble
@@ -193,7 +196,6 @@ export default function DayReplay({
             label="光合作用报告"
             hint="看看昨天吸收了什么"
             icon={ReportIcon}
-            tail="left"
           />
         </div>
       </div>
@@ -209,21 +211,20 @@ export default function DayReplay({
           hour={hour}
         />
 
-        {/* 回放条。
-            窄屏在场景下方的流里，实底保证可读；
-            桌面浮在林地上，带一层向上的渐隐。 */}
-        <div className="border-t border-stone-200/70 bg-white/95 px-3 py-2.5 sm:pointer-events-none sm:absolute sm:inset-x-0 sm:bottom-0 sm:z-20 sm:border-0 sm:bg-transparent sm:bg-gradient-to-t sm:from-[#24422f]/60 sm:via-[#24422f]/22 sm:to-transparent sm:px-5 sm:pb-3 sm:pt-10">
-          <div className="pointer-events-auto mx-auto w-full sm:w-[min(78%,42rem)] sm:rounded-2xl sm:bg-white/90 sm:px-3 sm:py-2 sm:shadow-lg sm:backdrop-blur">
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+        {/* 回放条：一条**细**长木纹。刻意做小做细——树才是主体，别喧宾夺主。
+            窄屏在场景下方的流里；桌面浮在林地上，带一层向上的渐隐。 */}
+        <div className="px-3 pb-2 pt-2 sm:pointer-events-none sm:absolute sm:inset-x-0 sm:bottom-0 sm:z-20 sm:bg-gradient-to-t sm:from-[#24422f]/46 sm:via-[#24422f]/14 sm:to-transparent sm:px-[12%] sm:pb-2 sm:pt-6">
+          <div className="bar-wood pointer-events-auto mx-auto w-full px-3 py-1 lg:w-[min(70%,35rem)]">
+            <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5">
               <button
                 type="button"
                 onClick={onPlay}
-                className="shrink-0 rounded-full bg-[#5BA87A] px-4 py-1.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-[#4E9669] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[#2F5541]"
+                className="shrink-0 rounded-full bg-[#5BA87A] px-3 py-1 text-[13px] font-medium text-white shadow-sm transition-colors hover:bg-[#4E9669] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[#2F5541]"
               >
                 {playing ? "暂停" : atEnd ? "播放生长过程" : "继续播放"}
               </button>
 
-              <div className="min-w-[120px] flex-1">
+              <div className="min-w-[110px] flex-1">
                 <input
                   type="range"
                   min={1}
@@ -236,34 +237,38 @@ export default function DayReplay({
               </div>
 
               <div className="shrink-0 text-right leading-tight">
-                <p className="text-sm font-semibold text-stone-700">
+                <p className="text-[12px] font-bold text-[#F7E9CE]">
                   {dayToDate(day)}
                 </p>
-                <p className="text-[11px] text-stone-400">
+                <p className="text-[9px] text-[#CDB693]">
                   第 {day} / {TOTAL_DAYS} 天 · {stats.trees} 树 · {stats.contents} 条
                 </p>
               </div>
             </div>
 
-            <div className="mt-1.5 flex min-h-[22px] flex-wrap items-center gap-1.5">
-              {events.length === 0 ? (
-                <span className="text-[11px] text-stone-400">
-                  这天没有特别的事发生
-                </span>
-              ) : (
-                events.map((e) => (
-                  <span
-                    key={`${e.kind}-${e.label}`}
-                    className={`rounded-full px-2.5 py-0.5 text-[11px] ring-1 ${EVENT_STYLE[e.kind]}`}
-                  >
-                    {e.label}
+            <div className="mt-0.5 flex flex-wrap items-center justify-between gap-x-2 gap-y-0.5 border-t border-white/15 pt-0.5">
+              <div className="flex flex-wrap items-center gap-1">
+                {events.length === 0 ? (
+                  <span className="text-[9px] text-[#CDB693]">
+                    这天没有特别的事发生
                   </span>
-                ))
-              )}
+                ) : (
+                  events.map((e) => (
+                    <span
+                      key={`${e.kind}-${e.label}`}
+                      className={`rounded-full px-1.5 py-px text-[9px] ring-1 ${EVENT_STYLE[e.kind]}`}
+                    >
+                      {e.label}
+                    </span>
+                  ))
+                )}
+              </div>
+              {/* 图例跟着木条走，不再浮在天区被入口木牌压住 */}
+              <Legend />
             </div>
 
             {error ? (
-              <p role="alert" className="mt-1 text-[11px] text-[#B4553F]">
+              <p role="alert" className="mt-0.5 text-[10px] font-semibold text-[#FFB9A4]">
                 {error}
               </p>
             ) : null}

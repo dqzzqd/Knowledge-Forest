@@ -16,7 +16,8 @@ import type {
  * 由路由切到 lib/ai/fallback.ts 的确定性版本——接口永不 500、页面永不空。
  *
  * 为什么不在运行时调用模型：知乎 AiWorks 的部署校验器会拒绝项目源码里
- * 任何 `process.env.<非内置变量>` 的访问（E_USER_ENVIRONMENT_VARIABLE_UNSUPPORTED），
+ * 任何对**白名单之外的环境变量**的访问（E_USER_ENVIRONMENT_VARIABLE_UNSUPPORTED，
+ * 它连只出现在注释里的那种写法都会按文本命中，所以这里不写具体写法），
  * 密钥无处安放；官方给的"补救"是把密钥明文写进源码，而本仓库提交前必须公开。
  * 详见 mock-data/ai/README.md。
  */

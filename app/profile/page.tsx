@@ -20,10 +20,12 @@ export default async function ProfilePage() {
         <ExitForest />
 
         <header className="cover">
+          {/* 头像跟着 cookie 里的演示用户走——写死 user-a 的话，
+              切换用户后名字变了、头像不变 */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             className="cover__avatar"
-            src="/avatars/user-a.svg"
+            src={`/avatars/${userId}.svg`}
             alt=""
             width={60}
             height={60}

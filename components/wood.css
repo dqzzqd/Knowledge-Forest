@@ -1,0 +1,160 @@
+/* 知了森林 · 做旧木料
+ *
+ * 封面那套木牌的手感：木板有厚度、表面有木纹、还带一点做旧的颗粒。
+ * 颜色沿用 globals.css 里已有的木材色，不引入新色。
+ *
+ * 只做「材质」，尺寸/间距由使用方用 Tailwind 决定。
+ *
+ * 厚度靠多层 box-shadow 往下挤出：先一层深色边（厚度），
+ * 再一层更深的边（厚度+3），最后一层柔和的落影。
+ */
+
+.wood {
+  --plank-thickness: 9px;
+  --plank-face: var(--wood);
+  --plank-face-top: var(--wood-light);
+  --plank-face-bottom: #b1834f;
+  --plank-side: #6f4a28;
+  --plank-side-deep: #52351b;
+
+  position: relative;
+  background-color: var(--plank-face);
+  /* 三组渐变叠出木纹：两组极细的竖向年轮 + 一组上浅下深的受光 */
+  background-image:
+    repeating-linear-gradient(
+      93deg,
+      rgba(139, 98, 57, 0.14) 0 1px,
+      transparent 1px 9px
+    ),
+    repeating-linear-gradient(
+      87deg,
+      rgba(94, 64, 34, 0.1) 0 1px,
+      transparent 1px 23px
+    ),
+    linear-gradient(
+      180deg,
+      var(--plank-face-top) 0%,
+      var(--plank-face) 36%,
+      var(--plank-face-bottom) 100%
+    );
+  border-radius: 14px 11px 15px 12px;
+  box-shadow:
+    0 var(--plank-thickness) 0 var(--plank-side),
+    0 calc(var(--plank-thickness) + 3px) 0 var(--plank-side-deep),
+    0 calc(var(--plank-thickness) + 12px) 22px rgba(35, 64, 46, 0.34),
+    inset 0 2px 0 rgba(255, 245, 224, 0.45),
+    inset 0 -3px 0 rgba(94, 64, 34, 0.28);
+}
+
+/* 做旧：细颗粒噪声乘上去，压掉塑料感 */
+.wood::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.16;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* 长条木纹：底部回放条用。
+   贴图 public/bar.webp（深色木纹长条）。背景铺满整块，
+   高度由内容决定，所以木纹会随高度轻微压扁——深色细纹上看不出来。 */
+.bar-wood {
+  background-image: url("/bar.webp");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  border-radius: 11px;
+  box-shadow:
+    0 5px 0 rgba(46, 28, 12, 0.55),
+    0 9px 18px rgba(20, 38, 26, 0.42),
+    inset 0 1px 0 rgba(255, 226, 190, 0.28);
+}
+
+/* 叶片卡片：用贴图 public/board.webp（一块圆角木板）当背景。
+   卡片高度随内容变，所以背景铺满整块——木纹轻微拉伸看不出来，
+   但圆角会比原图略微变形，这是这个做法的代价。 */
+.board-card {
+  background-image: url("/board.webp");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  border-radius: 13px;
+  box-shadow:
+    0 10px 22px rgba(28, 52, 36, 0.3),
+    inset 0 1px 0 rgba(255, 240, 214, 0.5);
+}
+
+/* 小木牌按钮（「回森林」这类出口）：贴图 public/wood-pill.webp，
+   一块深色木药丸，圆角是贴图自带的，所以元素自己不再画圆角——
+   自己再 rounded-full 会把贴图的斜切边裁掉一圈。
+
+   底色是深木（平均 rgb(133,66,30)），字必须用浅木色才读得清
+   （对比度约 7:1），和 `.wood-ink` 正好相反。 */
+.wood-pill {
+  background: url("/wood-pill.webp") center / 100% 100% no-repeat;
+  color: #ffe9c9;
+  text-shadow: 0 1px 2px rgba(40, 20, 6, 0.6);
+  filter: drop-shadow(0 4px 8px rgba(35, 64, 46, 0.3));
+  transition:
+    transform 180ms cubic-bezier(0.34, 1.3, 0.64, 1),
+    filter 180ms ease;
+}
+
+.wood-pill:hover {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 7px 13px rgba(35, 64, 46, 0.34)) brightness(1.07);
+}
+
+.wood-pill:active {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wood-pill,
+  .wood-pill:hover,
+  .wood-pill:active {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* 木色上的字：上缘受光、下缘落影，像刻进去的 */
+.wood-ink {
+  color: #4a2f14;
+  text-shadow:
+    0 1px 0 rgba(255, 236, 205, 0.5),
+    0 -1px 1px rgba(70, 42, 16, 0.45);
+}
+
+/* 标签牌：两面薄的（气泡用），厚度小一点才不显笨 */
+.wood--sign {
+  --plank-thickness: 7px;
+}
+
+/* 长条：回放条这种横向铺开的，厚度再收一档 */
+.wood--bar {
+  --plank-thickness: 6px;
+  border-radius: 16px 13px 17px 14px;
+}
+
+/* 圆盘：精灵底座 */
+.wood--disc {
+  border-radius: 50%;
+  --plank-thickness: 6px;
+}
+
+/* 次要木牌：去饱和一档，主次立刻分得开 */
+.wood--muted {
+  --plank-face: #b99a74;
+  --plank-face-top: #cdb08c;
+  --plank-face-bottom: #a6855f;
+  --plank-side: #6b5237;
+  --plank-side-deep: #4d3a25;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wood {
+    transition: none;
+  }
+}

@@ -30,16 +30,45 @@ const DPR = 2;
 
 const PAD = 70;
 
+/**
+ * 卡片底色：一张做旧的羊皮纸（public/parchment.webp，imgtool 抠底）。
+ * 比例 0.760 与卡片 0.750 基本一致，铺满即可，几乎不拉伸。
+ */
+const BG_SRC = "/parchment.webp";
+/**
+ * 底图放大一点再画，两个原因：
+ *   1. 纸是**毛边**的，四周各有约 2% 是透明带（实测左 19px / 右 18px /
+ *      上 21px / 下 18px，900×1200 下）——按原尺寸铺满会在卡片四边
+ *      露出一圈页底色，像纸没铺到边。
+ *   2. 纸的四边和四角**焦得比较黑**（左上角、下缘尤其），而卡片的正文
+ *      离边只有 70px，正好压在上面。放大约 26% 把这圈焦边推出画布，
+ *      文字就落在纸面较亮的中央；左上角那处翘起来的折页也一并出画。
+ */
+const BG_SCALE = 1.26;
+/**
+ * 再叠一层很淡的奶白，像给纸"上一层浆"。
+ * 光放大不够：纸**内部也有暗斑**（实测从四边缩进 18% 处最暗仍有 130），
+ * 文字压上去就发灰。这层洗色把暗斑整体抬亮一档，纸纹和做旧感还在。
+ */
+const BG_WASH = "rgba(255, 252, 240, 0.22)";
+
+/**
+ * 调色。**这几个色是照着羊皮纸重新定的**——原来是配浅色纸的，
+ * 在偏深的纸面上小字会读不出来（实测对比度：mid 2.3 / muted 3.1 / wood 3.5，
+ * 小字要 ≥4.5）。换过之后分别到 5.5 / 5.1 / 4.6。
+ */
 const C = {
   paperTop: "#FCFEF9",
   paperBottom: "#EFF6EA",
-  ink: "#2F3A2E",
-  near: "#2F5541",
-  mid: "#5D9270",
-  wood: "#8B6239",
-  seal: "#9D4231",
-  muted: "#6F7568",
-  hair: "rgba(139, 98, 57, 0.22)",
+  ink: "#2F3A2E", // 7.6：正文
+  near: "#2F5541", // 5.4：标题
+  mid: "#5A4A22", // 5.5：小节标签（原 #5D9270 只有 2.3）
+  wood: "#7A4E1A", // 4.6：分数、日期（原 #8B6239 只有 3.5）
+  seal: "#9D4231", // 印章是粗笔画大字，4.1 够用
+  muted: "#5F4E33", // 5.1：次要文字（原 #6F7568 只有 3.1）
+  hair: "rgba(120, 84, 40, 0.5)",
+  chip: "rgba(120, 84, 40, 0.16)", // 标题条、进度条底槽
+  track: "rgba(120, 84, 40, 0.2)",
 };
 
 export interface ShareCardUser {
@@ -146,6 +175,21 @@ function drawSeal(ctx: CanvasRenderingContext2D, x: number, y: number, text: str
   return { w, h };
 }
 
+/**
+ * 底色图只加载一次——两张卡共用同一张，来回切换不重复请求。
+ * 失败时给 null，调用处退回纯色底：卡片不能开天窗。
+ */
+let parchment: Promise<HTMLImageElement | null> | null = null;
+function loadParchment(): Promise<HTMLImageElement | null> {
+  parchment ??= new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = () => resolve(null);
+    img.src = BG_SRC;
+  });
+  return parchment;
+}
+
 export default function ShareCard({
   user,
   data,
@@ -161,26 +205,35 @@ export default function ShareCard({
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
+    let cancelled = false;
 
-    // 等字体就绪，否则截图里会是回退字体——这是卡片最容易翻车的地方
-    const draw = () => {
+    const draw = (bgImage: HTMLImageElement | null) => {
       canvas.width = W * DPR;
       canvas.height = H * DPR;
       ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
       ctx.clearRect(0, 0, W, H);
 
-      const bg = ctx.createLinearGradient(0, 0, 0, H);
-      bg.addColorStop(0, C.paperTop);
-      bg.addColorStop(1, C.paperBottom);
-      ctx.fillStyle = bg;
-      ctx.fillRect(0, 0, W, H);
+      if (bgImage) {
+        const dw = W * BG_SCALE;
+        const dh = H * BG_SCALE;
+        ctx.drawImage(bgImage, (W - dw) / 2, (H - dh) / 2, dw, dh);
+        ctx.fillStyle = BG_WASH;
+        ctx.fillRect(0, 0, W, H);
+      } else {
+        // 底图没拿到就退回原来的浅纸色
+        const bg = ctx.createLinearGradient(0, 0, 0, H);
+        bg.addColorStop(0, C.paperTop);
+        bg.addColorStop(1, C.paperBottom);
+        ctx.fillStyle = bg;
+        ctx.fillRect(0, 0, W, H);
+      }
 
       ctx.textBaseline = "top";
       ctx.save();
       // 卡片高度固定，内容多了不能压到页脚：先把内容裁在页脚之上。
       // 这是兜底——排版本身也要收紧（见下面各处 slice 的上限）。
       ctx.beginPath();
-      ctx.rect(0, 0, W, H - 116);
+      ctx.rect(0, 0, W, H - 104);
       ctx.clip();
       if (data.kind === "profile") drawProfile(ctx, user, data.profile);
       else drawReport(ctx, user, data.report, data.titles);
@@ -190,8 +243,17 @@ export default function ShareCard({
       setReady(true);
     };
 
-    if (document.fonts?.ready) void document.fonts.ready.then(draw);
-    else draw();
+    // 等两样东西：底图就位、字体就绪（字体慢一步，截图里就会是回退字体）
+    void Promise.all([
+      loadParchment(),
+      document.fonts?.ready ?? Promise.resolve(),
+    ]).then(([bgImage]) => {
+      if (!cancelled) draw(bgImage);
+    });
+
+    return () => {
+      cancelled = true;
+    };
   }, [user, data]);
 
   const download = () => {
@@ -291,17 +353,19 @@ function drawProfile(
     y += 10;
   });
 
-  // 注意力分布
+  // 注意力分布。
+  // 行距和段前留白都比较紧：4 条加起来原本会顶到最下方那条裁切线，
+  // 「科学」整行会被切掉一半。这里把这一段收紧，让 4 条都落在卡内。
   const cats = p.topCategories.filter((c) => c.weight > 0).slice(0, 4);
   if (cats.length) {
-    y += 14;
+    y += 10;
     hairline(ctx, y);
-    y += 30;
+    y += 24;
 
     ctx.fillStyle = C.mid;
     ctx.font = '400 23px "PingFang SC", sans-serif';
     ctx.fillText("注 意 力 分 布", PAD, y);
-    y += 42;
+    y += 38;
 
     const trackX = PAD + 106;
     const trackW = W - PAD - trackX - 78;
@@ -311,7 +375,7 @@ function drawProfile(
       ctx.textAlign = "left";
       ctx.fillText(CATEGORY_LABELS[c.category], PAD, y);
 
-      ctx.fillStyle = "rgba(93, 146, 112, 0.16)";
+      ctx.fillStyle = C.track;
       ctx.beginPath();
       ctx.roundRect(trackX, y + 6, trackW, 11, 6);
       ctx.fill();
@@ -326,7 +390,7 @@ function drawProfile(
       ctx.textAlign = "right";
       ctx.fillText(`${c.weight}%`, W - PAD, y);
 
-      y += 41;
+      y += 36;
     });
   }
 }
@@ -410,7 +474,7 @@ function drawReport(
 
     // 当天真实读到的标题（按赞同数取前三）——"AI 确实读了东西"的证据
     (titles?.[h.treeId] ?? []).forEach((title) => {
-      ctx.fillStyle = "rgba(93, 146, 112, 0.1)";
+      ctx.fillStyle = C.chip;
       ctx.beginPath();
       ctx.roundRect(PAD, y - 6, W - PAD * 2, 44, 8);
       ctx.fill();
@@ -453,6 +517,6 @@ function drawFooter(ctx: CanvasRenderingContext2D) {
   ctx.textAlign = "center";
   ctx.fillText("知了森林 · 知乎黑客松 2026", W / 2, H - 62);
   ctx.font = '400 17px "PingFang SC", sans-serif';
-  ctx.fillStyle = "rgba(111, 117, 104, 0.75)";
+  ctx.fillStyle = "rgba(95, 78, 51, 0.8)";
   ctx.fillText("内容来自知乎公开内容，时间线为演示编排", W / 2, H - 34);
 }
