@@ -2,17 +2,17 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /**
-   * 当前为标准构建（产出 .next/），适配 AiWorks 的「上传工程包 → 云端构建」方式。
+   * AiWorks 的 Next.js 框架契约（next-standalone-v1）要求 standalone 输出：
+   * 产物为 .next/standalone/server.js，由其 scf_bootstrap 启动为 HTTP 云函数。
    *
-   * 首页 / 在构建时即已预渲染为静态内容（见构建输出的 ○ Static），
-   * 因此运行期不依赖 Node 逻辑，速度快且稳定。
-   *
-   * 若以后要部署到纯静态托管（CloudBase 静态网站托管等），
-   * 取消下面两行的注释即可产出 out/ 目录：
-   *
-   *   output: "export",
-   *   images: { unoptimized: true },
+   * 注意：standalone 模式下本地预览请用
+   *   node .next/standalone/server.js
+   * 而不是 npm start。
    */
+  output: "standalone",
+
+  /** 静态导出模式下 next/image 必须关闭优化；standalone 下无副作用，提前置好避免切换时踩坑 */
+  images: { unoptimized: true },
 };
 
 export default nextConfig;
