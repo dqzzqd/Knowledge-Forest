@@ -1,0 +1,140 @@
+[
+  {
+    "entryId": "entry_20260913_01",
+    "userId": "user-a",
+    "createdAt": "2026-09-13T22:00:00+08:00",
+    "periodStart": "2026-08-24T00:00:00+08:00",
+    "periodEnd": "2026-09-13T23:59:59+08:00",
+    "eventType": "surge",
+    "treeId": "tree_ai",
+    "treeName": "人工智能",
+    "leafIds": [
+      "leaf_ai_agent",
+      "leaf_ai_rag",
+      "leaf_ai_llm"
+    ],
+    "message": "AI Agent、RAG和LLM这三片叶子一起抽了新芽，长得飞快。土壤正湿润，记得多浇浇水，别让这股劲头干在风里。",
+    "suggestedAction": "water"
+  },
+  {
+    "entryId": "entry_20260913_02",
+    "userId": "user-a",
+    "createdAt": "2026-09-13T22:00:00+08:00",
+    "periodStart": "2026-08-24T00:00:00+08:00",
+    "periodEnd": "2026-09-13T23:59:59+08:00",
+    "eventType": "surge",
+    "treeId": "tree_startup",
+    "treeName": "创业与产品",
+    "leafIds": [
+      "leaf_startup",
+      "leaf_pm"
+    ],
+    "message": "创业与产品这两片叶子悄悄舒展开来，比上个月精神多了。趁土还松，浇一点水，让它们把根扎稳些。",
+    "suggestedAction": "water"
+  },
+  {
+    "entryId": "entry_20260913_03",
+    "userId": "user-a",
+    "createdAt": "2026-09-13T22:00:00+08:00",
+    "periodStart": "2026-08-24T00:00:00+08:00",
+    "periodEnd": "2026-09-13T23:59:59+08:00",
+    "eventType": "surge",
+    "treeId": "tree_career",
+    "treeName": "职业发展",
+    "leafIds": [
+      "leaf_career"
+    ],
+    "message": "程序员职业这片老叶又冒出新绿，缓过来了。不多不少，浇一次水就好，别急着施肥。",
+    "suggestedAction": "water"
+  },
+  {
+    "entryId": "entry_20260913_04",
+    "userId": "user-a",
+    "createdAt": "2026-09-13T22:00:00+08:00",
+    "periodStart": "2026-08-24T00:00:00+08:00",
+    "periodEnd": "2026-09-13T23:59:59+08:00",
+    "eventType": "newTree",
+    "treeId": "tree_psych",
+    "treeName": "心理学",
+    "leafIds": [
+      "leaf_psych"
+    ],
+    "message": "园里新栽下一株心理学，第一片叶子叫自我认知，七天就站稳了。新苗娇嫩，头一回浇水要轻些。",
+    "suggestedAction": "water"
+  },
+  {
+    "entryId": "entry_20260913_05",
+    "userId": "user-a",
+    "createdAt": "2026-09-13T22:00:00+08:00",
+    "periodStart": "2026-08-24T00:00:00+08:00",
+    "periodEnd": "2026-09-13T23:59:59+08:00",
+    "eventType": "revive",
+    "treeId": "tree_ai",
+    "treeName": "人工智能",
+    "leafIds": [
+      "leaf_ai_agent"
+    ],
+    "message": "AI Agent本来有点蔫，这两天竟重新挺直了腰，叶面泛着光。让它自己缓一缓，不必多动。",
+    "suggestedAction": "none"
+  },
+  {
+    "entryId": "entry_20260913_06",
+    "userId": "user-a",
+    "createdAt": "2026-09-13T22:00:00+08:00",
+    "periodStart": "2026-08-24T00:00:00+08:00",
+    "periodEnd": "2026-09-13T23:59:59+08:00",
+    "eventType": "decay",
+    "treeId": "tree_startup",
+    "treeName": "创业与产品",
+    "leafIds": [
+      "leaf_startup"
+    ],
+    "message": "创业冷启动这片叶子卷了边，颜色也褪了。该剪掉枯处，省下养分留给主干。",
+    "suggestedAction": "prune"
+  },
+  {
+    "entryId": "entry_20260913_07",
+    "userId": "user-a",
+    "createdAt": "2026-09-13T22:00:00+08:00",
+    "periodStart": "2026-08-24T00:00:00+08:00",
+    "periodEnd": "2026-09-13T23:59:59+08:00",
+    "eventType": "decay",
+    "treeId": "tree_startup",
+    "treeName": "创业与产品",
+    "leafIds": [
+      "leaf_pm"
+    ],
+    "message": "产品经理的叶子跟着蔫了下去，和旁边那片一样垂着头。一起修剪吧，别让它们拖着整棵树。",
+    "suggestedAction": "prune"
+  },
+  {
+    "entryId": "entry_20260913_08",
+    "userId": "user-a",
+    "createdAt": "2026-09-13T22:00:00+08:00",
+    "periodStart": "2026-08-24T00:00:00+08:00",
+    "periodEnd": "2026-09-13T23:59:59+08:00",
+    "eventType": "decay",
+    "treeId": "tree_career",
+    "treeName": "职业发展",
+    "leafIds": [
+      "leaf_career"
+    ],
+    "message": "程序员职业的叶子有些发黄，还没枯，只是在打盹。先剪去最干的一角，看它能不能醒。",
+    "suggestedAction": "prune"
+  },
+  {
+    "entryId": "entry_20260913_09",
+    "userId": "user-a",
+    "createdAt": "2026-09-13T22:00:00+08:00",
+    "periodStart": "2026-08-24T00:00:00+08:00",
+    "periodEnd": "2026-09-13T23:59:59+08:00",
+    "eventType": "decay",
+    "treeId": "tree_fitness",
+    "treeName": "健身",
+    "leafIds": [
+      "leaf_fitness"
+    ],
+    "message": "习惯养成这片叶子彻底干瘪了，一碰就碎。狠心剪掉它，根还在，来日还能再发。",
+    "suggestedAction": "prune"
+  }
+]

@@ -1,0 +1,124 @@
+[
+  {
+    "entryId": "entry_20260913_01",
+    "userId": "user-b",
+    "createdAt": "2026-09-13T22:00:00+08:00",
+    "periodStart": "2026-08-24T00:00:00+08:00",
+    "periodEnd": "2026-09-13T23:59:59+08:00",
+    "eventType": "surge",
+    "treeId": "tree_history",
+    "treeName": "历史",
+    "leafIds": [
+      "leaf_history_ming",
+      "leaf_history_song"
+    ],
+    "message": "历史树一下子抽了新枝，明朝和宋朝经济都精神起来。我提壶水慢慢浇，好势头别让它渴着。",
+    "suggestedAction": "water"
+  },
+  {
+    "entryId": "entry_20260913_02",
+    "userId": "user-b",
+    "createdAt": "2026-09-13T22:00:00+08:00",
+    "periodStart": "2026-08-24T00:00:00+08:00",
+    "periodEnd": "2026-09-13T23:59:59+08:00",
+    "eventType": "surge",
+    "treeId": "tree_literature",
+    "treeName": "文学",
+    "leafIds": [
+      "leaf_literature",
+      "leaf_writing"
+    ],
+    "message": "文学树从四片叶蹿到十五片，写作那片尤其亮。它正贪长，我给它添足水，等它开成一片荫。",
+    "suggestedAction": "water"
+  },
+  {
+    "entryId": "entry_20260913_03",
+    "userId": "user-b",
+    "createdAt": "2026-09-13T22:00:00+08:00",
+    "periodStart": "2026-08-24T00:00:00+08:00",
+    "periodEnd": "2026-09-13T23:59:59+08:00",
+    "eventType": "newTree",
+    "treeId": "tree_philosophy",
+    "treeName": "哲学",
+    "leafIds": [
+      "leaf_philosophy"
+    ],
+    "message": "新栽的哲学树冒了芽，中西比较这片叶子嫩得发亮。头几天最要紧，我天天来浇水守着它。",
+    "suggestedAction": "water"
+  },
+  {
+    "entryId": "entry_20260913_04",
+    "userId": "user-b",
+    "createdAt": "2026-09-13T22:00:00+08:00",
+    "periodStart": "2026-08-24T00:00:00+08:00",
+    "periodEnd": "2026-09-13T23:59:59+08:00",
+    "eventType": "surge",
+    "treeId": "tree_art",
+    "treeName": "艺术",
+    "leafIds": [
+      "leaf_art"
+    ],
+    "message": "艺术树悄悄多抽了五片叶，枝头松快起来。它喜欢这样的光，我顺手浇上一瓢，别停。",
+    "suggestedAction": "water"
+  },
+  {
+    "entryId": "entry_20260913_05",
+    "userId": "user-b",
+    "createdAt": "2026-09-13T22:00:00+08:00",
+    "periodStart": "2026-08-24T00:00:00+08:00",
+    "periodEnd": "2026-09-13T23:59:59+08:00",
+    "eventType": "surge",
+    "treeId": "tree_society",
+    "treeName": "社会观察",
+    "leafIds": [
+      "leaf_society"
+    ],
+    "message": "社会观察树也添了三片新叶，长得不慌不忙。我给它匀些水，让每片叶子都跟得上。",
+    "suggestedAction": "water"
+  },
+  {
+    "entryId": "entry_20260913_06",
+    "userId": "user-b",
+    "createdAt": "2026-09-13T22:00:00+08:00",
+    "periodStart": "2026-08-24T00:00:00+08:00",
+    "periodEnd": "2026-09-13T23:59:59+08:00",
+    "eventType": "decay",
+    "treeId": "tree_history",
+    "treeName": "历史",
+    "leafIds": [
+      "leaf_history_ming"
+    ],
+    "message": "明朝那片叶子边缘卷了，颜色淡下去。我拿剪子轻轻修掉枯边，让养分留给别的枝。",
+    "suggestedAction": "prune"
+  },
+  {
+    "entryId": "entry_20260913_07",
+    "userId": "user-b",
+    "createdAt": "2026-09-13T22:00:00+08:00",
+    "periodStart": "2026-08-24T00:00:00+08:00",
+    "periodEnd": "2026-09-13T23:59:59+08:00",
+    "eventType": "decay",
+    "treeId": "tree_history",
+    "treeName": "历史",
+    "leafIds": [
+      "leaf_history_song"
+    ],
+    "message": "宋朝经济这片也蔫了，垂着头没精神。我把它剪短些，盼着根还在，来日再发新芽。",
+    "suggestedAction": "prune"
+  },
+  {
+    "entryId": "entry_20260913_08",
+    "userId": "user-b",
+    "createdAt": "2026-09-13T22:00:00+08:00",
+    "periodStart": "2026-08-24T00:00:00+08:00",
+    "periodEnd": "2026-09-13T23:59:59+08:00",
+    "eventType": "decay",
+    "treeId": "tree_society",
+    "treeName": "社会观察",
+    "leafIds": [
+      "leaf_society"
+    ],
+    "message": "内卷与年轻人那片已经枯透，风一吹就响。我把它整枝剪下，空出来的地方留给新叶。",
+    "suggestedAction": "prune"
+  }
+]

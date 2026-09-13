@@ -1,0 +1,197 @@
+[
+  {
+    "entryId": "entry_20260913_01",
+    "userId": "user-c",
+    "createdAt": "2026-09-13T22:00:00+08:00",
+    "periodStart": "2026-08-24T00:00:00+08:00",
+    "periodEnd": "2026-09-13T23:59:59+08:00",
+    "eventType": "surge",
+    "treeId": "tree_photography",
+    "treeName": "摄影",
+    "leafIds": [
+      "leaf_photography"
+    ],
+    "message": "摄影这片林子一下子热闹了，新芽挤着冒头，从三片长到六片。光正好，记得常来浇水。",
+    "suggestedAction": "water"
+  },
+  {
+    "entryId": "entry_20260913_02",
+    "userId": "user-c",
+    "createdAt": "2026-09-13T22:00:00+08:00",
+    "periodStart": "2026-08-24T00:00:00+08:00",
+    "periodEnd": "2026-09-13T23:59:59+08:00",
+    "eventType": "surge",
+    "treeId": "tree_travel",
+    "treeName": "旅行",
+    "leafIds": [
+      "leaf_travel"
+    ],
+    "message": "旅行抽出了好几枝新叶，从两片蹿到六片，像风把你吹去了远方。趁兴头正旺，多浇些水。",
+    "suggestedAction": "water"
+  },
+  {
+    "entryId": "entry_20260913_03",
+    "userId": "user-c",
+    "createdAt": "2026-09-13T22:00:00+08:00",
+    "periodStart": "2026-08-24T00:00:00+08:00",
+    "periodEnd": "2026-09-13T23:59:59+08:00",
+    "eventType": "surge",
+    "treeId": "tree_food",
+    "treeName": "美食",
+    "leafIds": [
+      "leaf_food"
+    ],
+    "message": "美食的枝叶忽然繁茂，两片长成了六片，香气都快溢出林子了。这份热度，值得你每天来浇水。",
+    "suggestedAction": "water"
+  },
+  {
+    "entryId": "entry_20260913_04",
+    "userId": "user-c",
+    "createdAt": "2026-09-13T22:00:00+08:00",
+    "periodStart": "2026-08-24T00:00:00+08:00",
+    "periodEnd": "2026-09-13T23:59:59+08:00",
+    "eventType": "surge",
+    "treeId": "tree_movie",
+    "treeName": "电影",
+    "leafIds": [
+      "leaf_movie"
+    ],
+    "message": "电影从孤单的一片叶，长成了六片的小树丛。故事扎了根，请继续浇水，让它再高些。",
+    "suggestedAction": "water"
+  },
+  {
+    "entryId": "entry_20260913_05",
+    "userId": "user-c",
+    "createdAt": "2026-09-13T22:00:00+08:00",
+    "periodStart": "2026-08-24T00:00:00+08:00",
+    "periodEnd": "2026-09-13T23:59:59+08:00",
+    "eventType": "surge",
+    "treeId": "tree_music",
+    "treeName": "音乐",
+    "leafIds": [
+      "leaf_music"
+    ],
+    "message": "音乐新发了许多嫩叶，从两片到六片，像旋律一段段接上。别停，保持浇水的节奏。",
+    "suggestedAction": "water"
+  },
+  {
+    "entryId": "entry_20260913_06",
+    "userId": "user-c",
+    "createdAt": "2026-09-13T22:00:00+08:00",
+    "periodStart": "2026-08-24T00:00:00+08:00",
+    "periodEnd": "2026-09-13T23:59:59+08:00",
+    "eventType": "surge",
+    "treeId": "tree_finance",
+    "treeName": "理财",
+    "leafIds": [
+      "leaf_finance"
+    ],
+    "message": "理财从一片叶长到六片，枝头挂满小小的计划。趁长势好，多浇点水，让它们结稳。",
+    "suggestedAction": "water"
+  },
+  {
+    "entryId": "entry_20260913_07",
+    "userId": "user-c",
+    "createdAt": "2026-09-13T22:00:00+08:00",
+    "periodStart": "2026-08-24T00:00:00+08:00",
+    "periodEnd": "2026-09-13T23:59:59+08:00",
+    "eventType": "surge",
+    "treeId": "tree_pet",
+    "treeName": "宠物",
+    "leafIds": [
+      "leaf_pet"
+    ],
+    "message": "宠物这株忽然毛茸茸地茂盛起来，两片变六片，热闹得像一群小家伙。记得浇水陪伴。",
+    "suggestedAction": "water"
+  },
+  {
+    "entryId": "entry_20260913_08",
+    "userId": "user-c",
+    "createdAt": "2026-09-13T22:00:00+08:00",
+    "periodStart": "2026-08-24T00:00:00+08:00",
+    "periodEnd": "2026-09-13T23:59:59+08:00",
+    "eventType": "surge",
+    "treeId": "tree_running",
+    "treeName": "运动",
+    "leafIds": [
+      "leaf_running"
+    ],
+    "message": "运动抽枝惊人，从一片叶长到六片，像跑开了停不下来。保持浇水，别让脚步断掉。",
+    "suggestedAction": "water"
+  },
+  {
+    "entryId": "entry_20260913_09",
+    "userId": "user-c",
+    "createdAt": "2026-09-13T22:00:00+08:00",
+    "periodStart": "2026-08-24T00:00:00+08:00",
+    "periodEnd": "2026-09-13T23:59:59+08:00",
+    "eventType": "newTree",
+    "treeId": "tree_python",
+    "treeName": "编程入门",
+    "leafIds": [
+      "leaf_python"
+    ],
+    "message": "编程入门是新栽下的小树，Python自学已冒出六片新叶。头一程最需浇水，陪它扎根。",
+    "suggestedAction": "water"
+  },
+  {
+    "entryId": "entry_20260913_10",
+    "userId": "user-c",
+    "createdAt": "2026-09-13T22:00:00+08:00",
+    "periodStart": "2026-08-24T00:00:00+08:00",
+    "periodEnd": "2026-09-13T23:59:59+08:00",
+    "eventType": "decay",
+    "treeId": "tree_photography",
+    "treeName": "摄影",
+    "leafIds": [
+      "leaf_photography"
+    ],
+    "message": "摄影的构图入门这片叶有点打蔫了，从鲜亮褪成淡色。该修一修，剪去多余的枝。",
+    "suggestedAction": "prune"
+  },
+  {
+    "entryId": "entry_20260913_11",
+    "userId": "user-c",
+    "createdAt": "2026-09-13T22:00:00+08:00",
+    "periodStart": "2026-08-24T00:00:00+08:00",
+    "periodEnd": "2026-09-13T23:59:59+08:00",
+    "eventType": "revive",
+    "treeId": "tree_movie",
+    "treeName": "电影",
+    "leafIds": [
+      "leaf_movie"
+    ],
+    "message": "电影的镜头语言悄悄缓过来了，从枯淡重新变得鲜亮。它自己挺住了，静静看着就好。",
+    "suggestedAction": "none"
+  },
+  {
+    "entryId": "entry_20260913_12",
+    "userId": "user-c",
+    "createdAt": "2026-09-13T22:00:00+08:00",
+    "periodStart": "2026-08-24T00:00:00+08:00",
+    "periodEnd": "2026-09-13T23:59:59+08:00",
+    "eventType": "decay",
+    "treeId": "tree_homedecor",
+    "treeName": "家居",
+    "leafIds": [
+      "leaf_homedecor"
+    ],
+    "message": "家居的小户型这片叶彻底枯了，从鲜亮到干瘪。狠心修剪吧，腾出位置给新的可能。",
+    "suggestedAction": "prune"
+  },
+  {
+    "entryId": "entry_20260913_13",
+    "userId": "user-c",
+    "createdAt": "2026-09-13T22:00:00+08:00",
+    "periodStart": "2026-08-24T00:00:00+08:00",
+    "periodEnd": "2026-09-13T23:59:59+08:00",
+    "eventType": "revive",
+    "treeId": "tree_running",
+    "treeName": "运动",
+    "leafIds": [
+      "leaf_running"
+    ],
+    "message": "运动的马拉松重新舒展，从打蔫回到鲜亮，像是又找回了呼吸。让它自己长，不必多动。",
+    "suggestedAction": "none"
+  }
+]

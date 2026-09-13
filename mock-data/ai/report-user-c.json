@@ -1,0 +1,49 @@
+{
+  "reportId": "report_20260913",
+  "userId": "user-c",
+  "date": "2026-09-13",
+  "headline": "四棵树各落一叶，安静生长",
+  "highlights": [
+    {
+      "treeId": "tree_pet",
+      "treeName": "宠物",
+      "category": "life",
+      "summary": "宠物树下收藏了一篇新手养猫指南，讲清接一只猫回家要注意的事，共1篇。",
+      "contentIds": [
+        "content_1473811888570921371"
+      ]
+    },
+    {
+      "treeId": "tree_running",
+      "treeName": "运动",
+      "category": "life",
+      "summary": "运动树收下马拉松训练体系梳理上篇，一张图看懂国外16种方法论，共1篇。",
+      "contentIds": [
+        "content_-1000078402476145067"
+      ]
+    },
+    {
+      "treeId": "tree_movie",
+      "treeName": "电影",
+      "category": "arts",
+      "summary": "电影树读了杨德昌《恐怖分子》的镜头语言分析，跟着拆解画面，共1篇。",
+      "contentIds": [
+        "content_2110563677671660822"
+      ]
+    },
+    {
+      "treeId": "tree_finance",
+      "treeName": "理财",
+      "category": "business",
+      "summary": "理财树收藏一篇基金定投答疑，谈该在何时卖出、怎么卖出，共1篇。",
+      "contentIds": [
+        "content_-6002276396566665491"
+      ]
+    }
+  ],
+  "stats": {
+    "newLeafCount": 0,
+    "newTreeCount": 0,
+    "totalContentCount": 4
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "reportId": "report_20260913",
+  "userId": "user-a",
+  "date": "2026-09-13",
+  "headline": "大模型落地三篇，从行业方法到 RAG",
+  "highlights": [
+    {
+      "treeId": "tree_ai",
+      "treeName": "人工智能",
+      "category": "tech",
+      "summary": "你读了 3 篇大模型落地内容：外勤管理应用、行业落地核心方法，以及 RAG 检索增强的层次科普。",
+      "contentIds": [
+        "content_4563173179698421845",
+        "content_1782331886207654664",
+        "content_3020582565305970929"
+      ]
+    }
+  ],
+  "stats": {
+    "newLeafCount": 0,
+    "newTreeCount": 0,
+    "totalContentCount": 3
+  }
+}

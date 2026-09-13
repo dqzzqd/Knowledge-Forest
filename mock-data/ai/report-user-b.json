@@ -1,0 +1,23 @@
+{
+  "reportId": "report_20260913",
+  "userId": "user-b",
+  "date": "2026-09-13",
+  "headline": "中西文化之辨，两篇入心",
+  "highlights": [
+    {
+      "treeId": "tree_philosophy",
+      "treeName": "哲学",
+      "category": "humanities",
+      "summary": "在哲学树下读了《试论中西文化的根本区别》与《中西哲学的差别究竟在什么地方?》两篇，共2篇，一深一浅，像两片对生的叶。",
+      "contentIds": [
+        "content_-3580619820503163546",
+        "content_2555524621752001222"
+      ]
+    }
+  ],
+  "stats": {
+    "newLeafCount": 0,
+    "newTreeCount": 0,
+    "totalContentCount": 2
+  }
+}

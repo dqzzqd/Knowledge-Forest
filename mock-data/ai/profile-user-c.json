@@ -1,0 +1,52 @@
+{
+  "userId": "user-c",
+  "generatedAt": "2026-09-13T22:00:00+08:00",
+  "soulType": "拾穗者的口袋",
+  "soulTypeEmoji": "🐿️",
+  "description": "你像一只在秋天里不停拾取的小松鼠，把生活、艺术、商业、科技的果实都轻轻塞进口袋。生活类内容占 50%，艺术类占 30%，其余 20% 分给商业与科技，10 棵树各藏 6 篇内容。从乐理到养猫，从基金到 Python，你不急着深入，只是贪恋世界被打开的瞬间。这份广博本身，就是一种温柔的活法。",
+  "traits": [
+    {
+      "label": "生活采集者",
+      "score": 88,
+      "evidence": "生活类内容占 50%，美食、宠物、家居、旅行各 6 篇"
+    },
+    {
+      "label": "艺术漫游者",
+      "score": 72,
+      "evidence": "艺术类占 30%，音乐与电影各 6 篇，含上下两篇乐理长文"
+    },
+    {
+      "label": "实用主义触角",
+      "score": 55,
+      "evidence": "商业与科技各占 10%，含基金定投 5 年实战与 Python 自学"
+    },
+    {
+      "label": "收藏式学习",
+      "score": 66,
+      "evidence": "10 棵树各 6 篇内容，共 60 篇，均匀铺开不偏科"
+    },
+    {
+      "label": "轻盈的放弃权",
+      "score": 40,
+      "evidence": "10 片叶子中 1 片枯萎、1 片褪色，允许自己半途而废"
+    }
+  ],
+  "topCategories": [
+    {
+      "category": "life",
+      "weight": 50
+    },
+    {
+      "category": "arts",
+      "weight": 30
+    },
+    {
+      "category": "business",
+      "weight": 10
+    },
+    {
+      "category": "tech",
+      "weight": 10
+    }
+  ]
+}

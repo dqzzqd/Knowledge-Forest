@@ -121,3 +121,64 @@ export const SOURCE_LABELS: Record<ContentSource, string> = {
   like: "点赞",
   search: "搜索",
 };
+
+/** 所有接口的统一响应外壳（契约 §4） */
+export interface ApiEnvelope<T> {
+  success: boolean;
+  data: T | null;
+  error: string | null;
+}
+
+interface ReportHighlight {
+  treeId: string;
+  treeName: string;
+  category: TopicCategory;
+  summary: string;
+  contentIds: string[];
+}
+
+/** 光合作用报告（契约 §3 / §5.4） */
+export interface PhotosynthesisReport {
+  reportId: string;
+  userId: string;
+  date: string;
+  headline: string;
+  highlights: ReportHighlight[];
+  stats: {
+    newLeafCount: number;
+    newTreeCount: number;
+    totalContentCount: number;
+  };
+}
+
+/** 农夫日记条目（契约 §3 / §5.3） */
+export interface DiaryEntry {
+  entryId: string;
+  userId: string;
+  createdAt: string;
+  periodStart: string;
+  periodEnd: string;
+  eventType: DiaryEventType;
+  treeId: string;
+  treeName: string;
+  leafIds: string[];
+  message: string;
+  suggestedAction: "water" | "prune" | "none";
+}
+
+interface ProfileTrait {
+  label: string;
+  score: number;
+  evidence: string;
+}
+
+/** 兴趣画像（契约 §3 / §5.5） */
+export interface PersonalityProfile {
+  userId: string;
+  generatedAt: string;
+  soulType: string;
+  soulTypeEmoji: string;
+  description: string;
+  traits: ProfileTrait[];
+  topCategories: { category: TopicCategory; weight: number }[];
+}
