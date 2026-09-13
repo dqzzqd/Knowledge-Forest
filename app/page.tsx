@@ -45,6 +45,17 @@ export default function StartPage() {
     leaveRef.current?.focus();
   }, []);
 
+  // 照搬队友的设计：确认离开 = 自动关闭窗口。
+  // window.close() 只能关闭「由脚本打开的窗口」（window.open / 打包应用），
+  // 普通标签页会被浏览器安全策略拦下 —— 所以兜底退回空白页，等效“已退出”。
+  const confirmLeave = useCallback(() => {
+    setDialogOpen(false);
+    window.close();
+    window.setTimeout(() => {
+      window.location.href = "about:blank";
+    }, 150);
+  }, []);
+
   return (
     <main className="scene">
       {/* 画框：按钮要相对「画面」定位，屏幕比例变化时才不会和背景错位 */}
@@ -117,6 +128,70 @@ export default function StartPage() {
           </span>
         </button>
         </section>
+
+        {/* 功能预览：纯展示，不可交互 */}
+        <section className="feature-preview" aria-label="应用功能预览">
+        <div className="feature-card feature-card--sun">
+          <span className="feature-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="9.5" r="3.5" />
+              <path d="M16 2.7v2.3M3.7 9.5h2.3M26 9.5h2.3M7 5.4l1.7 1.7M25 5.4l-1.7 1.7" />
+              <path d="M16 17.8C12.9 19.5 12.9 23 16 24.4c3.1-1.4 3.1-4.9 0-6.6Z" />
+              <path d="M16 18.4v5.2" />
+            </svg>
+          </span>
+          <span className="feature-card__text">
+            <strong>光合作用报告</strong>
+            <small>看看昨天吸收了什么</small>
+          </span>
+        </div>
+
+        <div className="feature-card feature-card--diary">
+          <span className="feature-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none">
+              <path d="M4 7.5A2.5 2.5 0 0 1 6.5 5h9v22h-9A2.5 2.5 0 0 1 4 24.5V7.5Z" />
+              <path d="M28 7.5A2.5 2.5 0 0 0 25.5 5h-9v22h9A2.5 2.5 0 0 0 28 24.5V7.5Z" />
+              <path d="M8.5 11.5h4M8.5 15.5h4M8.5 19.5h2" />
+              <path d="M19.5 11.5h4M19.5 15.5h4M19.5 19.5h2" />
+            </svg>
+          </span>
+          <span className="feature-card__text">
+            <strong>农夫日记</strong>
+            <small>了解最近的自己</small>
+          </span>
+        </div>
+
+        <div className="feature-card feature-card--timeline">
+          <span className="feature-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none">
+              <path d="M7.51 19a9 9 0 1 0 2.13-9.36L5 14" />
+              <path d="M5 8v6h6" />
+              <path d="M16 21.5v-6" />
+              <path d="M16 15.5c-2.8 0-4.2-1-4.2-2.3 0-1.2 1.4-2 4.2-2" />
+              <path d="M16 15.5c2.8 0 4.2-1 4.2-2.3 0-1.2-1.4-2-4.2-2" />
+            </svg>
+          </span>
+          <span className="feature-card__text">
+            <strong>成长回放</strong>
+            <small>回看森林如何长大</small>
+          </span>
+        </div>
+
+        <div className="feature-card feature-card--care">
+          <span className="feature-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none">
+              <rect x="7" y="12" width="12" height="10" rx="4.5" />
+              <path d="M11 12V8a2 2 0 0 1 2-2h.5a2 2 0 0 1 2 2v4" />
+              <path d="M19 14.5h4A1.5 1.5 0 0 1 24.5 16v1A1.5 1.5 0 0 1 23 18.5h-4" />
+              <path d="M22.5 20.5v1.6M24 21v1.6M25.5 20.5v1.6" />
+            </svg>
+          </span>
+          <span className="feature-card__text">
+            <strong>浇水 / 修剪</strong>
+            <small>照料你的兴趣枝叶</small>
+          </span>
+        </div>
+        </section>
       </div>
 
       {/* 关闭时用 inert 而不是 aria-hidden：里面的按钮既不可聚焦也不可点，
@@ -149,7 +224,7 @@ export default function StartPage() {
             <button type="button" className="dialog-button dialog-button--stay" onClick={closeDialog}>
               再留一会儿
             </button>
-            <button type="button" className="dialog-button dialog-button--leave" onClick={closeDialog}>
+            <button type="button" className="dialog-button dialog-button--leave" onClick={confirmLeave}>
               确认离开
             </button>
           </div>

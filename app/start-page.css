@@ -185,6 +185,70 @@
   font-size: 13px;
 }
 
+/* ---------- 功能预览（纯展示，不可交互） ---------- */
+.feature-preview {
+  position: absolute;
+  left: 50%;
+  bottom: 7%;
+  z-index: 4;
+  display: flex;
+  gap: 12px;
+  width: min(1080px, calc(100% - 56px));
+  transform: translateX(-50%);
+}
+
+.feature-card {
+  display: flex;
+  flex: 1;
+  gap: 10px;
+  align-items: center;
+  padding: 9px 14px;
+  border: 1px solid rgba(79, 93, 75, 0.16);
+  border-radius: 16px;
+  background: rgba(255, 254, 244, 0.7);
+  box-shadow: 0 4px 12px rgba(73, 91, 65, 0.1);
+}
+
+.feature-card__icon {
+  display: grid;
+  flex: 0 0 32px;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: #4f7650;
+  background: rgba(205, 218, 171, 0.45);
+}
+
+.feature-card__icon svg {
+  width: 19px;
+  height: 19px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.feature-card__text strong,
+.feature-card__text small {
+  display: block;
+}
+
+.feature-card__text strong {
+  color: var(--forest-dark);
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.feature-card__text small {
+  margin-top: 2px;
+  color: #899681;
+  font-size: 10px;
+  letter-spacing: 0.03em;
+}
+
 /* ---------- 离开提示层 ---------- */
 .leave-dialog {
   position: fixed;
@@ -312,6 +376,39 @@
   /* 窄屏放不下副标题，去掉它，两块才能保持并排 */
   .entry-card small,
   .entry-card__sparkle {
+    display: none;
+  }
+
+  /* 四张功能卡片一排塞不下，收成两行 */
+  .feature-preview {
+    flex-wrap: wrap;
+    gap: 7px;
+    width: calc(100% - 28px);
+  }
+
+  .feature-card {
+    flex: 1 1 calc(50% - 4px);
+    gap: 7px;
+    padding: 6px 10px;
+    border-radius: 13px;
+  }
+
+  .feature-card__icon {
+    flex: 0 0 24px;
+    width: 24px;
+    height: 24px;
+  }
+
+  .feature-card__icon svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .feature-card__text strong {
+    font-size: 11px;
+  }
+
+  .feature-card__text small {
     display: none;
   }
 }

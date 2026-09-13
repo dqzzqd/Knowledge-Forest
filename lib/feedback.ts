@@ -8,7 +8,12 @@
  * 无状态：这里不落盘、不记日志。云函数（AiWorks / CloudBase）的代码目录只读，
  * 任何"写到 data/"的持久化在线上都会静默失败，所以宁可不假装能存。
  */
-import type { FeedbackRequest, ForestSnapshot, Leaf } from "./contract";
+import type {
+  FeedbackAction,
+  FeedbackRequest,
+  ForestSnapshot,
+  Leaf,
+} from "./contract";
 
 /** 反馈不合法（叶子不存在 / 不属于该树）——路由据此回 400，而不是 500 */
 export class FeedbackError extends Error {
@@ -89,4 +94,46 @@ function prune(forest: ForestSnapshot, treeId: string, leafId: string): ForestSn
       : t,
   );
   return { ...forest, trees };
+}
+
+/** 一次反馈在客户端要记住的东西：够用来叠加到任意一天的帧上 */
+export interface FeedbackOverlay {
+  leafId: string;
+  treeId: string;
+  /** 反馈生效后这片叶子的样子 */
+  leaf: Leaf;
+  action: FeedbackAction;
+}
+
+/**
+ * 把一次反馈叠加到某个森林快照上。
+ *
+ * 为什么不直接换掉整份森林：回放时画面是"第 N 天"的快照。用户在第 30 天浇水，
+ * 再把时间轴拖回第 10 天——那天这片叶子根本还没长出来，浇水就不该显示出来。
+ * 所以叠加是逐帧做的：帧里有这片叶子才生效，没有就原样放行。
+ */
+export function applyOverlay(
+  frame: ForestSnapshot,
+  overlay: FeedbackOverlay,
+): ForestSnapshot {
+  if (!frame.leaves.some((l) => l.leafId === overlay.leafId)) return frame;
+
+  const leaves = frame.leaves.map((l) =>
+    l.leafId === overlay.leafId ? overlay.leaf : l,
+  );
+
+  if (overlay.action !== "prune") return { ...frame, leaves };
+
+  // 修剪：只对承载这片叶子的那棵树生效；帧里若已摘掉就不重复记
+  const trees = frame.trees.map((t) =>
+    t.treeId === overlay.treeId && t.leafIds.includes(overlay.leafId)
+      ? {
+          ...t,
+          leafIds: t.leafIds.filter((id) => id !== overlay.leafId),
+          prunedLeafIds: [...t.prunedLeafIds, overlay.leafId],
+        }
+      : t,
+  );
+
+  return { ...frame, leaves, trees };
 }
