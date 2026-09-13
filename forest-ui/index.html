@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>知了森林 · 封面（空白画布）</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="scene">
+    <svg class="book" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid meet" aria-label="知了森林 封面">
+
+      <defs>
+        <!-- 手绘水彩（大面积形状） -->
+        <filter id="watercolor" x="-30%" y="-30%" width="160%" height="160%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" seed="11" result="n"/>
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="11" xChannelSelector="R" yChannelSelector="G" result="d"/>
+          <feGaussianBlur in="d" stdDeviation="1.5"/>
+        </filter>
+        <!-- 手绘水彩（小形状） -->
+        <filter id="watercolorSoft" x="-40%" y="-40%" width="180%" height="180%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="17" result="n"/>
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="3" xChannelSelector="R" yChannelSelector="G" result="d"/>
+          <feGaussianBlur in="d" stdDeviation="0.8"/>
+        </filter>
+        <!-- 黑色速写轮廓 -->
+        <filter id="sketch" x="-20%" y="-20%" width="140%" height="140%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="7" result="n"/>
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+        <!-- 柔化 -->
+        <filter id="soften" x="-40%" y="-40%" width="180%" height="180%">
+          <feGaussianBlur stdDeviation="9"/>
+        </filter>
+        <!-- 朦胧 -->
+        <filter id="haze" x="-40%" y="-40%" width="180%" height="180%">
+          <feGaussianBlur stdDeviation="3"/>
+        </filter>
+        <!-- 毛笔行书：墨迹边缘 -->
+        <filter id="brush" x="-10%" y="-10%" width="120%" height="120%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" seed="9" result="n"/>
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G" result="d"/>
+          <feGaussianBlur in="d" stdDeviation="0.5"/>
+        </filter>
+        <!-- 粗糙画纸肌理 -->
+        <filter id="paper">
+          <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="3"/>
+          <feColorMatrix type="saturate" values="0"/>
+          <feComponentTransfer><feFuncA type="linear" slope="0.07" intercept="0"/></feComponentTransfer>
+        </filter>
+      </defs>
+
+      <!-- 米白纸底（背景图加载失败时的兜底） -->
+      <rect x="0" y="0" width="1600" height="900" fill="#F8F5EC"/>
+
+      <!-- 背景图（铺满画布，居中裁切、不变形） -->
+      <image href="背景图.jpg" x="0" y="0" width="1600" height="900" preserveAspectRatio="xMidYMid slice"/>
+
+      <!-- 顶部标题：知了森林字体 PNG（透明底，裁掉透明边距后居中置于顶部） -->
+      <image href="知了森林字体.png" x="139" y="-202" width="1320" height="805" preserveAspectRatio="none"/>
+
+    </svg>
+
+    <!-- 入口按钮（进入 / 离开，叠在封面上） -->
+    <section class="forest-entry" aria-label="知了森林入口">
+      <button class="entry-card entry-card--enter" id="enterApp" type="button">
+        <span class="entry-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none">
+            <path d="M17 6l10 10-10 10" />
+            <path d="M27 16H5" />
+          </svg>
+        </span>
+        <span class="entry-card__content">
+          <strong>进入应用</strong>
+          <small>走进你的兴趣森林</small>
+        </span>
+        <span class="entry-card__sparkle" aria-hidden="true">✦</span>
+      </button>
+
+      <button class="entry-card entry-card--leave" id="leaveApp" type="button">
+        <span class="entry-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none">
+            <path d="M13 8H7.5A2.5 2.5 0 0 0 5 10.5v11A2.5 2.5 0 0 0 7.5 24H13" />
+            <path d="M18 10l6 6-6 6" />
+            <path d="M24 16H11" />
+          </svg>
+        </span>
+        <span class="entry-card__content">
+          <strong>离开森林</strong>
+          <small>下次见，探索者</small>
+        </span>
+      </button>
+    </section>
+
+    <!-- 离开提示层 -->
+    <div class="leave-dialog" id="leaveDialog" aria-hidden="true">
+      <div class="leave-dialog__panel" role="dialog" aria-modal="true" aria-labelledby="leaveTitle">
+        <button class="leave-dialog__close" id="closeDialog" type="button" aria-label="关闭">×</button>
+        <div class="dialog-leaf" aria-hidden="true">🍃</div>
+        <h2 id="leaveTitle">要先离开森林吗？</h2>
+        <p>你的森林会继续生长，随时欢迎你回来。</p>
+        <div class="leave-dialog__actions">
+          <button class="dialog-button dialog-button--stay" id="stayInForest" type="button">再留一会儿</button>
+          <button class="dialog-button dialog-button--leave" id="confirmLeave" type="button">确认离开</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const enterButton = document.getElementById("enterApp");
+    const leaveButton = document.getElementById("leaveApp");
+    const leaveDialog = document.getElementById("leaveDialog");
+    const closeDialog = document.getElementById("closeDialog");
+    const stayButton = document.getElementById("stayInForest");
+    const confirmLeave = document.getElementById("confirmLeave");
+
+    // 进入森林页：forest.html 尚未生成，先占位跳转
+    enterButton.addEventListener("click", () => {
+      enterButton.classList.add("is-entering");
+      window.location.href = "./forest.html";
+    });
+
+    function openLeaveDialog() {
+      leaveDialog.classList.add("is-open");
+      leaveDialog.setAttribute("aria-hidden", "false");
+      closeDialog.focus();
+    }
+    function closeLeaveDialog() {
+      leaveDialog.classList.remove("is-open");
+      leaveDialog.setAttribute("aria-hidden", "true");
+    }
+
+    leaveButton.addEventListener("click", openLeaveDialog);
+    closeDialog.addEventListener("click", closeLeaveDialog);
+    stayButton.addEventListener("click", closeLeaveDialog);
+
+    confirmLeave.addEventListener("click", () => {
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = "./index.html";
+      }
+    });
+
+    leaveDialog.addEventListener("click", (event) => {
+      if (event.target === leaveDialog) closeLeaveDialog();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && leaveDialog.classList.contains("is-open")) {
+        closeLeaveDialog();
+      }
+    });
+  </script>
+
+</body>
+</html>

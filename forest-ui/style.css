@@ -1,0 +1,357 @@
+/* ============================================================
+   知了森林 · 绘本封面（v8）
+   画风：吉卜力手绘水彩 / 黑色速写轮廓 / 自然粗细变化
+         淡水彩晕染 / 粗糙画纸肌理 / 低饱和复古 / 儿童读物封面
+   ============================================================ */
+
+:root {
+  --paper: #FAF9F2;   /* 白色纸张 */
+  --title: #4F5D4B;   /* 标题低饱和深鼠尾草绿 */
+  --soft:  #6E7E6A;   /* 次级灰绿 */
+  --paper-light: rgba(255, 254, 244, .92);
+  --forest: #4F7650;
+  --forest-dark: #456349;
+  --sage: #71836B;
+  --line: rgba(79, 93, 75, .25);
+  --shadow: rgba(73, 91, 65, .16);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: var(--paper);
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* 横版封面容器（按宽度铺满、按高度封顶，保持 16:9 不变形） */
+.scene {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.book {
+  width: min(96vw, 170.66vh);
+  height: auto;
+  filter: drop-shadow(0 12px 34px rgba(90, 74, 56, 0.16));
+}
+
+/* ---- 标题 / 文字（上方预留文字区，干净留白） ---- */
+.title-main {
+  fill: var(--title);
+  font-size: 88px;
+  font-weight: 400;
+  font-family: "华文行楷", "STXingkai", "楷体", "KaiTi", "STKaiti", serif;
+  letter-spacing: 10px;
+}
+
+.title-sub {
+  fill: var(--soft);
+  font-size: 24px;
+  font-family: "Microsoft YaHei", "微软雅黑", "PingFang SC", sans-serif;
+  letter-spacing: 2px;
+}
+
+.ver {
+  fill: #6E604A;
+  font-size: 15px;
+  font-family: "Microsoft YaHei", "微软雅黑", "PingFang SC", sans-serif;
+  opacity: 0.7;
+}
+
+/* ---- 入口按钮 ---- */
+.entry { cursor: pointer; }
+.entry .btn {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.25s ease;
+}
+.entry:hover .btn { transform: translateY(-3px); }
+
+.entry-text {
+  fill: #5C4F3B;
+  font-size: 34px;
+  font-weight: 600;
+  font-family: "楷体", "KaiTi", "STKaiti", "华文楷体", serif;
+  letter-spacing: 4px;
+  pointer-events: none;
+}
+
+.entry-hint {
+  fill: #8A7C60;
+  font-size: 20px;
+  font-family: "Microsoft YaHei", "微软雅黑", "PingFang SC", sans-serif;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
+
+/* ---- 功能提示云朵 ---- */
+.cloud-text {
+  fill: #5C4F3B;
+  font-size: 21px;
+  font-weight: 600;
+  font-family: "楷体", "KaiTi", "STKaiti", "华文楷体", serif;
+  letter-spacing: 1px;
+}
+
+.cloud-float {
+  animation: cloudBob 7s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* ---- 知了小飞虫（轻微浮动） ---- */
+.sprite-wrap {
+  animation: bob 3.8s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* ---- 飘浮落叶（缓慢下落感） ---- */
+.leaf-drift {
+  animation: fall 6s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* ---- 阳光光束（呼吸） ---- */
+.light-ray {
+  animation: pulse 5.5s ease-in-out infinite;
+}
+
+/* ---- 动画 ---- */
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-7px); }
+}
+
+@keyframes fall {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(7px, -16px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.72; }
+  50%      { opacity: 1; }
+}
+
+@keyframes cloudBob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-5px); }
+}
+
+/* ---- 入口按钮（进入 / 离开，叠在封面上） ---- */
+.forest-entry {
+  position: absolute;
+  left: 50%;
+  top: 58%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  width: min(680px, calc(100% - 48px));
+  z-index: 5;
+}
+
+.entry-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 15px;
+  min-height: 82px;
+  padding: 16px 24px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 23px;
+  color: var(--forest-dark);
+  background: var(--paper-light);
+  box-shadow: 0 9px 24px var(--shadow), inset 0 0 0 1px rgba(255,255,255,.42);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+}
+
+.entry-card::before {
+  position: absolute;
+  top: -34px;
+  right: -23px;
+  width: 94px;
+  height: 94px;
+  border-radius: 50%;
+  background: rgba(205, 218, 171, .24);
+  content: "";
+}
+
+.entry-card:hover {
+  transform: translateY(-5px);
+  background: #fffef7;
+  box-shadow: 0 14px 30px rgba(73, 91, 65, .22);
+}
+
+.entry-card:active {
+  transform: translateY(-1px) scale(.985);
+}
+
+.entry-card:focus-visible,
+.leave-dialog__close:focus-visible,
+.dialog-button:focus-visible {
+  outline: 3px solid rgba(104, 144, 92, .45);
+  outline-offset: 3px;
+}
+
+.entry-card--enter {
+  border-color: rgba(82, 127, 79, .48);
+  background: rgba(235, 244, 215, .9);
+}
+
+.entry-card--enter .entry-card__icon { background: #5a8956; }
+
+.entry-card--leave { color: #68745f; }
+.entry-card--leave .entry-card__icon { background: #889776; }
+
+.entry-card__icon {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  flex: 0 0 46px;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  color: #fffdf1;
+  box-shadow: 0 4px 9px rgba(70, 99, 64, .18);
+}
+
+.entry-card__icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.entry-card__content { position: relative; z-index: 1; }
+.entry-card strong, .entry-card small { display: block; }
+
+.entry-card strong {
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+
+.entry-card small {
+  margin-top: 6px;
+  color: #899681;
+  font-size: 12px;
+  letter-spacing: .06em;
+}
+
+.entry-card__sparkle {
+  position: absolute;
+  right: 19px;
+  bottom: 12px;
+  color: rgba(93, 137, 82, .56);
+  font-size: 17px;
+}
+
+/* ---- 离开提示层 ---- */
+.leave-dialog {
+  position: fixed;
+  z-index: 20;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  visibility: hidden;
+  opacity: 0;
+  background: rgba(57, 72, 52, .25);
+  backdrop-filter: blur(5px);
+  transition: opacity .2s ease, visibility .2s ease;
+}
+
+.leave-dialog.is-open { visibility: visible; opacity: 1; }
+
+.leave-dialog__panel {
+  position: relative;
+  width: min(390px, 100%);
+  padding: 35px 30px 28px;
+  border: 1px solid rgba(89, 119, 78, .25);
+  border-radius: 26px;
+  color: var(--forest-dark);
+  background: rgba(255, 254, 244, .97);
+  box-shadow: 0 20px 55px rgba(54, 75, 50, .23);
+  text-align: center;
+  transform: translateY(12px) scale(.97);
+  transition: transform .2s ease;
+}
+
+.leave-dialog.is-open .leave-dialog__panel { transform: translateY(0) scale(1); }
+
+.leave-dialog__close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  border: 0;
+  color: #83907b;
+  background: transparent;
+  cursor: pointer;
+  font-size: 26px;
+  line-height: 1;
+}
+
+.dialog-leaf { margin-bottom: 8px; font-size: 28px; }
+
+.leave-dialog h2 {
+  margin: 0;
+  font-family: "STKaiti", "KaiTi", serif;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.leave-dialog p {
+  margin: 12px 0 23px;
+  color: #899681;
+  font-size: 13px;
+}
+
+.leave-dialog__actions { display: flex; gap: 10px; }
+
+.dialog-button {
+  flex: 1;
+  min-height: 42px;
+  border: 1px solid rgba(89, 119, 78, .25);
+  border-radius: 13px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.dialog-button--stay { color: var(--forest-dark); background: #eef4df; }
+.dialog-button--leave { color: #fffef3; background: #718b68; }
+
+@media (max-width: 560px) {
+  .forest-entry {
+    flex-direction: column;
+    gap: 13px;
+    width: min(390px, calc(100% - 40px));
+  }
+  .entry-card {
+    min-height: 72px;
+    padding: 13px 19px;
+  }
+}

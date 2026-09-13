@@ -1,0 +1,54 @@
+{
+  "contents": [
+    {
+      "contentId": "content_6216625634508704943",
+      "title": "大龄程序员的现状和出路是什么? - 知乎",
+      "excerpt": "我今年 38 了，写了十五六年代码，做过后端、搞过架构、带过几十人的团队，现在在一家游戏公司做 AI 中台。所以大龄程序员的现状，我就是活样本。先说一个很多人不愿意承认的事实：大部分程序员到了 35 岁左右，技术能力是在下降的。",
+      "url": "https://www.zhihu.com/question/2043990660999542252/answer/2068286495601979750",
+      "voteUpCount": 77,
+      "source": "search",
+      "category": "life",
+      "interactedAt": "2026-08-15T09:37:00+08:00"
+    },
+    {
+      "contentId": "content_6189577376296321789",
+      "title": "如果每天只用 30 分钟,该如何高效健身? - 知乎",
+      "excerpt": "第一个坑：热身拖太久。很多人热身能热 15 分钟——慢慢走、压腿、东摸西摸。其实热身的目的是让身体热起来、关节活动开，5 分钟够了。",
+      "url": "https://www.zhihu.com/question/1949157932529878409/answer/2078489179416277222",
+      "voteUpCount": 2,
+      "source": "search",
+      "category": "life",
+      "interactedAt": "2026-08-15T09:58:00+08:00"
+    },
+    {
+      "contentId": "content_4563173179698421845",
+      "title": "AI 大模型在外勤管理中的落地应用:从对话到业务 - 知乎",
+      "excerpt": "员工和管理者像给 AI 派活一样按需选择，获得简报、分析、建议与规划；6 大业务流 AI 深度嵌入业务操作节点——智能拓客、日/周/月报总结、客户画像、智能提醒。",
+      "url": "https://zhuanlan.zhihu.com/p/2079294151418558061",
+      "voteUpCount": 1,
+      "source": "favorite",
+      "category": "tech",
+      "interactedAt": "2026-09-13T09:37:00+08:00"
+    },
+    {
+      "contentId": "content_1782331886207654664",
+      "title": "大模型落地到具体行业的核心方法是什么? - 知乎",
+      "excerpt": "这两年的行业现场，最常听到的抱怨是我们上马了大模型但没带来什么改变。不是模型不行，是多数项目把落地的顺序搞反了——先选模型，后想场景。",
+      "url": "https://www.zhihu.com/question/2071564047070259124/answer/2071585741893792462",
+      "voteUpCount": 1,
+      "source": "like",
+      "category": "tech",
+      "interactedAt": "2026-09-13T09:49:00+08:00"
+    },
+    {
+      "contentId": "content_3020582565305970929",
+      "title": "【层次科普】读懂 RAG 检索增强生成:破解大模型幻觉,赋能 AI 制药研发落地 - 知乎",
+      "excerpt": "大语言模型在生物医药研发场景价值巨大，但知识截止时间、信息幻觉、专业领域事实错误等问题，严重制约产业落地。RAG 检索增强生成不需要重新训练大模型。",
+      "url": "https://zhuanlan.zhihu.com/p/2079162776040256757",
+      "voteUpCount": 1,
+      "source": "favorite",
+      "category": "tech",
+      "interactedAt": "2026-09-13T21:12:00+08:00"
+    }
+  ]
+}
