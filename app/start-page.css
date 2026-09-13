@@ -1,0 +1,326 @@
+/* ============================================================
+   知了森林 · 绘本封面
+   画风：吉卜力手绘水彩 / 儿童读物封面
+   结构：SVG 画布（纸底 + 背景图 + 独立标题 PNG）+ 叠在上面的入口卡片
+   ============================================================ */
+
+:root {
+  --paper: #faf9f2;
+  --soft: #6e7e6a;
+  --paper-light: rgba(255, 254, 244, 0.92);
+  --forest: #4f7650;
+  --forest-dark: #456349;
+  --line: rgba(79, 93, 75, 0.25);
+  --shadow: rgba(73, 91, 65, 0.16);
+}
+
+.start-reset,
+.scene * {
+  box-sizing: border-box;
+}
+
+.scene {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  min-height: 100dvh;
+  margin: 0;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+/* 画框：尺寸跟着 16:9 走，按钮相对它定位才能和背景对齐 */
+.book-frame {
+  position: relative;
+  width: min(96vw, 170.66dvh);
+}
+
+.book {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 12px 34px rgba(90, 74, 56, 0.16));
+}
+
+.entry-card.is-entering {
+  opacity: 0.6;
+}
+
+/* ---------- 入口按钮 ---------- */
+.forest-entry {
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  width: min(700px, calc(100% - 56px));
+  transform: translate(-50%, -50%);
+}
+
+.entry-card {
+  position: relative;
+  display: flex;
+  /* 不再平分宽度：按内容收缩，两块才有"一小块一小块"的感觉 */
+  flex: 0 0 auto;
+  gap: 11px;
+  align-items: center;
+  min-height: 60px;
+  padding: 10px 20px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  color: var(--forest-dark);
+  background: var(--paper-light);
+  box-shadow:
+    0 7px 18px var(--shadow),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.42);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    background 0.22s ease;
+}
+
+.entry-card::before {
+  position: absolute;
+  top: -26px;
+  right: -18px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(205, 218, 171, 0.24);
+  content: "";
+}
+
+.entry-card:hover {
+  transform: translateY(-4px);
+  background: #fffef7;
+  box-shadow: 0 11px 22px rgba(73, 91, 65, 0.22);
+}
+
+.entry-card:active {
+  transform: translateY(-1px) scale(0.985);
+}
+
+.entry-card:focus-visible,
+.leave-dialog__close:focus-visible,
+.dialog-button:focus-visible {
+  outline: 3px solid rgba(104, 144, 92, 0.45);
+  outline-offset: 3px;
+}
+
+.entry-card--enter {
+  border-color: rgba(82, 127, 79, 0.48);
+  background: rgba(235, 244, 215, 0.9);
+}
+
+.entry-card--enter .entry-card__icon {
+  background: #5a8956;
+}
+
+.entry-card--leave {
+  color: #68745f;
+}
+
+.entry-card--leave .entry-card__icon {
+  background: #889776;
+}
+
+.entry-card__icon {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  flex: 0 0 38px;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: #fffdf1;
+  box-shadow: 0 4px 9px rgba(70, 99, 64, 0.18);
+}
+
+.entry-card__icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.entry-card__content {
+  position: relative;
+  z-index: 1;
+}
+
+.entry-card strong,
+.entry-card small {
+  display: block;
+}
+
+.entry-card strong {
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.entry-card small {
+  margin-top: 3px;
+  color: #899681;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+}
+
+.entry-card__sparkle {
+  position: absolute;
+  right: 13px;
+  bottom: 8px;
+  color: rgba(93, 137, 82, 0.56);
+  font-size: 13px;
+}
+
+/* ---------- 离开提示层 ---------- */
+.leave-dialog {
+  position: fixed;
+  z-index: 20;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  visibility: hidden;
+  opacity: 0;
+  background: rgba(57, 72, 52, 0.25);
+  backdrop-filter: blur(5px);
+  /* 只过渡 opacity。visibility 不参与过渡：它一旦跟着过渡走，
+     打开后要等过渡跑完才变成 visible，期间弹窗里的按钮不可聚焦。
+     关闭态的可达性由 inert 负责，这里不需要这个 hack。 */
+  transition: opacity 0.2s ease;
+}
+
+.leave-dialog.is-open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.leave-dialog__panel {
+  position: relative;
+  width: min(390px, 100%);
+  padding: 35px 30px 28px;
+  border: 1px solid rgba(89, 119, 78, 0.25);
+  border-radius: 26px;
+  color: var(--forest-dark);
+  background: rgba(255, 254, 244, 0.97);
+  box-shadow: 0 20px 55px rgba(54, 75, 50, 0.23);
+  text-align: center;
+  transform: translateY(12px) scale(0.97);
+  transition: transform 0.2s ease;
+}
+
+.leave-dialog.is-open .leave-dialog__panel {
+  transform: translateY(0) scale(1);
+}
+
+.leave-dialog__close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  border: 0;
+  color: #83907b;
+  background: transparent;
+  cursor: pointer;
+  font-size: 26px;
+  line-height: 1;
+}
+
+.dialog-leaf {
+  margin-bottom: 8px;
+  font-size: 28px;
+}
+
+.leave-dialog h2 {
+  margin: 0;
+  font-family: "STKaiti", "KaiTi", serif;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.leave-dialog p {
+  margin: 12px 0 23px;
+  color: #899681;
+  font-size: 13px;
+}
+
+.leave-dialog__actions {
+  display: flex;
+  gap: 10px;
+}
+
+.dialog-button {
+  flex: 1;
+  min-height: 42px;
+  border: 1px solid rgba(89, 119, 78, 0.25);
+  border-radius: 13px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.dialog-button--stay {
+  color: var(--forest-dark);
+  background: #eef4df;
+}
+
+.dialog-button--leave {
+  color: #fffef3;
+  background: #718b68;
+}
+
+@media (max-width: 560px) {
+  .forest-entry {
+    gap: 10px;
+    width: calc(100% - 32px);
+  }
+
+  .entry-card {
+    gap: 8px;
+    min-height: 52px;
+    padding: 8px 13px;
+    border-radius: 15px;
+  }
+
+  .entry-card__icon {
+    flex: 0 0 30px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .entry-card__icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .entry-card strong {
+    font-size: 13px;
+    letter-spacing: 0.04em;
+  }
+
+  /* 窄屏放不下副标题，去掉它，两块才能保持并排 */
+  .entry-card small,
+  .entry-card__sparkle {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .book,
+  .entry-card,
+  .leave-dialog,
+  .leave-dialog__panel {
+    transition: none;
+  }
+}

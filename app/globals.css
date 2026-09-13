@@ -3,13 +3,34 @@
 :root {
   --background: #f7fbf4;
   --foreground: #292524;
+
+  /* 知了森林 · 调色板 */
+  --mist: #eaf3e6;
+  --forest-far: #a9c9b0;
+  --forest-mid: #5d9270;
+  --forest-near: #2f5541;
+  --wood-light: #dcb684;
+  --wood: #c89b6a;
+  --wood-dark: #8b6239;
+  --wood-deep: #5e4022;
+  --ink: #2f3a2e;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-mist: var(--mist);
+  --color-forest-far: var(--forest-far);
+  --color-forest-mid: var(--forest-mid);
+  --color-forest-near: var(--forest-near);
+  --color-wood: var(--wood);
+  --color-wood-dark: var(--wood-dark);
+  --color-wood-deep: var(--wood-deep);
+  --color-ink: var(--ink);
   --font-sans: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", system-ui,
     -apple-system, "Segoe UI", sans-serif;
+  --font-cute: "ZCOOL KuaiLe", "PingFang SC", "Microsoft YaHei", system-ui,
+    sans-serif;
 }
 
 body {

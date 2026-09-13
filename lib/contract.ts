@@ -22,6 +22,9 @@ export type LeafState = "fresh" | "fading" | "withered";
 
 export type CicadaAction = "idle" | "fly" | "prune" | "water" | "sweep";
 
+/** 用户反馈动作（契约 §2.7） */
+export type FeedbackAction = "prune" | "water";
+
 export type DiaryEventType = "newTree" | "surge" | "decay" | "revive";
 
 /** 兴趣大类 → 颜色。前后端与设计必须一致。 */
@@ -89,7 +92,19 @@ export interface TreeLayout {
   scale: number;
 }
 
-export interface ForestState {
+/** 知了精灵状态（契约 §3）。行为由数据驱动，前端只做插值与播放。 */
+export interface CicadaState {
+  action: CicadaAction;
+  targetTreeId: string | null;
+  line: string;
+  updatedAt: string;
+}
+
+/**
+ * 森林的静态部分：来自 mock-data 的预生成快照，不含精灵状态。
+ * 生长、回放、降级生成都只看这一层——它们不该知道精灵的存在。
+ */
+export interface ForestSnapshot {
   userId: string;
   displayName: string;
   nickname: string;
@@ -100,6 +115,11 @@ export interface ForestState {
   trees: TopicTree[];
   leaves: Leaf[];
   layout: TreeLayout[];
+}
+
+/** 森林状态 —— 前端渲染的唯一数据源（契约 §3），比快照多一个随请求推导的精灵 */
+export interface ForestState extends ForestSnapshot {
+  cicada: CicadaState;
 }
 
 export const STAGE_LABELS: Record<TreeStage, string> = {
@@ -181,4 +201,24 @@ export interface PersonalityProfile {
   description: string;
   traits: ProfileTrait[];
   topCategories: { category: TopicCategory; weight: number }[];
+}
+
+/** 用户反馈信号（契约 §3 / §4） */
+export interface FeedbackSignal {
+  signalId: string;
+  userId: string;
+  treeId: string;
+  leafId: string;
+  action: FeedbackAction;
+  createdAt: string;
+}
+
+/** POST /api/feedback 的请求体：signalId 与 createdAt 由后端补（契约 §4） */
+export type FeedbackRequest = Omit<FeedbackSignal, "signalId" | "createdAt">;
+
+/** POST /api/feedback 返回体：反馈生效后的新状态 */
+export interface FeedbackResult {
+  forest: ForestState;
+  cicada: CicadaState;
+  signal: FeedbackSignal;
 }

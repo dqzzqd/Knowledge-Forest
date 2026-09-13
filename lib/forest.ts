@@ -7,7 +7,7 @@
 import "server-only";
 import fs from "node:fs";
 import path from "node:path";
-import type { ContentItem, ForestState } from "./contract";
+import type { ContentItem, ForestSnapshot } from "./contract";
 
 const ROOT = process.cwd();
 const MOCK_DIR = path.join(ROOT, "mock-data");
@@ -35,9 +35,12 @@ export function loadDemoUser(id: DemoUserId): DemoUser {
   return readJson<DemoUser>(path.join("mock", `${id}.json`));
 }
 
-/** 读取预生成森林（演示兜底数据） */
-export function loadForest(id: DemoUserId): ForestState {
-  return readJson<ForestState>(path.join("expected-forest", `${id}.json`));
+/** 读取预生成森林（演示兜底数据）。
+ *
+ * 返回 ForestSnapshot：不含 `cicada`——精灵状态不是静态数据，
+ * 由 lib/cicada.ts 在请求时推导。 */
+export function loadForest(id: DemoUserId): ForestSnapshot {
+  return readJson<ForestSnapshot>(path.join("expected-forest", `${id}.json`));
 }
 
 /** 读取第 N 天的内容切片（N 从 1 开始，共 30 天） */

@@ -1,12 +1,14 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Cicada from "@/components/Cicada";
 import {
   CATEGORY_COLORS,
   CATEGORY_LABELS,
   STAGE_LABELS,
   STATE_LABELS,
-  type ForestState,
+  type CicadaState,
+  type ForestSnapshot,
   type Leaf,
   type TreeLayout,
 } from "@/lib/contract";
@@ -49,7 +51,7 @@ interface PlacedTree {
 const mapX = (x: number) => (0.10 + x * 0.80) * W;
 const mapY = (y: number) => (0.30 + y * 0.42) * H;
 
-function buildTrees(forest: ForestState): PlacedTree[] {
+function buildTrees(forest: ForestSnapshot): PlacedTree[] {
   return forest.layout.map((layout) => {
     const tree = forest.trees.find((t) => t.treeId === layout.treeId)!;
     const leaves = forest.leaves.filter((l) => l.treeId === layout.treeId);
@@ -103,7 +105,14 @@ function leafTone(leaf: Leaf) {
   return { fill: null, opacity: 1 };
 }
 
-export default function ForestCanvas({ forest }: { forest: ForestState }) {
+export default function ForestCanvas({
+  forest,
+  cicada,
+}: {
+  forest: ForestSnapshot;
+  /** 后端算好的精灵状态；不传就不画精灵（回放各帧没有精灵） */
+  cicada?: CicadaState;
+}) {
   // 只记 leafId，不存整个对象——回放时 forest 每帧都变，
   // 存对象会让卡片停留在旧的一天（叶子已消失却还在显示）。
   const [activeId, setActiveId] = useState<string | null>(null);
@@ -117,6 +126,20 @@ export default function ForestCanvas({ forest }: { forest: ForestState }) {
     }
     return null;
   }, [activeId, trees]);
+
+  // 精灵落点：站在目标树冠的右上方。夹取是因为画布上缘会切掉高树，
+  // 精灵飘出去就再也看不见了。
+  const cicadaAnchor = useMemo(() => {
+    if (!cicada) return null;
+    const target = cicada.targetTreeId
+      ? trees.find((t) => t.layout.treeId === cicada.targetTreeId)
+      : undefined;
+    if (!target) return { x: W / 2, y: 175 };
+    return {
+      x: Math.min(W - 60, target.baseX + target.crownR * 0.9),
+      y: Math.max(175, target.crownY - target.crownR * 0.1),
+    };
+  }, [cicada, trees]);
 
   return (
     <div className="w-full">
@@ -154,9 +177,22 @@ export default function ForestCanvas({ forest }: { forest: ForestState }) {
               activeId={active?.leafId ?? null}
             />
           ))}
+
+          {/* 精灵画在最后 = 叠在最上层（技术设计 §5.1） */}
+          {cicada && cicadaAnchor ? (
+            <Cicada cicada={cicada} anchor={cicadaAnchor} canvasWidth={W} />
+          ) : null}
         </svg>
 
         <LeafCard leaf={active} onClose={() => setActiveId(null)} />
+
+        {/* 台词是信息，不能只画进 SVG：父级 svg 是 role="img"，
+            里面的文字辅助技术读不到，所以另起一个 live region 播报。 */}
+        {cicada ? (
+          <p className="sr-only" aria-live="polite">
+            {cicada.line}
+          </p>
+        ) : null}
       </div>
     </div>
   );

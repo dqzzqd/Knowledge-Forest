@@ -10,7 +10,7 @@ import {
   replayStats,
   type ReplayEventKind,
 } from "@/lib/replay";
-import type { ContentItem, ForestState } from "@/lib/contract";
+import type { CicadaState, ContentItem, ForestSnapshot } from "@/lib/contract";
 
 /** 每一帧停留时长（毫秒），30 帧约 19 秒播完 */
 const FRAME_MS = 620;
@@ -25,11 +25,16 @@ const EVENT_STYLE: Record<ReplayEventKind, string> = {
 export default function DayReplay({
   contents,
   forest,
+  cicada,
 }: {
   contents: ContentItem[];
-  forest: ForestState;
+  forest: ForestSnapshot;
+  /** 精灵状态（后端决策）。回放的是历史帧，精灵只跟着"现在"走 */
+  cicada?: CicadaState;
 }) {
-  const [day, setDay] = useState(1);
+  // 进来先看到**完整的森林**。生长过程要用户主动点才播——
+  // 自动播放会让人一进页面就懵：画面自己在动，却不知道在看什么。
+  const [day, setDay] = useState(TOTAL_DAYS);
   const [playing, setPlaying] = useState(false);
 
   // 30 天的森林全部预先算好，拖动时间轴时零延迟
@@ -48,15 +53,6 @@ export default function DayReplay({
     [frames, day],
   );
 
-  // 进页面自动播一遍——评委要看到森林是「长出来」的
-  useEffect(() => {
-    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
-      setDay(TOTAL_DAYS);
-      return;
-    }
-    setPlaying(true);
-  }, []);
-
   useEffect(() => {
     if (!playing) return;
     if (day >= TOTAL_DAYS) {
@@ -70,20 +66,17 @@ export default function DayReplay({
     return () => clearTimeout(timer);
   }, [playing, day]);
 
-  const replay = () => {
-    setDay(1);
-    setPlaying(true);
-  };
+  const atEnd = day >= TOTAL_DAYS;
 
-  const toggle = () => {
-    if (day >= TOTAL_DAYS && !playing) {
-      replay();
+  const onPlay = () => {
+    if (playing) {
+      setPlaying(false);
       return;
     }
-    setPlaying((p) => !p);
+    // 已经在终点（或还没开始）时，从头播一遍
+    if (atEnd) setDay(1);
+    setPlaying(true);
   };
-
-  const atEnd = day >= TOTAL_DAYS;
 
   return (
     <section className="mx-auto w-full max-w-6xl px-6 pb-16">
@@ -91,10 +84,10 @@ export default function DayReplay({
         <div className="flex flex-wrap items-center gap-3">
           <button
             type="button"
-            onClick={toggle}
-            className="w-20 rounded-full bg-[#5BA87A] px-4 py-1.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-[#4E9669]"
+            onClick={onPlay}
+            className="shrink-0 rounded-full bg-[#5BA87A] px-5 py-1.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-[#4E9669] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[#2F5541]"
           >
-            {playing ? "暂停" : atEnd ? "重播" : "继续"}
+            {playing ? "暂停" : atEnd ? "播放生长过程" : "继续播放"}
           </button>
 
           <div className="min-w-[220px] flex-1">
@@ -113,7 +106,7 @@ export default function DayReplay({
             </div>
           </div>
 
-          <div className="text-right">
+          <div className="shrink-0 text-right">
             <p className="text-sm font-semibold text-stone-700">{dayToDate(day)}</p>
             <p className="text-xs text-stone-400">
               第 {day} / {TOTAL_DAYS} 天
@@ -135,6 +128,10 @@ export default function DayReplay({
             ))
           )}
         </div>
+
+        <p className="mt-2 text-xs text-stone-400">
+          这是第 30 天的森林。拖动时间轴可以回到任意一天，或者点「播放生长过程」看它这一个月怎么长出来的。
+        </p>
       </div>
 
       <dl className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -149,7 +146,7 @@ export default function DayReplay({
       </dl>
 
       <div className="mt-4">
-        <ForestCanvas forest={current} />
+        <ForestCanvas forest={current} cicada={cicada} />
       </div>
     </section>
   );

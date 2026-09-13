@@ -8,11 +8,28 @@ const CACHE_HEADERS = {
   "cache-control": "public, max-age=300, s-maxage=3600",
 } as const;
 
-export function ok<T>(data: T): NextResponse<ApiEnvelope<T>> {
+/** 反馈是写操作，其响应不该被任何中间层缓存 */
+const NO_STORE_HEADERS = { "cache-control": "no-store" } as const;
+
+export function ok<T>(
+  data: T,
+  options: { cache?: boolean } = {},
+): NextResponse<ApiEnvelope<T>> {
   return NextResponse.json<ApiEnvelope<T>>(
     { success: true, data, error: null },
-    { headers: CACHE_HEADERS },
+    { headers: options.cache === false ? NO_STORE_HEADERS : CACHE_HEADERS },
   );
+}
+
+/**
+ * 当前时刻，ISO 8601 带 +08:00（契约 §1 要求时间统一 +08:00）。
+ *
+ * `toISOString()` 给的是 UTC（`Z` 结尾），直接用它会让契约里的时间口径分叉，
+ * 所以先整体平移 8 小时再贴标签。
+ */
+export function nowIso(): string {
+  const shifted = new Date(Date.now() + 8 * 60 * 60 * 1000);
+  return `${shifted.toISOString().slice(0, 19)}+08:00`;
 }
 
 export function fail(message: string, status = 400) {
@@ -29,9 +46,12 @@ export function fail(message: string, status = 400) {
 export function parseUserId(url: URL): DemoUserId | null {
   const raw = url.searchParams.get("userId");
   if (!raw) return DEMO_USERS[0];
-  return (DEMO_USERS as readonly string[]).includes(raw)
-    ? (raw as DemoUserId)
-    : null;
+  return isDemoUserId(raw) ? raw : null;
+}
+
+/** 同一个白名单判定，供 body 里带 userId 的接口（如 /api/feedback）复用 */
+export function isDemoUserId(raw: string): raw is DemoUserId {
+  return (DEMO_USERS as readonly string[]).includes(raw);
 }
 
 /** 解析区间内的整数参数，非法或缺省时返回 fallback */

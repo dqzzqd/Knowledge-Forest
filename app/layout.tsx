@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "@fontsource/zcool-kuaile/400.css";
 import "./globals.css";
 
 export const metadata: Metadata = {

@@ -10,7 +10,7 @@
  */
 import type {
   ContentItem,
-  ForestState,
+  ForestSnapshot,
   Leaf,
   LeafState,
   TopicTree,
@@ -63,9 +63,9 @@ function treeStageOf(contentCount: number): TreeStage {
  */
 export function forestAtDay(
   contents: ContentItem[],
-  forest: ForestState,
+  forest: ForestSnapshot,
   day: number,
-): ForestState {
+): ForestSnapshot {
   const byId = new Map(contents.map((c) => [c.contentId, c]));
 
   // 每片叶子只保留第 N 天（含）之前互动过的内容；一条都没有 = 还没长出来
@@ -140,8 +140,8 @@ export interface ReplayEvent {
 
 /** 对比相邻两天，得出「这天发生了什么」 */
 export function eventsAtDay(
-  prev: ForestState | null,
-  cur: ForestState,
+  prev: ForestSnapshot | null,
+  cur: ForestSnapshot,
 ): ReplayEvent[] {
   const out: ReplayEvent[] = [];
 
@@ -178,7 +178,7 @@ export function eventsAtDay(
 }
 
 /** 某一帧的森林概览 */
-export function replayStats(forest: ForestState) {
+export function replayStats(forest: ForestSnapshot) {
   return {
     trees: forest.trees.length,
     leaves: forest.leaves.length,
