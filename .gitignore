@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# 实验性 distDir 产物（若曾改名 distDir 会产生）
+.cloudbase-next/
+
+# AiWorks 部署产物（由官方打包器生成，不入库）
+Knowledge-Forest.zip
+*.zip

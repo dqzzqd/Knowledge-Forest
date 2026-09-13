@@ -1,0 +1,36 @@
+{
+  "SchemaVersion": "1.1.0",
+  "Runtime": "node",
+  "NodeVersion": "24",
+  "InstallDependencies": true,
+  "Routes": [
+    "/*"
+  ],
+  "Env": [],
+  "CustomSteps": [
+    {
+      "Name": "安装构建依赖",
+      "Command": "npm ci"
+    },
+    {
+      "Name": "构建或验证项目",
+      "Command": "npm run build && mkdir -p .next/standalone/.next && cp -R .next/static .next/standalone/.next/static && cp -R public .next/standalone/public && test -e .next/standalone && test -e .next/standalone/.next/static && test -e .next/standalone/public"
+    },
+    {
+      "Name": "安装生产依赖",
+      "Command": "npm install --omit=dev --ignore-scripts"
+    },
+    {
+      "Name": "验证运行时交付",
+      "Command": "chmod +x scf_bootstrap && test -f .next/standalone/server.js && test -x scf_bootstrap && test -f cloudbaserc.json && test -e .next/standalone/.next/static && test -e .next/standalone/public && cat package.json && cat scf_bootstrap && cat cloudbaserc.json"
+    },
+    {
+      "Name": "安装 CloudBase CLI",
+      "Command": "npm i @cloudbase/cli@3.8.0-beta.3 -g"
+    },
+    {
+      "Name": "部署云函数",
+      "Command": "tcb login --apiKeyId \"$API_SECRET_ID\" --apiKey \"$API_SECRET_KEY\" --token \"$API_TOKEN\" && tcb fn deploy ${functionName} --dir . --force -e \"$CLOUDBASE_ENV_ID\" --httpFn --yes"
+    }
+  ]
+}

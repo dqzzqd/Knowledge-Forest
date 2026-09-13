@@ -1,0 +1,12 @@
+{
+  "envId": "{{env.CLOUDBASE_ENV_ID}}",
+  "functionRoot": ".",
+  "functions": [
+    {
+      "name": "{{env.CLOUDBASE_SERVICE_NAME}}",
+      "type": "HTTP",
+      "installDependency": false,
+      "runtime": "Nodejs24.11"
+    }
+  ]
+}
