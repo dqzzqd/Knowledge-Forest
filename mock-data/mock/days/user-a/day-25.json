@@ -1,0 +1,27 @@
+{
+  "userId": "user_a_shenqian",
+  "date": "2026-09-08",
+  "dayIndex": 25,
+  "contents": [
+    {
+      "contentId": "content_4486185755650126463",
+      "title": "RAG(检索增强生成)会不会消亡呢? - 知乎",
+      "excerpt": "// 入库时打标签 public void importDocument(String content, Map<String, String> metadata) { Document doc = new Document(content",
+      "url": "https://www.zhihu.com/question/637421964/answer/2068638763354535279",
+      "voteUpCount": 101,
+      "source": "favorite",
+      "category": "tech",
+      "interactedAt": "2026-09-08T08:48:00+08:00"
+    },
+    {
+      "contentId": "content_1696643782419318984",
+      "title": "从心理学角度看,拖延症的根源是什么? - 知乎",
+      "excerpt": "拖延这种情况在当下社会并不少见。经常的情况是，明明有紧急的任务需要完成，但越是这样，越是整天在刷手机。虽然心里着急，但在行为上却无动于衷。直到最后那一刻，才会开始启动，进入高效模式并最终完成。 初一看，拖延是时间管理方面出现了问题。不过从深",
+      "url": "https://www.zhihu.com/question/1885997541918741629/answer/2020049777455314503",
+      "voteUpCount": 18,
+      "source": "like",
+      "category": "science",
+      "interactedAt": "2026-09-08T09:07:00+08:00"
+    }
+  ]
+}

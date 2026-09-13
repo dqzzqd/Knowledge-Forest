@@ -1,0 +1,253 @@
+{
+  "userId": "user_b_renwen",
+  "displayName": "突然转向的漫游者",
+  "nickname": "半路改道的旅人",
+  "bio": "历史和文学是双主干。第 16 天被哲学击中，之后一发不可收拾。",
+  "tags": [
+    "历史",
+    "文学",
+    "哲学"
+  ],
+  "avatar": "../../avatars/user-b.svg",
+  "generatedAt": "2026-09-13T22:00:00+08:00",
+  "trees": [
+    {
+      "treeId": "tree_history",
+      "name": "历史",
+      "category": "humanities",
+      "stage": "flourishing",
+      "leafIds": [
+        "leaf_history_ming",
+        "leaf_history_song"
+      ],
+      "totalContentCount": 15,
+      "createdAt": "2026-08-15T10:00:00+08:00",
+      "lastGrownAt": "2026-09-09T22:00:00+08:00",
+      "prunedLeafIds": []
+    },
+    {
+      "treeId": "tree_literature",
+      "name": "文学",
+      "category": "arts",
+      "stage": "flourishing",
+      "leafIds": [
+        "leaf_literature",
+        "leaf_writing"
+      ],
+      "totalContentCount": 15,
+      "createdAt": "2026-08-15T10:00:00+08:00",
+      "lastGrownAt": "2026-09-12T22:00:00+08:00",
+      "prunedLeafIds": []
+    },
+    {
+      "treeId": "tree_philosophy",
+      "name": "哲学",
+      "category": "humanities",
+      "stage": "mature",
+      "leafIds": [
+        "leaf_philosophy"
+      ],
+      "totalContentCount": 9,
+      "createdAt": "2026-08-30T10:00:00+08:00",
+      "lastGrownAt": "2026-09-13T22:00:00+08:00",
+      "prunedLeafIds": []
+    },
+    {
+      "treeId": "tree_art",
+      "name": "艺术",
+      "category": "arts",
+      "stage": "mature",
+      "leafIds": [
+        "leaf_art"
+      ],
+      "totalContentCount": 8,
+      "createdAt": "2026-08-17T10:00:00+08:00",
+      "lastGrownAt": "2026-09-10T22:00:00+08:00",
+      "prunedLeafIds": []
+    },
+    {
+      "treeId": "tree_society",
+      "name": "社会观察",
+      "category": "social",
+      "stage": "young",
+      "leafIds": [
+        "leaf_society"
+      ],
+      "totalContentCount": 6,
+      "createdAt": "2026-08-16T10:00:00+08:00",
+      "lastGrownAt": "2026-08-31T22:00:00+08:00",
+      "prunedLeafIds": []
+    }
+  ],
+  "leaves": [
+    {
+      "leafId": "leaf_history_ming",
+      "treeId": "tree_history",
+      "name": "明朝",
+      "summary": "一口气看完明朝276年历史 - 知乎 等相关内容",
+      "contentIds": [
+        "content_-917933172105399958",
+        "content_-5293822244890708747",
+        "content_-5775404867839907332",
+        "content_-7410525328616229690",
+        "content_-5115324696412627223",
+        "content_235392307887411649",
+        "content_6043255475300521600",
+        "content_5105308507464682829"
+      ],
+      "state": "fading",
+      "createdAt": "2026-08-15T10:00:00+08:00",
+      "lastActiveAt": "2026-09-09T22:00:00+08:00",
+      "waterCount": 0
+    },
+    {
+      "leafId": "leaf_history_song",
+      "treeId": "tree_history",
+      "name": "宋朝经济",
+      "summary": "北宋熙丰经济年鉴(1077-1080)第十六章 商品经济与城市发展(下) - 知乎 等相关内容",
+      "contentIds": [
+        "content_-8324024392558369112",
+        "content_3472580276795895081",
+        "content_-3336311860420028000",
+        "content_8771756518415323281",
+        "content_7905451506521271601",
+        "content_-1981528242946940198",
+        "content_6777775148827938709"
+      ],
+      "state": "fading",
+      "createdAt": "2026-08-16T10:00:00+08:00",
+      "lastActiveAt": "2026-09-08T22:00:00+08:00",
+      "waterCount": 0
+    },
+    {
+      "leafId": "leaf_literature",
+      "treeId": "tree_literature",
+      "name": "古典文学",
+      "summary": "《唐诗三百首》诗人风格速查表:诗词鉴赏事半功倍 - 知乎 等相关内容",
+      "contentIds": [
+        "content_-6600569551586415160",
+        "content_-5893275468084884909",
+        "content_4222806886009406047",
+        "content_510705184554229380",
+        "content_-6393572137945472908",
+        "content_-8478899619243545514",
+        "content_7118135906590306798",
+        "content_2824858399872126927"
+      ],
+      "state": "fresh",
+      "createdAt": "2026-08-15T10:00:00+08:00",
+      "lastActiveAt": "2026-09-11T22:00:00+08:00",
+      "waterCount": 0
+    },
+    {
+      "leafId": "leaf_writing",
+      "treeId": "tree_literature",
+      "name": "写作表达",
+      "summary": "怎么训练可以锻炼自己的表达能力? - 知乎 等相关内容",
+      "contentIds": [
+        "content_7929538798779810282",
+        "content_4178311074323533253",
+        "content_-6046694342243727280",
+        "content_8493680107283710420",
+        "content_3835607969396284215",
+        "content_-1427942562217454539",
+        "content_3667097678375083042"
+      ],
+      "state": "fresh",
+      "createdAt": "2026-08-20T10:00:00+08:00",
+      "lastActiveAt": "2026-09-12T22:00:00+08:00",
+      "waterCount": 0
+    },
+    {
+      "leafId": "leaf_philosophy",
+      "treeId": "tree_philosophy",
+      "name": "中西比较",
+      "summary": "中西方哲学16个核心差异:为什么我们这样想,他们那样想? - 知乎 等相关内容",
+      "contentIds": [
+        "content_-1947043923617602366",
+        "content_-2399025945039843555",
+        "content_3506404879458319791",
+        "content_816270973635759536",
+        "content_932944217357688283",
+        "content_-3224287634280285271",
+        "content_7903025785009107808",
+        "content_-3580619820503163546",
+        "content_2555524621752001222"
+      ],
+      "state": "fresh",
+      "createdAt": "2026-08-30T10:00:00+08:00",
+      "lastActiveAt": "2026-09-13T22:00:00+08:00",
+      "waterCount": 0
+    },
+    {
+      "leafId": "leaf_art",
+      "treeId": "tree_art",
+      "name": "中国画审美",
+      "summary": "AI 绘制的中国古画是否符合传统美学的审美? - 知乎 等相关内容",
+      "contentIds": [
+        "content_-3988538641901098347",
+        "content_-8073859308770209938",
+        "content_5666555016736336644",
+        "content_8978176133836757415",
+        "content_8432000685362979513",
+        "content_5394757267699976972",
+        "content_-2204816515612958401",
+        "content_-598624428687941943"
+      ],
+      "state": "fresh",
+      "createdAt": "2026-08-17T10:00:00+08:00",
+      "lastActiveAt": "2026-09-10T22:00:00+08:00",
+      "waterCount": 0
+    },
+    {
+      "leafId": "leaf_society",
+      "treeId": "tree_society",
+      "name": "内卷与年轻人",
+      "summary": "为什么现在的年轻人,开始集体“反内卷”? - 知乎 等相关内容",
+      "contentIds": [
+        "content_-5076866395391976404",
+        "content_2157614498887772866",
+        "content_2664832922274363961",
+        "content_-4482855326893684893",
+        "content_-6100208330659305350",
+        "content_2878534937029925278"
+      ],
+      "state": "withered",
+      "createdAt": "2026-08-16T10:00:00+08:00",
+      "lastActiveAt": "2026-08-31T22:00:00+08:00",
+      "waterCount": 0
+    }
+  ],
+  "layout": [
+    {
+      "treeId": "tree_history",
+      "x": 0.66,
+      "y": 0.5,
+      "scale": 1.15
+    },
+    {
+      "treeId": "tree_literature",
+      "x": 0.271,
+      "y": 0.709,
+      "scale": 1.15
+    },
+    {
+      "treeId": "tree_philosophy",
+      "x": 0.533,
+      "y": 0.129,
+      "scale": 0.97
+    },
+    {
+      "treeId": "tree_art",
+      "x": 0.755,
+      "y": 0.833,
+      "scale": 0.94
+    },
+    {
+      "treeId": "tree_society",
+      "x": 0.047,
+      "y": 0.42,
+      "scale": 0.88
+    }
+  ]
+}

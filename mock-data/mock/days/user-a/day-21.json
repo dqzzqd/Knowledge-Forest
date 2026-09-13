@@ -1,0 +1,37 @@
+{
+  "userId": "user_a_shenqian",
+  "date": "2026-09-04",
+  "dayIndex": 21,
+  "contents": [
+    {
+      "contentId": "content_8355056534664891481",
+      "title": "LLM 学习第 18 课:长上下文 vs RAG - 知乎",
+      "excerpt": "欢迎搜索并关注微信公众号「新时代程序员」，持续更新AI知识、就业转型与学习干货。关注后不错过后续更新哦~ 今日重点（Top 3） ・长上下文模型的优势与局限 ・检索增强生成（RAG）工作流概述 ・何时在两者之间做选择的实用指南 在本课中，我",
+      "url": "https://zhuanlan.zhihu.com/p/2079615913633104331",
+      "voteUpCount": 1,
+      "source": "like",
+      "category": "tech",
+      "interactedAt": "2026-09-04T08:39:00+08:00"
+    },
+    {
+      "contentId": "content_2180691112543697961",
+      "title": "拖延症②:如何自我观察自己的拖延症 ? - 知乎",
+      "excerpt": "可以通过行为模式，心理信号和拖延所造成的后果影响几个维度进行自我观察自己是否患有拖延症，而不是仅仅拖延。 一. 行为模式 1. 从“想”到“做”的路径异常艰难 ①明明任务很清楚，也知道该开始了，但身体就是无法行动，总会找点别的事来做，比如刷",
+      "url": "https://zhuanlan.zhihu.com/p/1959969153063556107",
+      "voteUpCount": 1,
+      "source": "like",
+      "category": "science",
+      "interactedAt": "2026-09-04T10:47:00+08:00"
+    },
+    {
+      "contentId": "content_5578052809382735541",
+      "title": "新品类GEO冷启动实战:如何在空白语义赛道快速建立品类认知关联 - 知乎",
+      "excerpt": "图片： https://http://istudy-octopus.oss-cn-guangzhou.aliyuncs.com/media/article/batch-inline/2026/08/27/1/6bd90dcb-db4f-40",
+      "url": "https://zhuanlan.zhihu.com/p/2076393077548365358",
+      "voteUpCount": 0,
+      "source": "favorite",
+      "category": "business",
+      "interactedAt": "2026-09-04T10:59:00+08:00"
+    }
+  ]
+}

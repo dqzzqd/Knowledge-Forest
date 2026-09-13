@@ -1,0 +1,273 @@
+{
+  "userId": "user_a_shenqian",
+  "displayName": "深潜型探索者",
+  "nickname": "海沟观测员",
+  "bio": "不太追热点，喜欢把一个领域挖到底。60% 的收藏都在人工智能这一棵树上。",
+  "tags": [
+    "人工智能",
+    "创业",
+    "心理学"
+  ],
+  "avatar": "../../avatars/user-a.svg",
+  "generatedAt": "2026-09-13T22:00:00+08:00",
+  "trees": [
+    {
+      "treeId": "tree_ai",
+      "name": "人工智能",
+      "category": "tech",
+      "stage": "flourishing",
+      "leafIds": [
+        "leaf_ai_agent",
+        "leaf_ai_rag",
+        "leaf_ai_llm"
+      ],
+      "totalContentCount": 30,
+      "createdAt": "2026-08-17T10:00:00+08:00",
+      "lastGrownAt": "2026-09-13T22:00:00+08:00",
+      "prunedLeafIds": []
+    },
+    {
+      "treeId": "tree_startup",
+      "name": "创业与产品",
+      "category": "business",
+      "stage": "mature",
+      "leafIds": [
+        "leaf_startup",
+        "leaf_pm"
+      ],
+      "totalContentCount": 11,
+      "createdAt": "2026-08-16T10:00:00+08:00",
+      "lastGrownAt": "2026-09-04T22:00:00+08:00",
+      "prunedLeafIds": []
+    },
+    {
+      "treeId": "tree_career",
+      "name": "职业发展",
+      "category": "life",
+      "stage": "young",
+      "leafIds": [
+        "leaf_career"
+      ],
+      "totalContentCount": 6,
+      "createdAt": "2026-08-15T10:00:00+08:00",
+      "lastGrownAt": "2026-09-07T22:00:00+08:00",
+      "prunedLeafIds": []
+    },
+    {
+      "treeId": "tree_psych",
+      "name": "心理学",
+      "category": "science",
+      "stage": "young",
+      "leafIds": [
+        "leaf_psych"
+      ],
+      "totalContentCount": 7,
+      "createdAt": "2026-08-28T10:00:00+08:00",
+      "lastGrownAt": "2026-09-11T22:00:00+08:00",
+      "prunedLeafIds": []
+    },
+    {
+      "treeId": "tree_fitness",
+      "name": "健身",
+      "category": "life",
+      "stage": "young",
+      "leafIds": [
+        "leaf_fitness"
+      ],
+      "totalContentCount": 6,
+      "createdAt": "2026-08-15T10:00:00+08:00",
+      "lastGrownAt": "2026-08-27T22:00:00+08:00",
+      "prunedLeafIds": []
+    }
+  ],
+  "leaves": [
+    {
+      "leafId": "leaf_ai_agent",
+      "treeId": "tree_ai",
+      "name": "AI Agent",
+      "summary": "AI-Agent哪个好用?国内外各大Agent对比:Claude Code、Codex、Work Buddy、OpenCode等等 - 知乎 等相关内容",
+      "contentIds": [
+        "content_-6975097988772876776",
+        "content_1740081956534276639",
+        "content_13929762785838304",
+        "content_-5792607152362813352",
+        "content_-3001923579393130564",
+        "content_-5901010886917430576",
+        "content_6548322861314323791",
+        "content_-2960356255725204410",
+        "content_6141645053902793139",
+        "content_-4224391432615174344"
+      ],
+      "state": "fresh",
+      "createdAt": "2026-08-17T10:00:00+08:00",
+      "lastActiveAt": "2026-09-12T22:00:00+08:00",
+      "waterCount": 0
+    },
+    {
+      "leafId": "leaf_ai_rag",
+      "treeId": "tree_ai",
+      "name": "RAG",
+      "summary": "[RAG]Graph-R1:基于强化学习的智能体式GraphRAG框架 - 知乎 等相关内容",
+      "contentIds": [
+        "content_7164934587917917083",
+        "content_-9051047881747515914",
+        "content_5078449199875109106",
+        "content_-268800570750048561",
+        "content_6919631488279675276",
+        "content_7183632955015752336",
+        "content_8355056534664891481",
+        "content_4486185755650126463",
+        "content_-1480968154277707521",
+        "content_3020582565305970929"
+      ],
+      "state": "fresh",
+      "createdAt": "2026-08-18T10:00:00+08:00",
+      "lastActiveAt": "2026-09-13T22:00:00+08:00",
+      "waterCount": 0
+    },
+    {
+      "leafId": "leaf_ai_llm",
+      "treeId": "tree_ai",
+      "name": "大模型落地",
+      "summary": "大模型上下文窗口从 8K 扩到 128K,实际工程落地价值到底有多大? 怎么实现上下文窗口的扩展的? - 知乎 等相关内容",
+      "contentIds": [
+        "content_-2186890878705454622",
+        "content_616620069960059012",
+        "content_4343400662026589739",
+        "content_3169485591707754151",
+        "content_6080690946121193222",
+        "content_-3959452118377799065",
+        "content_584687001361631122",
+        "content_5344680263155401837",
+        "content_1782331886207654664",
+        "content_4563173179698421845"
+      ],
+      "state": "fresh",
+      "createdAt": "2026-08-28T10:00:00+08:00",
+      "lastActiveAt": "2026-09-13T22:00:00+08:00",
+      "waterCount": 0
+    },
+    {
+      "leafId": "leaf_startup",
+      "treeId": "tree_startup",
+      "name": "创业冷启动",
+      "summary": "全平台电商新店冷启动攻略!零资源新手也能快速撬动自然流量 - 知乎 等相关内容",
+      "contentIds": [
+        "content_1571858750158316890",
+        "content_-2528382414626386130",
+        "content_-6655351972392511228",
+        "content_-5170281578929468354",
+        "content_3291608302736951935",
+        "content_5578052809382735541"
+      ],
+      "state": "withered",
+      "createdAt": "2026-08-16T10:00:00+08:00",
+      "lastActiveAt": "2026-09-04T22:00:00+08:00",
+      "waterCount": 0
+    },
+    {
+      "leafId": "leaf_pm",
+      "treeId": "tree_startup",
+      "name": "产品经理",
+      "summary": "产品经理的能力提升路径 - 知乎 等相关内容",
+      "contentIds": [
+        "content_627464268139015526",
+        "content_2328476430242496548",
+        "content_6258658961083924871",
+        "content_-5749208038893646752",
+        "content_302029200610576126"
+      ],
+      "state": "withered",
+      "createdAt": "2026-08-19T10:00:00+08:00",
+      "lastActiveAt": "2026-09-03T22:00:00+08:00",
+      "waterCount": 0
+    },
+    {
+      "leafId": "leaf_career",
+      "treeId": "tree_career",
+      "name": "程序员职业",
+      "summary": "大龄程序员的现状和出路是什么? - 知乎 等相关内容",
+      "contentIds": [
+        "content_6216625634508704943",
+        "content_-5886806095436182125",
+        "content_6220582337524808287",
+        "content_-5242646674445849003",
+        "content_-1532636752199318756",
+        "content_-5996964858832634582"
+      ],
+      "state": "fading",
+      "createdAt": "2026-08-15T10:00:00+08:00",
+      "lastActiveAt": "2026-09-07T22:00:00+08:00",
+      "waterCount": 0
+    },
+    {
+      "leafId": "leaf_psych",
+      "treeId": "tree_psych",
+      "name": "自我认知",
+      "summary": "【拖延】的本质是不爱自己,爱的是虚假的自己 - 知乎 等相关内容",
+      "contentIds": [
+        "content_6410185912056953085",
+        "content_6194438982547501042",
+        "content_8738210618819052711",
+        "content_-673152830778326265",
+        "content_2180691112543697961",
+        "content_1696643782419318984",
+        "content_-7350170398462347579"
+      ],
+      "state": "fresh",
+      "createdAt": "2026-08-28T10:00:00+08:00",
+      "lastActiveAt": "2026-09-11T22:00:00+08:00",
+      "waterCount": 0
+    },
+    {
+      "leafId": "leaf_fitness",
+      "treeId": "tree_fitness",
+      "name": "习惯养成",
+      "summary": "如果每天只用 30 分钟,该如何高效健身? - 知乎 等相关内容",
+      "contentIds": [
+        "content_6189577376296321789",
+        "content_6962057522120248756",
+        "content_-872584045088146593",
+        "content_-1622048627020020783",
+        "content_3989587771711350094",
+        "content_-391246591451418702"
+      ],
+      "state": "withered",
+      "createdAt": "2026-08-15T10:00:00+08:00",
+      "lastActiveAt": "2026-08-27T22:00:00+08:00",
+      "waterCount": 0
+    }
+  ],
+  "layout": [
+    {
+      "treeId": "tree_ai",
+      "x": 0.66,
+      "y": 0.5,
+      "scale": 1.3
+    },
+    {
+      "treeId": "tree_startup",
+      "x": 0.271,
+      "y": 0.709,
+      "scale": 1.03
+    },
+    {
+      "treeId": "tree_career",
+      "x": 0.533,
+      "y": 0.129,
+      "scale": 0.88
+    },
+    {
+      "treeId": "tree_psych",
+      "x": 0.755,
+      "y": 0.833,
+      "scale": 0.91
+    },
+    {
+      "treeId": "tree_fitness",
+      "x": 0.047,
+      "y": 0.42,
+      "scale": 0.88
+    }
+  ]
+}

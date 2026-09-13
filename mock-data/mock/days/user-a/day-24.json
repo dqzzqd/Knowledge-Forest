@@ -1,0 +1,27 @@
+{
+  "userId": "user_a_shenqian",
+  "date": "2026-09-07",
+  "dayIndex": 24,
+  "contents": [
+    {
+      "contentId": "content_6080690946121193222",
+      "title": "深度解析Harness Engineering工程体系,拆解大模型可控落地原理与完整实战流程19.8 - 知乎",
+      "excerpt": "一、前言 不知道大家有没有遇到同样的情况，在大模型场景应用越多，越发现单独调用大模型API效果尚可，但落地到真实业务就频繁出问题。要么模型输出随意、频繁产生幻觉，要么无法对接业务工具、流程混乱，要么成本失控、输出结果不符合业务规范。 在一番",
+      "url": "https://zhuanlan.zhihu.com/p/2066956785127256578",
+      "voteUpCount": 1,
+      "source": "like",
+      "category": "tech",
+      "interactedAt": "2026-09-07T22:25:00+08:00"
+    },
+    {
+      "contentId": "content_-5996964858832634582",
+      "title": "Python程序员35岁危机自救指南:我从被裁到年薪80W的3个转型路径 - 知乎",
+      "excerpt": "核心能力栈： ・分布式系统设计（CAP、一致性协议、分片策略） ・性能调优（JVM/Go/Python runtime、数据库索引、缓存穿透） ・技术选型与权衡（什么时候用Redis集群、什么时候上Kafka） 转型时间： 2-3年 薪资区",
+      "url": "https://zhuanlan.zhihu.com/p/2072692808553706924",
+      "voteUpCount": 2,
+      "source": "favorite",
+      "category": "life",
+      "interactedAt": "2026-09-07T23:11:00+08:00"
+    }
+  ]
+}

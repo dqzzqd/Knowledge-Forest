@@ -1,0 +1,27 @@
+{
+  "userId": "user_c_zashi",
+  "date": "2026-08-29",
+  "dayIndex": 15,
+  "contents": [
+    {
+      "contentId": "content_-452785051733500523",
+      "title": "如何理解电影中的“镜头语言”? - 知乎",
+      "excerpt": "现在到了一边看电影会一边做笔记的阶段（不是影评，而是笔记），没有时间去拉片，但值得记下来的就记下来。以极其通俗易懂的方式总结了一些非常初级的电影镜头语言，也没有什么神秘的，很多专业的，影视创作的up主都已经做了很多很细节的科普。 但这篇有可",
+      "url": "https://www.zhihu.com/question/278501938/answer/2077847678499791602",
+      "voteUpCount": 1,
+      "source": "favorite",
+      "category": "arts",
+      "interactedAt": "2026-08-29T09:58:00+08:00"
+    },
+    {
+      "contentId": "content_4051687143080677932",
+      "title": "自学Python应该如何入门? - 知乎",
+      "excerpt": "Python 的应用领域非常广，即能做数据分析、办公自动化，又能做 Web 和企业级开发，甚至开发 GUI 程序和游戏也不是不行，还可以作科学计算、量化交易、深度学习、计算机视觉等。好在 Python 的书籍非常丰富，也上领域都有相应的教材",
+      "url": "https://www.zhihu.com/question/661673363/answer/2048682742158714286",
+      "voteUpCount": 20,
+      "source": "like",
+      "category": "tech",
+      "interactedAt": "2026-08-29T21:33:00+08:00"
+    }
+  ]
+}

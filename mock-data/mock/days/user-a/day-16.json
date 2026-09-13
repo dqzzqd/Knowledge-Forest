@@ -1,0 +1,27 @@
+{
+  "userId": "user_a_shenqian",
+  "date": "2026-08-30",
+  "dayIndex": 16,
+  "contents": [
+    {
+      "contentId": "content_-5749208038893646752",
+      "title": "产品经理职业发展路径是怎样的? - 知乎",
+      "excerpt": "中级产品经理的核心目标是能独立负责一款产品的闭环。 除了上面的技能要更娴熟、更专业外，还要涉及以下能力： 产品规划与生命周期管理：能独立负责一个模块、系统或是子产品的整体规划，能制定年度的产品迭代计划，设计产品路线图，平衡短期需求和长期目标",
+      "url": "https://www.zhihu.com/question/1966896005128623738/answer/2033654111695026095",
+      "voteUpCount": 4,
+      "source": "like",
+      "category": "business",
+      "interactedAt": "2026-08-30T21:45:00+08:00"
+    },
+    {
+      "contentId": "content_-5792607152362813352",
+      "title": "你在用哪些 AI Agent(智能体)? - 知乎",
+      "excerpt": "我最早使用的AI智能体是Cursor，2025年初，付费用户： 期间也尝试过通义灵码、Trae，当时无论是智能体还是模型都与Cursor+GPT模型有差距。 用作我的个人助理的智能体是OpenClaw，从OpenClaw刚推出，我就在一台单",
+      "url": "https://www.zhihu.com/question/1921195659354145192/answer/2077885895382929479",
+      "voteUpCount": 22,
+      "source": "favorite",
+      "category": "tech",
+      "interactedAt": "2026-08-30T23:50:00+08:00"
+    }
+  ]
+}

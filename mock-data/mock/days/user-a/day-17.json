@@ -1,0 +1,27 @@
+{
+  "userId": "user_a_shenqian",
+  "date": "2026-08-31",
+  "dayIndex": 17,
+  "contents": [
+    {
+      "contentId": "content_616620069960059012",
+      "title": "小白也能学会大模型落地实战,助力医疗信息化升级 - 知乎",
+      "excerpt": "本文介绍了DeepSeek V3/R1等开源大模型在医疗行业的应用实践，重点解析了模型训练（预训练、SFT、RLHF）和智能体开发（提示词工程、工作流编排、RAG、函数调用、多智能体协同）的技术路径。以华西二院数字医生项目为例，详细阐述了从",
+      "url": "https://zhuanlan.zhihu.com/p/2073432374445192899",
+      "voteUpCount": 0,
+      "source": "favorite",
+      "category": "tech",
+      "interactedAt": "2026-08-31T08:36:00+08:00"
+    },
+    {
+      "contentId": "content_3291608302736951935",
+      "title": "新产品/新账号如何从零开始有效克服冷启动期? - 知乎",
+      "excerpt": "Product Hunt 官方也提醒，只有邮箱注册的 pre-launch 产品通常不适合首页。 早发布不一定是好事。用户来了，却体验不到价值，只会浪费一次曝光机会。 个人账号比公司账号重要 Product Hunt 官方说明，发布产品需要",
+      "url": "https://www.zhihu.com/question/2040801252771094855/answer/2077103606810030901",
+      "voteUpCount": 1,
+      "source": "favorite",
+      "category": "business",
+      "interactedAt": "2026-08-31T21:12:00+08:00"
+    }
+  ]
+}

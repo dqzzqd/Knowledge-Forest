@@ -1,0 +1,27 @@
+{
+  "userId": "user_a_shenqian",
+  "date": "2026-08-18",
+  "dayIndex": 4,
+  "contents": [
+    {
+      "contentId": "content_-5886806095436182125",
+      "title": "35岁以后的程序员何去何从? - 知乎",
+      "excerpt": "第二个不变量：工程约束永远存在。 年轻时觉得架构越先进越好，技术越新越厉害。做了几年项目之后会发现，软件工程不是技术比拼，大部分时候比的是判断力。什么时候引入新技术，什么时候保持简单，什么时候值得重构，什么时候接受现状。这些选择没有标准答案",
+      "url": "https://www.zhihu.com/question/503997426/answer/2068310824708577084",
+      "voteUpCount": 10,
+      "source": "favorite",
+      "category": "life",
+      "interactedAt": "2026-08-18T08:18:00+08:00"
+    },
+    {
+      "contentId": "content_7164934587917917083",
+      "title": "[RAG]Graph-R1:基于强化学习的智能体式GraphRAG框架 - 知乎",
+      "excerpt": "[RAG]Graph-R1：基于端到端强化学习的智能体式图检索增强生成框架 摘要 检索增强生成（RAG）通过引入外部知识缓解大语言模型（LLM）的幻觉问题，但依赖分块式检索，缺乏结构语义信息。图检索增强生成（GraphRAG）方法将知识建模",
+      "url": "https://zhuanlan.zhihu.com/p/2045072629577646747",
+      "voteUpCount": 2,
+      "source": "search",
+      "category": "tech",
+      "interactedAt": "2026-08-18T23:11:00+08:00"
+    }
+  ]
+}

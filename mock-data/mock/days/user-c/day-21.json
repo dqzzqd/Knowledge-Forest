@@ -1,0 +1,17 @@
+{
+  "userId": "user_c_zashi",
+  "date": "2026-09-04",
+  "dayIndex": 21,
+  "contents": [
+    {
+      "contentId": "content_-7451484549211613156",
+      "title": "Python 初学者必备基础知识 - 知乎",
+      "excerpt": "函数的好处是：一次定义，处处调用，避免写重复代码，也让程序结构更清晰。 6. 模块：代码的“积木仓库” 模块就是一个 .py 文件，里面装着函数、类、变量。你可以通过 import 把它“请”进来使用。Python自带的“标准库”就像一个巨",
+      "url": "https://zhuanlan.zhihu.com/p/2075162528464818477",
+      "voteUpCount": 2,
+      "source": "favorite",
+      "category": "tech",
+      "interactedAt": "2026-09-04T22:10:00+08:00"
+    }
+  ]
+}

@@ -1,0 +1,675 @@
+{
+  "userId": "user_a_shenqian",
+  "displayName": "深潜型探索者",
+  "nickname": "海沟观测员",
+  "bio": "不太追热点，喜欢把一个领域挖到底。60% 的收藏都在人工智能这一棵树上。",
+  "tags": [
+    "人工智能",
+    "创业",
+    "心理学"
+  ],
+  "avatar": "../../avatars/user-a.svg",
+  "generatedAt": "2026-09-13T22:00:00+08:00",
+  "contents": [
+    {
+      "contentId": "content_6216625634508704943",
+      "title": "大龄程序员的现状和出路是什么? - 知乎",
+      "excerpt": "我今年 38 了，写了十五六年代码，做过后端、搞过架构、带过几十人的团队，现在在一家游戏公司做 AI 中台。 所以大龄程序员的现状，我就是活样本。 先说一个很多人不愿意承认的事实。大部分程序员到了 35 岁左右，技术能力是在下降的。不是因为",
+      "url": "https://www.zhihu.com/question/2043990660999542252/answer/2068286495601979750",
+      "voteUpCount": 77,
+      "source": "search",
+      "category": "life",
+      "interactedAt": "2026-08-15T09:37:00+08:00"
+    },
+    {
+      "contentId": "content_6189577376296321789",
+      "title": "如果每天只用 30 分钟,该如何高效健身? - 知乎",
+      "excerpt": "第一个坑：热身拖太久。 很多人热身能热 15 分钟——慢慢走、压腿、东摸西摸。其实热身的目的是让身体热起来、关节活动开，5 分钟够了。开合跳、手臂绕环、髋部绕环，各做一两分钟，身体发热了就开练。 第二个坑：组间刷手机。 一组动作做完，掏手机",
+      "url": "https://www.zhihu.com/question/1949157932529878409/answer/2078489179416277222",
+      "voteUpCount": 2,
+      "source": "search",
+      "category": "life",
+      "interactedAt": "2026-08-15T09:58:00+08:00"
+    },
+    {
+      "contentId": "content_1571858750158316890",
+      "title": "全平台电商新店冷启动攻略!零资源新手也能快速撬动自然流量 - 知乎",
+      "excerpt": "很多电商新手入驻淘宝、拼多多、京东、1688、抖店后，都会陷入同一个困境：新店没有权重、没有基础数据，平台不给流量，店铺长期处于静默状态。大部分商家误以为新店只能靠付费推广起量，实则各大平台对新店都有专属的冷启动流量扶持，只要掌握正确的冷启",
+      "url": "https://zhuanlan.zhihu.com/p/2079220366770168414",
+      "voteUpCount": 1,
+      "source": "search",
+      "category": "business",
+      "interactedAt": "2026-08-16T23:44:00+08:00"
+    },
+    {
+      "contentId": "content_-6975097988772876776",
+      "title": "AI-Agent哪个好用?国内外各大Agent对比:Claude Code、Codex、Work Buddy、OpenCode等等 - 知乎",
+      "excerpt": "先简单给小白科普下，Agent本意是代理人的意思，就是“替人办事的人”。现在的Agent，常指“AI代理“或叫”智能体“，说白了就是“AI帮人干活”。和之前的AI工具的区别，之前的AI像是聊天工具，你问一句，它答一句。 现在的AI-Agen",
+      "url": "https://zhuanlan.zhihu.com/p/2068016741008121952",
+      "voteUpCount": 152,
+      "source": "search",
+      "category": "tech",
+      "interactedAt": "2026-08-17T09:58:00+08:00"
+    },
+    {
+      "contentId": "content_6962057522120248756",
+      "title": "个人平常不怎么运动,现在想培养一个运动习惯,从什么运动开始比较好呢? - 知乎",
+      "excerpt": "・一个人待不住型：让你自己跑步、举铁，十分钟就寂寞得想死。那你就别碰单人项目，直接去团操课、羽毛球、篮球、飞盘。有人跟你一块儿喘，你就没那么想逃。 ・社恐喜静型：人多就烦，那就别硬凑热闹。游泳、长跑、居家跟练、攀岩，戴上耳机谁也别理谁，最舒",
+      "url": "https://www.zhihu.com/question/11020016948/answer/2075495749840794154",
+      "voteUpCount": 4,
+      "source": "like",
+      "category": "life",
+      "interactedAt": "2026-08-17T23:05:00+08:00"
+    },
+    {
+      "contentId": "content_-5886806095436182125",
+      "title": "35岁以后的程序员何去何从? - 知乎",
+      "excerpt": "第二个不变量：工程约束永远存在。 年轻时觉得架构越先进越好，技术越新越厉害。做了几年项目之后会发现，软件工程不是技术比拼，大部分时候比的是判断力。什么时候引入新技术，什么时候保持简单，什么时候值得重构，什么时候接受现状。这些选择没有标准答案",
+      "url": "https://www.zhihu.com/question/503997426/answer/2068310824708577084",
+      "voteUpCount": 10,
+      "source": "favorite",
+      "category": "life",
+      "interactedAt": "2026-08-18T08:18:00+08:00"
+    },
+    {
+      "contentId": "content_7164934587917917083",
+      "title": "[RAG]Graph-R1:基于强化学习的智能体式GraphRAG框架 - 知乎",
+      "excerpt": "[RAG]Graph-R1：基于端到端强化学习的智能体式图检索增强生成框架 摘要 检索增强生成（RAG）通过引入外部知识缓解大语言模型（LLM）的幻觉问题，但依赖分块式检索，缺乏结构语义信息。图检索增强生成（GraphRAG）方法将知识建模",
+      "url": "https://zhuanlan.zhihu.com/p/2045072629577646747",
+      "voteUpCount": 2,
+      "source": "search",
+      "category": "tech",
+      "interactedAt": "2026-08-18T23:11:00+08:00"
+    },
+    {
+      "contentId": "content_1740081956534276639",
+      "title": "深入浅出完整解析AI Agent(AI智能体)的核心基础知识 - 知乎",
+      "excerpt": "需要注意的是，在AI Agent技术浪潮来临后，80%-90%左右的AI技术工具是短周期的、没有跨周期价值的，会成为AIGC时代彻底的“数字尘埃”，技术工人学习之后也会成为“沉没成本”。 大家好，我是Rocky。 自从2022年AI行业进入",
+      "url": "https://zhuanlan.zhihu.com/p/1919046969076195976",
+      "voteUpCount": 396,
+      "source": "favorite",
+      "category": "tech",
+      "interactedAt": "2026-08-19T08:36:00+08:00"
+    },
+    {
+      "contentId": "content_-8819397036605386957",
+      "title": "【国补】2026年9月海尔洗衣机推荐选购!海尔波轮|滚筒|洗烘一体|烘干机(干衣机)|洗烘套装组合推荐! - 知乎",
+      "excerpt": "本文主旨： 优选海尔|卡萨帝洗衣机最新型号推荐，结合最前沿的科技，帮你选对洗衣机，10年不后悔！ 本文持续更新4年的<海尔洗衣机选购攻略>，全面介绍了海尔洗衣机的优势和技术创新，以及最新型号。 如果你正在选海尔洗衣机，我先直接说结论： 海尔",
+      "url": "https://zhuanlan.zhihu.com/p/359879574",
+      "voteUpCount": 1007,
+      "source": "search",
+      "category": null,
+      "interactedAt": "2026-08-19T21:24:00+08:00"
+    },
+    {
+      "contentId": "content_627464268139015526",
+      "title": "产品经理的能力提升路径 - 知乎",
+      "excerpt": "首先需求收集、需求分析、需求沟通确认、写文档、画原型、内部协调跟进这些需求分析岗的基本功要扎实。 在产品经理岗，可能更多是专注点要在怎么定义产品形态这件事。 但是说点打击人的话，在产品经理岗位，大部分人也不是从新的定义一个公司的产品，往往都",
+      "url": "https://zhuanlan.zhihu.com/p/2077365236529632036",
+      "voteUpCount": 3,
+      "source": "search",
+      "category": "business",
+      "interactedAt": "2026-08-19T22:25:00+08:00"
+    },
+    {
+      "contentId": "content_-872584045088146593",
+      "title": "运动最难的是坚持,如何让运动变成日常习惯 - 知乎",
+      "excerpt": "建议可以采用的方法如下： （1）睡前把运动服放在床头（减少决策成本） （2）固定时间+固定地点=自动触发 （3）利用\"执行意图\"：把运动与已有习惯绑定（如\"刷牙后做拉伸\"） 2.4 找到你的“运动社交圈”- 社会支持 良好的社会支持也是影响",
+      "url": "https://zhuanlan.zhihu.com/p/2078525510011955009",
+      "voteUpCount": 0,
+      "source": "favorite",
+      "category": "life",
+      "interactedAt": "2026-08-19T23:32:00+08:00"
+    },
+    {
+      "contentId": "content_-9051047881747515914",
+      "title": "软考必知:RAG知识库(检索增强生成)知识详解。 - 知乎",
+      "excerpt": "基础 RAG 还不够，工程上会叠加几种进阶技术来提效。这部分了解即可： ・混合检索（Hybrid Search）：向量检索（语义）+ BM25 关键词检索（精确）结合，取长补短； ・查询改写（Query Rewriting）：把用户模糊的问",
+      "url": "https://zhuanlan.zhihu.com/p/2073590443594495853",
+      "voteUpCount": 2,
+      "source": "like",
+      "category": "tech",
+      "interactedAt": "2026-08-20T09:49:00+08:00"
+    },
+    {
+      "contentId": "content_-2528382414626386130",
+      "title": "产品投放,上新没流量,新品冷启动该怎么做? - 知乎",
+      "excerpt": "产品上新没流量，新品冷启动到底该怎么做？ 先说一个非常现实的结论：新品刚上架短期流量低，属于正常现象，但一直零曝光、零访客，一定是某个环节出了问题。 很多人冷启动失败，并不是产品不行，而是顺序做错：内功还没做完就猛投广告，标签跑偏，白白浪费",
+      "url": "https://www.zhihu.com/question/2078114992969335314/answer/2079138560385599346",
+      "voteUpCount": 2,
+      "source": "like",
+      "category": "business",
+      "interactedAt": "2026-08-20T10:17:00+08:00"
+    },
+    {
+      "contentId": "content_2328476430242496548",
+      "title": "初级产品经理如何快速成长为资深产品经理? - 知乎",
+      "excerpt": "这是每个初级产品经理都会遇到的灵魂拷问。 我第一次做产品经理的时候，也想快点成长，很想像那些深资产品经理一样，游刃有余的应对来自四面八方的问题和难题，做出成功的产品。 从业多年后，再回过头来看，所谓的资深产品经理，无非就是背锅背的多了、在一",
+      "url": "https://www.zhihu.com/question/2028793433750283971/answer/2054691511107957730",
+      "voteUpCount": 2,
+      "source": "like",
+      "category": "business",
+      "interactedAt": "2026-08-22T08:09:00+08:00"
+    },
+    {
+      "contentId": "content_-1622048627020020783",
+      "title": "你是靠什么方法长期坚持健身的? - 知乎",
+      "excerpt": " 今天咱就来说说怎么能让你在健身上“坚持下去”！ 一、先把“启动门槛”降到最低 很多人坚持不下来，第一步就错了：总想着一开始就去追求完美，“要么不做，要做就做到最好”，比如：不去健身房就等于今天没练、不练够一个小时就是白费功夫、动作不标准、",
+      "url": "https://www.zhihu.com/question/2019005872588735913/answer/2030179841488704327",
+      "voteUpCount": 14,
+      "source": "like",
+      "category": "life",
+      "interactedAt": "2026-08-22T08:27:00+08:00"
+    },
+    {
+      "contentId": "content_6220582337524808287",
+      "title": "大龄程序员的现状和出路是什么? - 知乎",
+      "excerpt": "领导有点不开心。他说这个月的业绩指标他已经报上去了，我要辞职的话，他就垫底了。他说我\"背刺\"了他。 其实，我也想多赚点钱。可是我不能接受自己会有\"趁人之危想赚钱\"的时候。 那天，我看出那个妈妈的急切和恐惧。那几秒钟的犹豫，让我决定辞职。 并",
+      "url": "https://www.zhihu.com/question/2043990660999542252/answer/2075586959305715935",
+      "voteUpCount": 205,
+      "source": "favorite",
+      "category": "life",
+      "interactedAt": "2026-08-22T09:28:00+08:00"
+    },
+    {
+      "contentId": "content_7779099420243877000",
+      "title": "家用 Wi-Fi 信号差,有什么立竿见影的改善方法? - 知乎",
+      "excerpt": "信号差就增加点位嘛。 不管这个点位，是安装的无线路由器、无线AP，反正必须增加点位，多买个设备。 最简单直接的办法，搞一根网线直通卧室，在卧室增加点位，没有任何穿墙阻挡和信号衰减。 其次的办法，是通过无线MESH，在卧室门口或者附近。在上级",
+      "url": "https://www.zhihu.com/question/2030968596348843591/answer/2073007343575613468",
+      "voteUpCount": 2,
+      "source": "like",
+      "category": null,
+      "interactedAt": "2026-08-23T10:35:00+08:00"
+    },
+    {
+      "contentId": "content_-6655351972392511228",
+      "title": "产品投放,上新没流量,新品冷启动该怎么做? - 知乎",
+      "excerpt": "今天来讲一下相似品跟投。 首先，先讲一下老品的相似品跟投方案，大家都知道，今年的相似品跟投改版了，单独归分为营销目标 然后跟投方案这里，我们从后面3个方案里面去选择 分别为竞争拉新、乘胜追击、流失防守： ①乘胜追击——以强打弱：那我们因为是",
+      "url": "https://www.zhihu.com/question/2078114992969335314/answer/2079262089802166655",
+      "voteUpCount": 1,
+      "source": "like",
+      "category": "business",
+      "interactedAt": "2026-08-23T22:31:00+08:00"
+    },
+    {
+      "contentId": "content_3406820107987865342",
+      "title": "2026年9月洗衣机选购终极指南:洗烘套装洗烘一体机波轮洗衣机滚筒洗衣机怎么选?8大选购要点深度解读帮你避坑!洗衣机品牌哪个好?海尔小天鹅美的米家西门子松下洗衣机推荐 - 知乎",
+      "excerpt": "1.4.1 滚筒洗衣机和波轮洗衣机谁洗得更干净？ 滚筒洗衣机的洗涤效果更稳定，洗涤少量衣物时洗净效果良好，仅在接近满载时洗净率出现下降。 这是由于，滚筒洗衣机主要依靠重力摔打和翻滚揉搓洗涤衣物。 摔打和翻滚的路径越长，洗净效果越好。因此减少",
+      "url": "https://zhuanlan.zhihu.com/p/28038235",
+      "voteUpCount": 8716,
+      "source": "like",
+      "category": null,
+      "interactedAt": "2026-08-23T22:31:00+08:00"
+    },
+    {
+      "contentId": "content_5078449199875109106",
+      "title": "大家觉得做一个大模型检索增强生成(RAG)系统,最难搞定的是那部分工作? - 知乎",
+      "excerpt": "原文： mp.weixin.qq.com/s/Z335... RAG往期文章推荐 RAG效果差？7个指标让你的准确率大幅提升 RAG评测完整指南：指标、测试和最佳实践 收藏！RAG核心工具大全: 7大解析工具+向量模型+数据库+检索排序 G",
+      "url": "https://www.zhihu.com/question/642650878/answer/2081405394618938138",
+      "voteUpCount": 0,
+      "source": "like",
+      "category": "tech",
+      "interactedAt": "2026-08-23T23:05:00+08:00"
+    },
+    {
+      "contentId": "content_13929762785838304",
+      "title": "AI agent是什么意思? - 知乎",
+      "excerpt": "听起来简单，但因为它学的数据量实在太大了，这种「接龙」的效果好到令人吃惊，它能写文章、写代码、做翻译、回答各种专业问题。 LLM 有什么弊端？ 虽然 LLM 非常聪明，但你仔细想想会发现，它其实有点像一个\"有嘴没手\"的顾问。 第一个弊端是只",
+      "url": "https://www.zhihu.com/question/8880418451/answer/2074138989045535680",
+      "voteUpCount": 32,
+      "source": "like",
+      "category": "tech",
+      "interactedAt": "2026-08-24T21:15:00+08:00"
+    },
+    {
+      "contentId": "content_3989587771711350094",
+      "title": "准备长期坚持健身了,有什么忠告吗? - 知乎",
+      "excerpt": "见过太多普通人的健身结局：三分钟热度、盲目跟风受伤、越练越焦虑、花钱买一堆没用的装备，最后在自我内耗里彻底放弃健身，俗称习得性无助。 所以说，绝大多数人坚持不下来健身，从来不是不够自律，而是从一开始就搞错了方向。 健身从来不是短期的减肥任务",
+      "url": "https://www.zhihu.com/question/639348469/answer/2050703254405788405",
+      "voteUpCount": 30,
+      "source": "favorite",
+      "category": "life",
+      "interactedAt": "2026-08-25T08:06:00+08:00"
+    },
+    {
+      "contentId": "content_-268800570750048561",
+      "title": "SAG 深度解析:下一代 RAG 的技术雏形 - 知乎",
+      "excerpt": "MuSiQue 语料上的原生索引统计： 方法 组件数 巨连通分量 孤立点率 GraphRAG 66,472 45.9% 51.1% LightRAG 9,277 85.3% 10.3% HyperGraphRAG 4,600 91.6% 0",
+      "url": "https://zhuanlan.zhihu.com/p/2076691610461548673",
+      "voteUpCount": 7,
+      "source": "like",
+      "category": "tech",
+      "interactedAt": "2026-08-26T23:35:00+08:00"
+    },
+    {
+      "contentId": "content_6258658961083924871",
+      "title": "成为一名优秀产品经理,最重要的核心能力是什么? - 知乎",
+      "excerpt": "・第一，要有”根-干-枝-叶”的知识树结构。 不要把所有知识堆在一平面上。根是你的价值观和思维框架，干是核心方法论（增长、体验、商业模型），枝是具体的领域知识（B端/C端/医疗/金融），叶才是当下的热点资讯和行业动态。光摄入叶子，没有根和干",
+      "url": "https://www.zhihu.com/question/2002339820983310238/answer/2010325704923976359",
+      "voteUpCount": 1,
+      "source": "favorite",
+      "category": "business",
+      "interactedAt": "2026-08-26T23:50:00+08:00"
+    },
+    {
+      "contentId": "content_-5242646674445849003",
+      "title": "大龄程序员的现状和出路是什么? - 知乎",
+      "excerpt": "去年4月，我 38 岁，被 HR 约谈。 不是 PIP，不是绩效差。HR 开门见山：「公司希望团队年轻化，你看看外面的机会。」 N+1，谈得很快。前前后后 30 分钟，我签了字。 回家路上在地铁里坐着想，这TAM到底是不是贩卖焦虑？ 后来我",
+      "url": "https://www.zhihu.com/question/2043990660999542252/answer/2062902974670713559",
+      "voteUpCount": 425,
+      "source": "favorite",
+      "category": "life",
+      "interactedAt": "2026-08-27T09:58:00+08:00"
+    },
+    {
+      "contentId": "content_-391246591451418702",
+      "title": "你是靠什么方法长期坚持健身的? - 知乎",
+      "excerpt": "长期坚持健身，首先是建立自己健身的初心是什么，想要达到什么效果.然后编制建身的时间计划，最开始不要练的太勤容易疲劳，造成一周不到就没有动力了。 在执行计划时对比预设的计划，修正偏差，慢慢养成良好的运动习惯。 也不断修正计划的时间运动量，适合",
+      "url": "https://www.zhihu.com/question/2019005872588735913/answer/2079147460614792954",
+      "voteUpCount": 2,
+      "source": "favorite",
+      "category": "life",
+      "interactedAt": "2026-08-27T10:17:00+08:00"
+    },
+    {
+      "contentId": "content_2000794359431273245",
+      "title": "Wi-Fi 信号差多数源于路由器设置不当,如何通过调整摆放和天线有效改善? - 知乎",
+      "excerpt": "这个问题中的内容大部分都是错误的，除了路由器不能放在墙角、柜子、金属物体、墙体、微波炉、蓝牙设备附近是对的，其他大家千万不要参考！ 首先，WiFi信号不是向四周均匀发射的。理想条件下，辐射点源应以球状向四面八方均匀辐射能量，但现实中并不存在",
+      "url": "https://www.zhihu.com/question/2079197297032818750/answer/2079494132838447034",
+      "voteUpCount": 0,
+      "source": "search",
+      "category": null,
+      "interactedAt": "2026-08-27T21:54:00+08:00"
+    },
+    {
+      "contentId": "content_-5170281578929468354",
+      "title": "反套路出圈!carrier pidge闯进全球多市场App Store社交榜Top 20,一文拆解社交产品冷启动的突围关键 - 知乎",
+      "excerpt": "在商业化层面，该款产品围绕玩法设计了增值服务，美国App Store商店页支持用户付费购买额外信鸽。但这套商业模式也存在明显短板：随机消息丢失机制本身容易引发用户不满，若再引导付费补充道具、挽回消息，极易消耗用户信任。 // carrier",
+      "url": "https://zhuanlan.zhihu.com/p/2074206752061628507",
+      "voteUpCount": 1,
+      "source": "like",
+      "category": "business",
+      "interactedAt": "2026-08-27T22:13:00+08:00"
+    },
+    {
+      "contentId": "content_6410185912056953085",
+      "title": "【拖延】的本质是不爱自己,爱的是虚假的自己 - 知乎",
+      "excerpt": "不要等到所有条件都完美，那一天永远不会来临。 拖延本质上是【对自我认知】的误解，是对真实自我的忽视。 拖延不仅仅是“不想做事情”这样简单的表面问题， 它反映的是我们内心深处的恐惧、焦虑和自我怀疑， 进而沉溺于一种理想化、虚假的自我形象中。 ",
+      "url": "https://zhuanlan.zhihu.com/p/674016363",
+      "voteUpCount": 4,
+      "source": "search",
+      "category": "science",
+      "interactedAt": "2026-08-28T08:36:00+08:00"
+    },
+    {
+      "contentId": "content_-2186890878705454622",
+      "title": "大模型上下文窗口从 8K 扩到 128K,实际工程落地价值到底有多大? 怎么实现上下文窗口的扩展的? - 知乎",
+      "excerpt": "import numpy as np # 1. 文本分块（适配上下文窗口） def text_chunk_split(text: str, chunk_size: int = 200, overlap: int = 20) -> list:",
+      "url": "https://www.zhihu.com/question/2027804661629853739/answer/2081653614557279175",
+      "voteUpCount": 0,
+      "source": "search",
+      "category": "tech",
+      "interactedAt": "2026-08-28T23:53:00+08:00"
+    },
+    {
+      "contentId": "content_6919631488279675276",
+      "title": "大家觉得做一个大模型检索增强生成(RAG)系统,最难搞定的是那部分工作? - 知乎",
+      "excerpt": "真正上线测试才发现问题一大堆： ・问某台设备历史故障，AI 把不同产线、不同型号的日志混在一起； ・查工单质检记录，召回一堆无关的操作手册； ・检索返回的文字看着通顺，但是缺少工单号、设备 ID、故障码这类工业关键字段，答案没法溯源，车间工",
+      "url": "https://www.zhihu.com/question/642650878/answer/2080608175703826866",
+      "voteUpCount": 2,
+      "source": "favorite",
+      "category": "tech",
+      "interactedAt": "2026-08-29T21:00:00+08:00"
+    },
+    {
+      "contentId": "content_8738210618819052711",
+      "title": "你不是懒是你的大脑在用拖延保护你—— 2026年拖延心理与认知觉醒指南 - 知乎",
+      "excerpt": "斯坦福大学的行为设计师BJ Fogg 把这个策略称为\"微习惯\"（Tiny Habits）。他的核心理念是：不要靠动机来驱动行为，要靠降低门槛来驱动行为。动机是波动的、不可靠的；但\"2分钟能做完\"的门槛，永远很低。 方法三：允许自己做得烂——",
+      "url": "https://zhuanlan.zhihu.com/p/2055755522960265836",
+      "voteUpCount": 3,
+      "source": "favorite",
+      "category": "science",
+      "interactedAt": "2026-08-29T21:00:00+08:00"
+    },
+    {
+      "contentId": "content_6194438982547501042",
+      "title": "第 03 讲 | 拖延心理:你不是懒,你是潜意识里害怕成功。 - 知乎",
+      "excerpt": "我们经常把拖延归结为时间管理能力差，或者干脆骂自己一句“太懒了”。但如果你仔细体会过自己拖延时的状态，你就会发现这种说法根本站不住脚。 真正的懒人躺在沙发上玩手机，内心是毫无波澜甚至十分享受的。而你不是。你一边刷着毫无营养的短视频，一边心跳",
+      "url": "https://zhuanlan.zhihu.com/p/2021174618250069621",
+      "voteUpCount": 12,
+      "source": "favorite",
+      "category": "science",
+      "interactedAt": "2026-08-29T21:30:00+08:00"
+    },
+    {
+      "contentId": "content_-5749208038893646752",
+      "title": "产品经理职业发展路径是怎样的? - 知乎",
+      "excerpt": "中级产品经理的核心目标是能独立负责一款产品的闭环。 除了上面的技能要更娴熟、更专业外，还要涉及以下能力： 产品规划与生命周期管理：能独立负责一个模块、系统或是子产品的整体规划，能制定年度的产品迭代计划，设计产品路线图，平衡短期需求和长期目标",
+      "url": "https://www.zhihu.com/question/1966896005128623738/answer/2033654111695026095",
+      "voteUpCount": 4,
+      "source": "like",
+      "category": "business",
+      "interactedAt": "2026-08-30T21:45:00+08:00"
+    },
+    {
+      "contentId": "content_-5792607152362813352",
+      "title": "你在用哪些 AI Agent(智能体)? - 知乎",
+      "excerpt": "我最早使用的AI智能体是Cursor，2025年初，付费用户： 期间也尝试过通义灵码、Trae，当时无论是智能体还是模型都与Cursor+GPT模型有差距。 用作我的个人助理的智能体是OpenClaw，从OpenClaw刚推出，我就在一台单",
+      "url": "https://www.zhihu.com/question/1921195659354145192/answer/2077885895382929479",
+      "voteUpCount": 22,
+      "source": "favorite",
+      "category": "tech",
+      "interactedAt": "2026-08-30T23:50:00+08:00"
+    },
+    {
+      "contentId": "content_616620069960059012",
+      "title": "小白也能学会大模型落地实战,助力医疗信息化升级 - 知乎",
+      "excerpt": "本文介绍了DeepSeek V3/R1等开源大模型在医疗行业的应用实践，重点解析了模型训练（预训练、SFT、RLHF）和智能体开发（提示词工程、工作流编排、RAG、函数调用、多智能体协同）的技术路径。以华西二院数字医生项目为例，详细阐述了从",
+      "url": "https://zhuanlan.zhihu.com/p/2073432374445192899",
+      "voteUpCount": 0,
+      "source": "favorite",
+      "category": "tech",
+      "interactedAt": "2026-08-31T08:36:00+08:00"
+    },
+    {
+      "contentId": "content_3291608302736951935",
+      "title": "新产品/新账号如何从零开始有效克服冷启动期? - 知乎",
+      "excerpt": "Product Hunt 官方也提醒，只有邮箱注册的 pre-launch 产品通常不适合首页。 早发布不一定是好事。用户来了，却体验不到价值，只会浪费一次曝光机会。 个人账号比公司账号重要 Product Hunt 官方说明，发布产品需要",
+      "url": "https://www.zhihu.com/question/2040801252771094855/answer/2077103606810030901",
+      "voteUpCount": 1,
+      "source": "favorite",
+      "category": "business",
+      "interactedAt": "2026-08-31T21:12:00+08:00"
+    },
+    {
+      "contentId": "content_-673152830778326265",
+      "title": "从心理学角度看,拖延症的根源是什么? - 知乎",
+      "excerpt": "这个机制难打破，是因为反馈链条太短了。回避之后几分钟内焦虑就下降，效果立竿见影。而“继续拖延导致最后崩溃”的反馈链条很长——拖几天甚至几周才能看到恶果。短反馈加强效果，行为被快速强化。大脑做选择的时候，用的是“当下哪个行为能让我舒服”，不是",
+      "url": "https://www.zhihu.com/question/1885997541918741629/answer/2075863914982778479",
+      "voteUpCount": 15,
+      "source": "favorite",
+      "category": "science",
+      "interactedAt": "2026-09-01T10:08:00+08:00"
+    },
+    {
+      "contentId": "content_7183632955015752336",
+      "title": "从单次 RAG 到智能体 AI,系统如何获得重试、工具调用和自我修正能力 - 知乎",
+      "excerpt": "过去几年，系统设计里的 AI 架构通常是这样：“设计一个系统，检索相关文档并基于这些文档生成答案。”对应的就是经典检索增强生成（Retrieval-Augmented Generation，RAG）Pipeline：取回上下文，交给语言模型",
+      "url": "https://zhuanlan.zhihu.com/p/2074606442506630760",
+      "voteUpCount": 2,
+      "source": "like",
+      "category": "tech",
+      "interactedAt": "2026-09-01T23:11:00+08:00"
+    },
+    {
+      "contentId": "content_4343400662026589739",
+      "title": "中小企业应如何落地大模型技术应用? - 知乎",
+      "excerpt": "上一篇文章我讲了一个核心观点：\"上一个工业大模型就能替代老师傅\"，这是个伪命题。 很多朋友看完之后问我：那到底应该怎么做？老师傅的经验怎么挖？挖出来之后怎么和大模型结合？具体步骤是什么？会遇到哪些坑？ 这篇文章，我就把这些年在工厂做知识传承",
+      "url": "https://www.zhihu.com/question/2026622044851184000/answer/2075597591438480015",
+      "voteUpCount": 1,
+      "source": "like",
+      "category": "tech",
+      "interactedAt": "2026-09-02T09:37:00+08:00"
+    },
+    {
+      "contentId": "content_-1532636752199318756",
+      "title": "35岁以后的程序员何去何从? - 知乎",
+      "excerpt": "35岁危机不是年龄危机，是收入结构危机。 很多人把35岁焦虑归结为\"技术落后了\"\"体力跟不上了\"\"年轻人更便宜\"。这些都对，但都不是根本原因，而其中的根本原因是：你只有一份收入，而这份收入的提供者随时可以换人。 我目前白天上班写代码，做公司",
+      "url": "https://www.zhihu.com/question/503997426/answer/2075504508868809333",
+      "voteUpCount": 0,
+      "source": "favorite",
+      "category": "life",
+      "interactedAt": "2026-09-02T23:02:00+08:00"
+    },
+    {
+      "contentId": "content_302029200610576126",
+      "title": "产品经理新人如何成长,没有互联网经验的? - 知乎",
+      "excerpt": "理解你的处境，没有经验时感到迷茫、不知道每天该做什么，这几乎是每位产品经理的必经阶段。 但是别担心，这恰恰是成长最快的起点。核心思路是从“执行”中学习，而非等待被“教导”。公司招你，是期待你能解决问题，而不是等着被培训。 第一步：熟悉你的产",
+      "url": "https://www.zhihu.com/question/21321636/answer/2025509376006321290",
+      "voteUpCount": 3,
+      "source": "favorite",
+      "category": "business",
+      "interactedAt": "2026-09-03T22:40:00+08:00"
+    },
+    {
+      "contentId": "content_-3001923579393130564",
+      "title": "用什么ai agent好,怎么选,从价格实用角度来看? - 知乎",
+      "excerpt": "基本上，个人使用的花，绝大部分AI Agent是免费，但是你需要为Agent背后大模型支付Token费用。 我最早使用的AI智能体是Cursor，2025年初，付费用户： 期间也尝试过通义灵码、Trae，当时无论是智能体还是模型都与Curs",
+      "url": "https://www.zhihu.com/question/2069722292402361191/answer/2078949753157699097",
+      "voteUpCount": 23,
+      "source": "favorite",
+      "category": "tech",
+      "interactedAt": "2026-09-03T23:32:00+08:00"
+    },
+    {
+      "contentId": "content_8355056534664891481",
+      "title": "LLM 学习第 18 课:长上下文 vs RAG - 知乎",
+      "excerpt": "欢迎搜索并关注微信公众号「新时代程序员」，持续更新AI知识、就业转型与学习干货。关注后不错过后续更新哦~ 今日重点（Top 3） ・长上下文模型的优势与局限 ・检索增强生成（RAG）工作流概述 ・何时在两者之间做选择的实用指南 在本课中，我",
+      "url": "https://zhuanlan.zhihu.com/p/2079615913633104331",
+      "voteUpCount": 1,
+      "source": "like",
+      "category": "tech",
+      "interactedAt": "2026-09-04T08:39:00+08:00"
+    },
+    {
+      "contentId": "content_2180691112543697961",
+      "title": "拖延症②:如何自我观察自己的拖延症 ? - 知乎",
+      "excerpt": "可以通过行为模式，心理信号和拖延所造成的后果影响几个维度进行自我观察自己是否患有拖延症，而不是仅仅拖延。 一. 行为模式 1. 从“想”到“做”的路径异常艰难 ①明明任务很清楚，也知道该开始了，但身体就是无法行动，总会找点别的事来做，比如刷",
+      "url": "https://zhuanlan.zhihu.com/p/1959969153063556107",
+      "voteUpCount": 1,
+      "source": "like",
+      "category": "science",
+      "interactedAt": "2026-09-04T10:47:00+08:00"
+    },
+    {
+      "contentId": "content_5578052809382735541",
+      "title": "新品类GEO冷启动实战:如何在空白语义赛道快速建立品类认知关联 - 知乎",
+      "excerpt": "图片： https://http://istudy-octopus.oss-cn-guangzhou.aliyuncs.com/media/article/batch-inline/2026/08/27/1/6bd90dcb-db4f-40",
+      "url": "https://zhuanlan.zhihu.com/p/2076393077548365358",
+      "voteUpCount": 0,
+      "source": "favorite",
+      "category": "business",
+      "interactedAt": "2026-09-04T10:59:00+08:00"
+    },
+    {
+      "contentId": "content_6548322861314323791",
+      "title": "读懂AI Agent:基于大模型的智能体(类openclawd的框架通解) - 知乎",
+      "excerpt": "AI Agent也可以称为“智能体”。在大模型技术驱动下，让人们以自然语言为交互方式高度自动化地执行和处理专业或繁复的工作任务，从而极大程度释放人类的精力，并降低操作门槛。 现在，Agent 基本就等于 \"大模型 + 插件 + 执行流程 /",
+      "url": "https://zhuanlan.zhihu.com/p/657937696",
+      "voteUpCount": 1371,
+      "source": "favorite",
+      "category": "tech",
+      "interactedAt": "2026-09-05T08:36:00+08:00"
+    },
+    {
+      "contentId": "content_-2960356255725204410",
+      "title": "万字详解AI Agent 核心概念:Agent Loop、Plan-and-Execute、A2A、Agentic Workflows、Tools 注册 - 知乎",
+      "excerpt": "第一次被 ChatGPT 震到的时候，很多人应该都还在研究 Prompt 怎么写。那时候它更像一个会聊天的知识库。你问，它答；你不问，它也不会自己动。三年过去，AI 已经不只是在聊天框里回复文字了。它开始会调用工具，会读文件，会跑代码，甚至",
+      "url": "https://zhuanlan.zhihu.com/p/2044328943587743048",
+      "voteUpCount": 88,
+      "source": "like",
+      "category": "tech",
+      "interactedAt": "2026-09-05T09:49:00+08:00"
+    },
+    {
+      "contentId": "content_3169485591707754151",
+      "title": "工信部 AI 落地新政全文解读:建全国服务商资源池,大模型、智能体、Token 采购全面加码 - 知乎",
+      "excerpt": "8 月 31 日，工业和信息化部办公厅正式发布《关于开展人工智能应用服务商培育专项行动的通知》，这是继国务院 “人工智能 +” 行动之后，针对 AI 落地 “最后一公里” 出台的专项配套政策。 整份政策的核心逻辑非常清晰：大模型技术已经走到",
+      "url": "https://zhuanlan.zhihu.com/p/2078147823632127895",
+      "voteUpCount": 0,
+      "source": "favorite",
+      "category": "tech",
+      "interactedAt": "2026-09-05T23:02:00+08:00"
+    },
+    {
+      "contentId": "content_-5901010886917430576",
+      "title": "用完千问智能体,我对\"AI Agent\"有了新的理解 - 知乎",
+      "excerpt": "说起今年的AI潮流，最火的概念一定是智能体。 年初龙虾（OpenClaw）现象级爆火，之后各类AI智能体产品密集涌现。IDC在2026年WAIC期间发布的研究报告预计，全年全球活跃的AI智能体数量将攀升至7940万个。今年被业界普遍视为AI",
+      "url": "https://zhuanlan.zhihu.com/p/2071289462185785306",
+      "voteUpCount": 84,
+      "source": "like",
+      "category": "tech",
+      "interactedAt": "2026-09-05T23:23:00+08:00"
+    },
+    {
+      "contentId": "content_6080690946121193222",
+      "title": "深度解析Harness Engineering工程体系,拆解大模型可控落地原理与完整实战流程19.8 - 知乎",
+      "excerpt": "一、前言 不知道大家有没有遇到同样的情况，在大模型场景应用越多，越发现单独调用大模型API效果尚可，但落地到真实业务就频繁出问题。要么模型输出随意、频繁产生幻觉，要么无法对接业务工具、流程混乱，要么成本失控、输出结果不符合业务规范。 在一番",
+      "url": "https://zhuanlan.zhihu.com/p/2066956785127256578",
+      "voteUpCount": 1,
+      "source": "like",
+      "category": "tech",
+      "interactedAt": "2026-09-07T22:25:00+08:00"
+    },
+    {
+      "contentId": "content_-5996964858832634582",
+      "title": "Python程序员35岁危机自救指南:我从被裁到年薪80W的3个转型路径 - 知乎",
+      "excerpt": "核心能力栈： ・分布式系统设计（CAP、一致性协议、分片策略） ・性能调优（JVM/Go/Python runtime、数据库索引、缓存穿透） ・技术选型与权衡（什么时候用Redis集群、什么时候上Kafka） 转型时间： 2-3年 薪资区",
+      "url": "https://zhuanlan.zhihu.com/p/2072692808553706924",
+      "voteUpCount": 2,
+      "source": "favorite",
+      "category": "life",
+      "interactedAt": "2026-09-07T23:11:00+08:00"
+    },
+    {
+      "contentId": "content_4486185755650126463",
+      "title": "RAG(检索增强生成)会不会消亡呢? - 知乎",
+      "excerpt": "// 入库时打标签 public void importDocument(String content, Map<String, String> metadata) { Document doc = new Document(content",
+      "url": "https://www.zhihu.com/question/637421964/answer/2068638763354535279",
+      "voteUpCount": 101,
+      "source": "favorite",
+      "category": "tech",
+      "interactedAt": "2026-09-08T08:48:00+08:00"
+    },
+    {
+      "contentId": "content_1696643782419318984",
+      "title": "从心理学角度看,拖延症的根源是什么? - 知乎",
+      "excerpt": "拖延这种情况在当下社会并不少见。经常的情况是，明明有紧急的任务需要完成，但越是这样，越是整天在刷手机。虽然心里着急，但在行为上却无动于衷。直到最后那一刻，才会开始启动，进入高效模式并最终完成。 初一看，拖延是时间管理方面出现了问题。不过从深",
+      "url": "https://www.zhihu.com/question/1885997541918741629/answer/2020049777455314503",
+      "voteUpCount": 18,
+      "source": "like",
+      "category": "science",
+      "interactedAt": "2026-09-08T09:07:00+08:00"
+    },
+    {
+      "contentId": "content_6141645053902793139",
+      "title": "锦恢的 AI Agent 小白教程(四)智能体基本原理:Agent Loop,规划模式与子智能体 - 知乎",
+      "excerpt": "所以到底什么是 agent harness？也就是在 ReAct 这个层级对工具，架构，任务执行方式，调度策略基于你的实际业务来进行对应的设计、开发和后续的优化。如果我们将大模型的神奇能力比作CPU那一秒上一次运算的强大计算能力。那么 ag",
+      "url": "https://zhuanlan.zhihu.com/p/2057385707082093544",
+      "voteUpCount": 62,
+      "source": "favorite",
+      "category": "tech",
+      "interactedAt": "2026-09-09T09:28:00+08:00"
+    },
+    {
+      "contentId": "content_-3959452118377799065",
+      "title": "AI 大模型到底有没有实际落地场景? - 知乎",
+      "excerpt": "AI 已经很热，为什么企业还没有真正用起来？ 大模型浪潮席卷两年，许多企业开始发现：模型愈发强大、工具层出不穷、API持续走低，但企业 AI 应用依然停留在“能用”阶段，跑不进流程、扎不进业务、形不成闭环。 问题出在哪？不是大模型不够聪明。",
+      "url": "https://www.zhihu.com/question/642115762/answer/2076633693830042316",
+      "voteUpCount": 1,
+      "source": "like",
+      "category": "tech",
+      "interactedAt": "2026-09-09T23:11:00+08:00"
+    },
+    {
+      "contentId": "content_-1480968154277707521",
+      "title": "一文搞懂:RAG - 知乎",
+      "excerpt": "一、什么是RAG RAG（Retrieval-Augmented Generation，检索增强生成）：不改变大模型本身，在 LLM 生成回答之前，先从外部知识库检索相关信息，把检索结果塞进 Prompt，让 LLM 基于事实生成答案。 核",
+      "url": "https://zhuanlan.zhihu.com/p/2075686630032261772",
+      "voteUpCount": 2,
+      "source": "like",
+      "category": "tech",
+      "interactedAt": "2026-09-10T08:09:00+08:00"
+    },
+    {
+      "contentId": "content_-7350170398462347579",
+      "title": "拖延症真的是因为懒吗?心理学上有没有更深层的解释? - 知乎",
+      "excerpt": "说一个大家比较熟悉的场景，明明两周前就接到了任务，但你就是不开始，不是刷手机，就是无休止收集资料，直到临近截止日期的最后一刻，才开始去做。事后复盘时，就会深深自责，我是不是太懒了，我的执行力怎么这么差？ 请停止批判，因为，有这个问题的不止你",
+      "url": "https://www.zhihu.com/question/2061017808759154502/answer/2070280203931218188",
+      "voteUpCount": 41,
+      "source": "favorite",
+      "category": "science",
+      "interactedAt": "2026-09-11T08:27:00+08:00"
+    },
+    {
+      "contentId": "content_-329348536764377636",
+      "title": "家用 Wi-Fi 信号差,有什么立竿见影的改善方法? - 知乎",
+      "excerpt": "📶 家用 Wi-Fi 信号差？5 个立竿见影的改善方法 家里 Wi-Fi 信号弱、上网卡，很多人的第一反应是： 「是不是该换路由器了？」 先别急着花钱。想让家里 Wi-Fi 信号立刻变好，最有效的办法往往是不用花钱的「优化」，而不是一上来",
+      "url": "https://www.zhihu.com/question/2030968596348843591/answer/2070036213516571355",
+      "voteUpCount": 1,
+      "source": "search",
+      "category": null,
+      "interactedAt": "2026-09-11T21:51:00+08:00"
+    },
+    {
+      "contentId": "content_-6895149264209805334",
+      "title": "滚筒洗衣机和波轮洗衣机,在性能、耗能和洗涤效果上各有什么特点? - 知乎",
+      "excerpt": "很多人觉得滚筒省水，所以用起来肯定省钱。 但是，滚筒洗一次确实省下来的水费比不上开一次加热洗的。 电费可比水费贵多了（。 所以这玩意儿怎么选，分水岭压根不在性能参数表上，在你家平时怎么洗衣服。 波轮洗一次用电不到零点一度，滚筒 开加热洗的话",
+      "url": "https://www.zhihu.com/question/2073726837524636012/answer/2077816938957428495",
+      "voteUpCount": 0,
+      "source": "like",
+      "category": null,
+      "interactedAt": "2026-09-11T23:11:00+08:00"
+    },
+    {
+      "contentId": "content_584687001361631122",
+      "title": "大模型技术落地实战|青软东北大学联合开展\"DeepSeek+智能体开发糖尿病预治智能助手\"项目实训 - 知乎",
+      "excerpt": "2026年暑期，青软集团与东北大学软件学院联合开展\"DeepSeek智能体开发\"项目实训，面向软件工程专业30名学生，以糖尿病预治智能助手开发为实战载体，利用48学时、12次课，完成从需求分析、系统设计到开发部署与项目答辩的全流程实战，探索",
+      "url": "https://zhuanlan.zhihu.com/p/2078812100898641559",
+      "voteUpCount": 1,
+      "source": "favorite",
+      "category": "tech",
+      "interactedAt": "2026-09-11T23:32:00+08:00"
+    },
+    {
+      "contentId": "content_5344680263155401837",
+      "title": "大模型在实际应用中,有哪些常见的落地场景? - 知乎",
+      "excerpt": "销售与运营也类似。模型适合生成跟进摘要、整理客户反馈、聚类用户意见，但“客户是否值得授信”“某项宣传是否合规”不能只看模型给出的自然语言理由。 第四类：软件研发与数据分析 代码本身也是一种高度结构化的语言，因此代码补全、单元测试草拟、报错解",
+      "url": "https://www.zhihu.com/question/2073366963464806859/answer/2073420579290596821",
+      "voteUpCount": 1,
+      "source": "like",
+      "category": "tech",
+      "interactedAt": "2026-09-12T10:59:00+08:00"
+    },
+    {
+      "contentId": "content_-4224391432615174344",
+      "title": "AI Agent 架构三要素:Loop、Runtime与 Sandbox - 知乎",
+      "excerpt": "1 概述 1.1 核心定义 现代 AI Agent 系统从用户意图到最终结果的完整生命周期，由三个相互嵌套的核心概念共同承载： ・Agent Loop（智能体执行循环）：即 LLM 驱动的感知→推理→规划→执行→观察→评估的6步循环。决定 ",
+      "url": "https://zhuanlan.zhihu.com/p/2051723180298056592",
+      "voteUpCount": 142,
+      "source": "favorite",
+      "category": "tech",
+      "interactedAt": "2026-09-12T23:32:00+08:00"
+    },
+    {
+      "contentId": "content_4563173179698421845",
+      "title": "AI 大模型在外勤管理中的落地应用:从对话到业务 - 知乎",
+      "excerpt": "员工和管理者像\"给 AI 派活\"一样按需选择，获得简报、分析、建议与规划； • 6 大业务流 AI：深度嵌入业务操作节点——智能拓客（发现新客、顺路拜访）、日/周/月报总结、历史记录及遗留问题分析、销售策略话术、客户画像、智能提醒。 两者共",
+      "url": "https://zhuanlan.zhihu.com/p/2079294151418558061",
+      "voteUpCount": 1,
+      "source": "favorite",
+      "category": "tech",
+      "interactedAt": "2026-09-13T09:37:00+08:00"
+    },
+    {
+      "contentId": "content_1782331886207654664",
+      "title": "大模型落地到具体行业的核心方法是什么? - 知乎",
+      "excerpt": "这两年的行业现场，最常听到的抱怨是“我们上马了大模型，但没带来什么改变”。不是模型不行，是多数项目把落地的顺序搞反了——先选模型，后想场景。 大模型落地行业的核心方法，三本书给出了完整答案：造应用看 Chip Huyen 的《AI工程》，和",
+      "url": "https://www.zhihu.com/question/2071564047070259124/answer/2071585741893792462",
+      "voteUpCount": 1,
+      "source": "like",
+      "category": "tech",
+      "interactedAt": "2026-09-13T09:49:00+08:00"
+    },
+    {
+      "contentId": "content_3020582565305970929",
+      "title": "【层次科普】读懂 RAG 检索增强生成:破解大模型 “幻觉”,赋能 AI 制药研发落地 - 知乎",
+      "excerpt": "大语言模型在生物医药研发场景价值巨大，但知识截止时间、信息幻觉、专业领域事实错误等问题，严重制约产业落地。 RAG 检索增强生成（Retrieval‑Augmented Generation），不需要重新训练大模型，通过外部权威知识库检索增",
+      "url": "https://zhuanlan.zhihu.com/p/2079162776040256757",
+      "voteUpCount": 1,
+      "source": "favorite",
+      "category": "tech",
+      "interactedAt": "2026-09-13T21:12:00+08:00"
+    }
+  ]
+}

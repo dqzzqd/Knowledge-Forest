@@ -1,0 +1,37 @@
+{
+  "userId": "user_a_shenqian",
+  "date": "2026-08-29",
+  "dayIndex": 15,
+  "contents": [
+    {
+      "contentId": "content_6919631488279675276",
+      "title": "大家觉得做一个大模型检索增强生成(RAG)系统,最难搞定的是那部分工作? - 知乎",
+      "excerpt": "真正上线测试才发现问题一大堆： ・问某台设备历史故障，AI 把不同产线、不同型号的日志混在一起； ・查工单质检记录，召回一堆无关的操作手册； ・检索返回的文字看着通顺，但是缺少工单号、设备 ID、故障码这类工业关键字段，答案没法溯源，车间工",
+      "url": "https://www.zhihu.com/question/642650878/answer/2080608175703826866",
+      "voteUpCount": 2,
+      "source": "favorite",
+      "category": "tech",
+      "interactedAt": "2026-08-29T21:00:00+08:00"
+    },
+    {
+      "contentId": "content_8738210618819052711",
+      "title": "你不是懒是你的大脑在用拖延保护你—— 2026年拖延心理与认知觉醒指南 - 知乎",
+      "excerpt": "斯坦福大学的行为设计师BJ Fogg 把这个策略称为\"微习惯\"（Tiny Habits）。他的核心理念是：不要靠动机来驱动行为，要靠降低门槛来驱动行为。动机是波动的、不可靠的；但\"2分钟能做完\"的门槛，永远很低。 方法三：允许自己做得烂——",
+      "url": "https://zhuanlan.zhihu.com/p/2055755522960265836",
+      "voteUpCount": 3,
+      "source": "favorite",
+      "category": "science",
+      "interactedAt": "2026-08-29T21:00:00+08:00"
+    },
+    {
+      "contentId": "content_6194438982547501042",
+      "title": "第 03 讲 | 拖延心理:你不是懒,你是潜意识里害怕成功。 - 知乎",
+      "excerpt": "我们经常把拖延归结为时间管理能力差，或者干脆骂自己一句“太懒了”。但如果你仔细体会过自己拖延时的状态，你就会发现这种说法根本站不住脚。 真正的懒人躺在沙发上玩手机，内心是毫无波澜甚至十分享受的。而你不是。你一边刷着毫无营养的短视频，一边心跳",
+      "url": "https://zhuanlan.zhihu.com/p/2021174618250069621",
+      "voteUpCount": 12,
+      "source": "favorite",
+      "category": "science",
+      "interactedAt": "2026-08-29T21:30:00+08:00"
+    }
+  ]
+}

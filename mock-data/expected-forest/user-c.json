@@ -1,0 +1,390 @@
+{
+  "userId": "user_c_zashi",
+  "displayName": "广而不深的收藏家",
+  "nickname": "什么都想知道的松鼠",
+  "bio": "10 个话题，每个 6 条。什么都感兴趣，什么都不深入。",
+  "tags": [
+    "摄影",
+    "旅行",
+    "美食",
+    "宠物"
+  ],
+  "avatar": "../../avatars/user-c.svg",
+  "generatedAt": "2026-09-13T22:00:00+08:00",
+  "trees": [
+    {
+      "treeId": "tree_photography",
+      "name": "摄影",
+      "category": "arts",
+      "stage": "young",
+      "leafIds": [
+        "leaf_photography"
+      ],
+      "totalContentCount": 6,
+      "createdAt": "2026-08-20T10:00:00+08:00",
+      "lastGrownAt": "2026-09-09T22:00:00+08:00",
+      "prunedLeafIds": []
+    },
+    {
+      "treeId": "tree_travel",
+      "name": "旅行",
+      "category": "life",
+      "stage": "young",
+      "leafIds": [
+        "leaf_travel"
+      ],
+      "totalContentCount": 6,
+      "createdAt": "2026-08-17T10:00:00+08:00",
+      "lastGrownAt": "2026-09-11T22:00:00+08:00",
+      "prunedLeafIds": []
+    },
+    {
+      "treeId": "tree_food",
+      "name": "美食",
+      "category": "life",
+      "stage": "young",
+      "leafIds": [
+        "leaf_food"
+      ],
+      "totalContentCount": 6,
+      "createdAt": "2026-08-16T10:00:00+08:00",
+      "lastGrownAt": "2026-09-10T22:00:00+08:00",
+      "prunedLeafIds": []
+    },
+    {
+      "treeId": "tree_movie",
+      "name": "电影",
+      "category": "arts",
+      "stage": "young",
+      "leafIds": [
+        "leaf_movie"
+      ],
+      "totalContentCount": 6,
+      "createdAt": "2026-08-19T10:00:00+08:00",
+      "lastGrownAt": "2026-09-13T22:00:00+08:00",
+      "prunedLeafIds": []
+    },
+    {
+      "treeId": "tree_music",
+      "name": "音乐",
+      "category": "arts",
+      "stage": "young",
+      "leafIds": [
+        "leaf_music"
+      ],
+      "totalContentCount": 6,
+      "createdAt": "2026-08-18T10:00:00+08:00",
+      "lastGrownAt": "2026-09-12T22:00:00+08:00",
+      "prunedLeafIds": []
+    },
+    {
+      "treeId": "tree_finance",
+      "name": "理财",
+      "category": "business",
+      "stage": "young",
+      "leafIds": [
+        "leaf_finance"
+      ],
+      "totalContentCount": 6,
+      "createdAt": "2026-08-21T10:00:00+08:00",
+      "lastGrownAt": "2026-09-13T22:00:00+08:00",
+      "prunedLeafIds": []
+    },
+    {
+      "treeId": "tree_homedecor",
+      "name": "家居",
+      "category": "life",
+      "stage": "young",
+      "leafIds": [
+        "leaf_homedecor"
+      ],
+      "totalContentCount": 6,
+      "createdAt": "2026-08-15T10:00:00+08:00",
+      "lastGrownAt": "2026-08-20T22:00:00+08:00",
+      "prunedLeafIds": []
+    },
+    {
+      "treeId": "tree_pet",
+      "name": "宠物",
+      "category": "life",
+      "stage": "young",
+      "leafIds": [
+        "leaf_pet"
+      ],
+      "totalContentCount": 6,
+      "createdAt": "2026-08-16T10:00:00+08:00",
+      "lastGrownAt": "2026-09-13T22:00:00+08:00",
+      "prunedLeafIds": []
+    },
+    {
+      "treeId": "tree_running",
+      "name": "运动",
+      "category": "life",
+      "stage": "young",
+      "leafIds": [
+        "leaf_running"
+      ],
+      "totalContentCount": 6,
+      "createdAt": "2026-08-18T10:00:00+08:00",
+      "lastGrownAt": "2026-09-13T22:00:00+08:00",
+      "prunedLeafIds": []
+    },
+    {
+      "treeId": "tree_python",
+      "name": "编程入门",
+      "category": "tech",
+      "stage": "young",
+      "leafIds": [
+        "leaf_python"
+      ],
+      "totalContentCount": 6,
+      "createdAt": "2026-08-26T10:00:00+08:00",
+      "lastGrownAt": "2026-09-10T22:00:00+08:00",
+      "prunedLeafIds": []
+    }
+  ],
+  "leaves": [
+    {
+      "leafId": "leaf_photography",
+      "treeId": "tree_photography",
+      "name": "构图入门",
+      "summary": "1.4_摄影基本构图_v0 - 知乎 等相关内容",
+      "contentIds": [
+        "content_2263225099653072379",
+        "content_-3497277106361999733",
+        "content_-759005232245517955",
+        "content_-8261476173459699987",
+        "content_-858974518305077472",
+        "content_-1733364104432602183"
+      ],
+      "state": "fading",
+      "createdAt": "2026-08-20T10:00:00+08:00",
+      "lastActiveAt": "2026-09-09T22:00:00+08:00",
+      "waterCount": 0
+    },
+    {
+      "leafId": "leaf_travel",
+      "treeId": "tree_travel",
+      "name": "独自旅行",
+      "summary": "你们一个人去旅游是什么感觉?会害怕且无聊吗? - 知乎 等相关内容",
+      "contentIds": [
+        "content_-8931601937261386792",
+        "content_-1859717611001064511",
+        "content_3991808776342010307",
+        "content_5797955639583424156",
+        "content_-3102472971066680979",
+        "content_1861243128086230702"
+      ],
+      "state": "fresh",
+      "createdAt": "2026-08-17T10:00:00+08:00",
+      "lastActiveAt": "2026-09-11T22:00:00+08:00",
+      "waterCount": 0
+    },
+    {
+      "leafId": "leaf_food",
+      "treeId": "tree_food",
+      "name": "家常菜",
+      "summary": "推荐一个你拿手的家常菜及做法? - 知乎 等相关内容",
+      "contentIds": [
+        "content_-1852351183255059014",
+        "content_7092506415512627181",
+        "content_-4865854464525080274",
+        "content_3393193362619562352",
+        "content_2730674632805071529",
+        "content_-1829283392041465841"
+      ],
+      "state": "fresh",
+      "createdAt": "2026-08-16T10:00:00+08:00",
+      "lastActiveAt": "2026-09-10T22:00:00+08:00",
+      "waterCount": 0
+    },
+    {
+      "leafId": "leaf_movie",
+      "treeId": "tree_movie",
+      "name": "镜头语言",
+      "summary": "《玛丽娅·布劳恩的婚姻》——镜头语言分析() - 知乎 等相关内容",
+      "contentIds": [
+        "content_1951392998398951801",
+        "content_-7016290090310274651",
+        "content_-452785051733500523",
+        "content_3478883575853911618",
+        "content_-7153077396831479266",
+        "content_2110563677671660822"
+      ],
+      "state": "fresh",
+      "createdAt": "2026-08-19T10:00:00+08:00",
+      "lastActiveAt": "2026-09-13T22:00:00+08:00",
+      "waterCount": 0
+    },
+    {
+      "leafId": "leaf_music",
+      "treeId": "tree_music",
+      "name": "乐理入门",
+      "summary": "写给重度音乐爱好者的十万字乐理(Music Theory)读本:从入门到飞升(上) - 知乎 等相关内容",
+      "contentIds": [
+        "content_-2514179217752103090",
+        "content_1541239971780208736",
+        "content_1967278933715141883",
+        "content_8315812571785372472",
+        "content_-8902062389833101623",
+        "content_-706204816729934226"
+      ],
+      "state": "fresh",
+      "createdAt": "2026-08-18T10:00:00+08:00",
+      "lastActiveAt": "2026-09-12T22:00:00+08:00",
+      "waterCount": 0
+    },
+    {
+      "leafId": "leaf_finance",
+      "treeId": "tree_finance",
+      "name": "基金定投",
+      "summary": "想要做好基金投资,看这一篇就够了 - 知乎 等相关内容",
+      "contentIds": [
+        "content_-6209765808928007100",
+        "content_3315504693998851863",
+        "content_-1696320728528474358",
+        "content_8348380026689816481",
+        "content_-1511010431133683524",
+        "content_-6002276396566665491"
+      ],
+      "state": "fresh",
+      "createdAt": "2026-08-21T10:00:00+08:00",
+      "lastActiveAt": "2026-09-13T22:00:00+08:00",
+      "waterCount": 0
+    },
+    {
+      "leafId": "leaf_homedecor",
+      "treeId": "tree_homedecor",
+      "name": "小户型",
+      "summary": "法式风格小户型装修该如何设计? - 知乎 等相关内容",
+      "contentIds": [
+        "content_4325836911856454843",
+        "content_4271883033654059077",
+        "content_3294160318836765964",
+        "content_3433699810964296670",
+        "content_2695789972203802728",
+        "content_-6944647159250897219"
+      ],
+      "state": "withered",
+      "createdAt": "2026-08-15T10:00:00+08:00",
+      "lastActiveAt": "2026-08-20T22:00:00+08:00",
+      "waterCount": 0
+    },
+    {
+      "leafId": "leaf_pet",
+      "treeId": "tree_pet",
+      "name": "养猫",
+      "summary": "新手养猫养狗,最该听听过来人哪句劝? - 知乎 等相关内容",
+      "contentIds": [
+        "content_-8626972508962017544",
+        "content_-1113181233739910730",
+        "content_-3990791213552355566",
+        "content_1803713442529329575",
+        "content_443762276167089335",
+        "content_1473811888570921371"
+      ],
+      "state": "fresh",
+      "createdAt": "2026-08-16T10:00:00+08:00",
+      "lastActiveAt": "2026-09-13T22:00:00+08:00",
+      "waterCount": 0
+    },
+    {
+      "leafId": "leaf_running",
+      "treeId": "tree_running",
+      "name": "马拉松",
+      "summary": "跑了132场全马,我总结出马拉松跑者最该练的,不是跑量 - 知乎 等相关内容",
+      "contentIds": [
+        "content_3659899478799731678",
+        "content_-2702633887512279416",
+        "content_1972704296616251601",
+        "content_1037310658627827273",
+        "content_-3057573805463116416",
+        "content_-1000078402476145067"
+      ],
+      "state": "fresh",
+      "createdAt": "2026-08-18T10:00:00+08:00",
+      "lastActiveAt": "2026-09-13T22:00:00+08:00",
+      "waterCount": 0
+    },
+    {
+      "leafId": "leaf_python",
+      "treeId": "tree_python",
+      "name": "Python自学",
+      "summary": "Python入门1(学习记录) - 知乎 等相关内容",
+      "contentIds": [
+        "content_1889506464753225094",
+        "content_4051687143080677932",
+        "content_3910175937140378805",
+        "content_-7451484549211613156",
+        "content_5785586407540971284",
+        "content_466173867180547374"
+      ],
+      "state": "fresh",
+      "createdAt": "2026-08-26T10:00:00+08:00",
+      "lastActiveAt": "2026-09-10T22:00:00+08:00",
+      "waterCount": 0
+    }
+  ],
+  "layout": [
+    {
+      "treeId": "tree_photography",
+      "x": 0.66,
+      "y": 0.5,
+      "scale": 0.88
+    },
+    {
+      "treeId": "tree_travel",
+      "x": 0.308,
+      "y": 0.676,
+      "scale": 0.88
+    },
+    {
+      "treeId": "tree_food",
+      "x": 0.526,
+      "y": 0.2,
+      "scale": 0.88
+    },
+    {
+      "treeId": "tree_movie",
+      "x": 0.703,
+      "y": 0.764,
+      "scale": 0.88
+    },
+    {
+      "treeId": "tree_music",
+      "x": 0.146,
+      "y": 0.437,
+      "scale": 0.88
+    },
+    {
+      "treeId": "tree_finance",
+      "x": 0.824,
+      "y": 0.294,
+      "scale": 0.88
+    },
+    {
+      "treeId": "tree_homedecor",
+      "x": 0.395,
+      "y": 0.891,
+      "scale": 0.88
+    },
+    {
+      "treeId": "tree_pet",
+      "x": 0.304,
+      "y": 0.123,
+      "scale": 0.88
+    },
+    {
+      "treeId": "tree_running",
+      "x": 0.916,
+      "y": 0.652,
+      "scale": 0.88
+    },
+    {
+      "treeId": "tree_python",
+      "x": 0.075,
+      "y": 0.676,
+      "scale": 0.88
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "userId": "user_a_shenqian",
+  "date": "2026-09-12",
+  "dayIndex": 29,
+  "contents": [
+    {
+      "contentId": "content_5344680263155401837",
+      "title": "大模型在实际应用中,有哪些常见的落地场景? - 知乎",
+      "excerpt": "销售与运营也类似。模型适合生成跟进摘要、整理客户反馈、聚类用户意见，但“客户是否值得授信”“某项宣传是否合规”不能只看模型给出的自然语言理由。 第四类：软件研发与数据分析 代码本身也是一种高度结构化的语言，因此代码补全、单元测试草拟、报错解",
+      "url": "https://www.zhihu.com/question/2073366963464806859/answer/2073420579290596821",
+      "voteUpCount": 1,
+      "source": "like",
+      "category": "tech",
+      "interactedAt": "2026-09-12T10:59:00+08:00"
+    },
+    {
+      "contentId": "content_-4224391432615174344",
+      "title": "AI Agent 架构三要素:Loop、Runtime与 Sandbox - 知乎",
+      "excerpt": "1 概述 1.1 核心定义 现代 AI Agent 系统从用户意图到最终结果的完整生命周期，由三个相互嵌套的核心概念共同承载： ・Agent Loop（智能体执行循环）：即 LLM 驱动的感知→推理→规划→执行→观察→评估的6步循环。决定 ",
+      "url": "https://zhuanlan.zhihu.com/p/2051723180298056592",
+      "voteUpCount": 142,
+      "source": "favorite",
+      "category": "tech",
+      "interactedAt": "2026-09-12T23:32:00+08:00"
+    }
+  ]
+}

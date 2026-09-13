@@ -1,0 +1,27 @@
+{
+  "userId": "user_a_shenqian",
+  "date": "2026-09-03",
+  "dayIndex": 20,
+  "contents": [
+    {
+      "contentId": "content_302029200610576126",
+      "title": "产品经理新人如何成长,没有互联网经验的? - 知乎",
+      "excerpt": "理解你的处境，没有经验时感到迷茫、不知道每天该做什么，这几乎是每位产品经理的必经阶段。 但是别担心，这恰恰是成长最快的起点。核心思路是从“执行”中学习，而非等待被“教导”。公司招你，是期待你能解决问题，而不是等着被培训。 第一步：熟悉你的产",
+      "url": "https://www.zhihu.com/question/21321636/answer/2025509376006321290",
+      "voteUpCount": 3,
+      "source": "favorite",
+      "category": "business",
+      "interactedAt": "2026-09-03T22:40:00+08:00"
+    },
+    {
+      "contentId": "content_-3001923579393130564",
+      "title": "用什么ai agent好,怎么选,从价格实用角度来看? - 知乎",
+      "excerpt": "基本上，个人使用的花，绝大部分AI Agent是免费，但是你需要为Agent背后大模型支付Token费用。 我最早使用的AI智能体是Cursor，2025年初，付费用户： 期间也尝试过通义灵码、Trae，当时无论是智能体还是模型都与Curs",
+      "url": "https://www.zhihu.com/question/2069722292402361191/answer/2078949753157699097",
+      "voteUpCount": 23,
+      "source": "favorite",
+      "category": "tech",
+      "interactedAt": "2026-09-03T23:32:00+08:00"
+    }
+  ]
+}

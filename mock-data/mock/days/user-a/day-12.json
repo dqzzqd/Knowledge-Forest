@@ -1,0 +1,27 @@
+{
+  "userId": "user_a_shenqian",
+  "date": "2026-08-26",
+  "dayIndex": 12,
+  "contents": [
+    {
+      "contentId": "content_-268800570750048561",
+      "title": "SAG 深度解析:下一代 RAG 的技术雏形 - 知乎",
+      "excerpt": "MuSiQue 语料上的原生索引统计： 方法 组件数 巨连通分量 孤立点率 GraphRAG 66,472 45.9% 51.1% LightRAG 9,277 85.3% 10.3% HyperGraphRAG 4,600 91.6% 0",
+      "url": "https://zhuanlan.zhihu.com/p/2076691610461548673",
+      "voteUpCount": 7,
+      "source": "like",
+      "category": "tech",
+      "interactedAt": "2026-08-26T23:35:00+08:00"
+    },
+    {
+      "contentId": "content_6258658961083924871",
+      "title": "成为一名优秀产品经理,最重要的核心能力是什么? - 知乎",
+      "excerpt": "・第一，要有”根-干-枝-叶”的知识树结构。 不要把所有知识堆在一平面上。根是你的价值观和思维框架，干是核心方法论（增长、体验、商业模型），枝是具体的领域知识（B端/C端/医疗/金融），叶才是当下的热点资讯和行业动态。光摄入叶子，没有根和干",
+      "url": "https://www.zhihu.com/question/2002339820983310238/answer/2010325704923976359",
+      "voteUpCount": 1,
+      "source": "favorite",
+      "category": "business",
+      "interactedAt": "2026-08-26T23:50:00+08:00"
+    }
+  ]
+}

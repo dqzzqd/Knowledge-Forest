@@ -1,0 +1,27 @@
+{
+  "userId": "user_b_renwen",
+  "date": "2026-08-17",
+  "dayIndex": 3,
+  "contents": [
+    {
+      "contentId": "content_-5293822244890708747",
+      "title": "大明灭亡276年祭:不是一人之过,是一场全体系的系统性崩溃 - 知乎",
+      "excerpt": "崇祯心里一百个想南迁，但他又不愿意自己提出来。他还是那个老毛病：好面子，不愿意承担「弃都而逃」的骂名，他想让内阁大臣们集体上书，劝他南迁，然后他「被迫」同意，这样骂名就是大臣的，他还是那个「天子守国门」的明君。 但大臣们早就看透了他。陈新甲",
+      "url": "https://zhuanlan.zhihu.com/p/2019198981356430695",
+      "voteUpCount": 39,
+      "source": "favorite",
+      "category": "humanities",
+      "interactedAt": "2026-08-17T21:42:00+08:00"
+    },
+    {
+      "contentId": "content_-3988538641901098347",
+      "title": "AI 绘制的中国古画是否符合传统美学的审美? - 知乎",
+      "excerpt": "通过深度学习和神经网络技术，AI能够学习中国画的风格、笔墨、气韵和意境，并生成新的艺术作品。 那么，AI绘制中国古画的原理是什么呢？ 1. AI绘画原理 AI生成绘画作品的原理主要基于生成对抗网络（GAN）和变分自编码器（VAE）等生成模型",
+      "url": "https://www.zhihu.com/question/661666041/answer/3566294319",
+      "voteUpCount": 95,
+      "source": "search",
+      "category": "arts",
+      "interactedAt": "2026-08-17T22:31:00+08:00"
+    }
+  ]
+}

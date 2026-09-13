@@ -1,0 +1,27 @@
+{
+  "userId": "user_a_shenqian",
+  "date": "2026-08-28",
+  "dayIndex": 14,
+  "contents": [
+    {
+      "contentId": "content_6410185912056953085",
+      "title": "【拖延】的本质是不爱自己,爱的是虚假的自己 - 知乎",
+      "excerpt": "不要等到所有条件都完美，那一天永远不会来临。 拖延本质上是【对自我认知】的误解，是对真实自我的忽视。 拖延不仅仅是“不想做事情”这样简单的表面问题， 它反映的是我们内心深处的恐惧、焦虑和自我怀疑， 进而沉溺于一种理想化、虚假的自我形象中。 ",
+      "url": "https://zhuanlan.zhihu.com/p/674016363",
+      "voteUpCount": 4,
+      "source": "search",
+      "category": "science",
+      "interactedAt": "2026-08-28T08:36:00+08:00"
+    },
+    {
+      "contentId": "content_-2186890878705454622",
+      "title": "大模型上下文窗口从 8K 扩到 128K,实际工程落地价值到底有多大? 怎么实现上下文窗口的扩展的? - 知乎",
+      "excerpt": "import numpy as np # 1. 文本分块（适配上下文窗口） def text_chunk_split(text: str, chunk_size: int = 200, overlap: int = 20) -> list:",
+      "url": "https://www.zhihu.com/question/2027804661629853739/answer/2081653614557279175",
+      "voteUpCount": 0,
+      "source": "search",
+      "category": "tech",
+      "interactedAt": "2026-08-28T23:53:00+08:00"
+    }
+  ]
+}

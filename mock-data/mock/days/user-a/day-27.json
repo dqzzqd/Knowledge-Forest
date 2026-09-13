@@ -1,0 +1,17 @@
+{
+  "userId": "user_a_shenqian",
+  "date": "2026-09-10",
+  "dayIndex": 27,
+  "contents": [
+    {
+      "contentId": "content_-1480968154277707521",
+      "title": "一文搞懂:RAG - 知乎",
+      "excerpt": "一、什么是RAG RAG（Retrieval-Augmented Generation，检索增强生成）：不改变大模型本身，在 LLM 生成回答之前，先从外部知识库检索相关信息，把检索结果塞进 Prompt，让 LLM 基于事实生成答案。 核",
+      "url": "https://zhuanlan.zhihu.com/p/2075686630032261772",
+      "voteUpCount": 2,
+      "source": "like",
+      "category": "tech",
+      "interactedAt": "2026-09-10T08:09:00+08:00"
+    }
+  ]
+}

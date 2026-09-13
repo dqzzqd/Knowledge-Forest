@@ -1,0 +1,27 @@
+{
+  "userId": "user_a_shenqian",
+  "date": "2026-09-01",
+  "dayIndex": 18,
+  "contents": [
+    {
+      "contentId": "content_-673152830778326265",
+      "title": "从心理学角度看,拖延症的根源是什么? - 知乎",
+      "excerpt": "这个机制难打破，是因为反馈链条太短了。回避之后几分钟内焦虑就下降，效果立竿见影。而“继续拖延导致最后崩溃”的反馈链条很长——拖几天甚至几周才能看到恶果。短反馈加强效果，行为被快速强化。大脑做选择的时候，用的是“当下哪个行为能让我舒服”，不是",
+      "url": "https://www.zhihu.com/question/1885997541918741629/answer/2075863914982778479",
+      "voteUpCount": 15,
+      "source": "favorite",
+      "category": "science",
+      "interactedAt": "2026-09-01T10:08:00+08:00"
+    },
+    {
+      "contentId": "content_7183632955015752336",
+      "title": "从单次 RAG 到智能体 AI,系统如何获得重试、工具调用和自我修正能力 - 知乎",
+      "excerpt": "过去几年，系统设计里的 AI 架构通常是这样：“设计一个系统，检索相关文档并基于这些文档生成答案。”对应的就是经典检索增强生成（Retrieval-Augmented Generation，RAG）Pipeline：取回上下文，交给语言模型",
+      "url": "https://zhuanlan.zhihu.com/p/2074606442506630760",
+      "voteUpCount": 2,
+      "source": "like",
+      "category": "tech",
+      "interactedAt": "2026-09-01T23:11:00+08:00"
+    }
+  ]
+}

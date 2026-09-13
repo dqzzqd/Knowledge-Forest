@@ -1,0 +1,27 @@
+{
+  "userId": "user_a_shenqian",
+  "date": "2026-09-09",
+  "dayIndex": 26,
+  "contents": [
+    {
+      "contentId": "content_6141645053902793139",
+      "title": "锦恢的 AI Agent 小白教程(四)智能体基本原理:Agent Loop,规划模式与子智能体 - 知乎",
+      "excerpt": "所以到底什么是 agent harness？也就是在 ReAct 这个层级对工具，架构，任务执行方式，调度策略基于你的实际业务来进行对应的设计、开发和后续的优化。如果我们将大模型的神奇能力比作CPU那一秒上一次运算的强大计算能力。那么 ag",
+      "url": "https://zhuanlan.zhihu.com/p/2057385707082093544",
+      "voteUpCount": 62,
+      "source": "favorite",
+      "category": "tech",
+      "interactedAt": "2026-09-09T09:28:00+08:00"
+    },
+    {
+      "contentId": "content_-3959452118377799065",
+      "title": "AI 大模型到底有没有实际落地场景? - 知乎",
+      "excerpt": "AI 已经很热，为什么企业还没有真正用起来？ 大模型浪潮席卷两年，许多企业开始发现：模型愈发强大、工具层出不穷、API持续走低，但企业 AI 应用依然停留在“能用”阶段，跑不进流程、扎不进业务、形不成闭环。 问题出在哪？不是大模型不够聪明。",
+      "url": "https://www.zhihu.com/question/642115762/answer/2076633693830042316",
+      "voteUpCount": 1,
+      "source": "like",
+      "category": "tech",
+      "interactedAt": "2026-09-09T23:11:00+08:00"
+    }
+  ]
+}

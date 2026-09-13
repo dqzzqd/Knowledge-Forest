@@ -1,0 +1,47 @@
+{
+  "userId": "user_a_shenqian",
+  "date": "2026-09-05",
+  "dayIndex": 22,
+  "contents": [
+    {
+      "contentId": "content_6548322861314323791",
+      "title": "读懂AI Agent:基于大模型的智能体(类openclawd的框架通解) - 知乎",
+      "excerpt": "AI Agent也可以称为“智能体”。在大模型技术驱动下，让人们以自然语言为交互方式高度自动化地执行和处理专业或繁复的工作任务，从而极大程度释放人类的精力，并降低操作门槛。 现在，Agent 基本就等于 \"大模型 + 插件 + 执行流程 /",
+      "url": "https://zhuanlan.zhihu.com/p/657937696",
+      "voteUpCount": 1371,
+      "source": "favorite",
+      "category": "tech",
+      "interactedAt": "2026-09-05T08:36:00+08:00"
+    },
+    {
+      "contentId": "content_-2960356255725204410",
+      "title": "万字详解AI Agent 核心概念:Agent Loop、Plan-and-Execute、A2A、Agentic Workflows、Tools 注册 - 知乎",
+      "excerpt": "第一次被 ChatGPT 震到的时候，很多人应该都还在研究 Prompt 怎么写。那时候它更像一个会聊天的知识库。你问，它答；你不问，它也不会自己动。三年过去，AI 已经不只是在聊天框里回复文字了。它开始会调用工具，会读文件，会跑代码，甚至",
+      "url": "https://zhuanlan.zhihu.com/p/2044328943587743048",
+      "voteUpCount": 88,
+      "source": "like",
+      "category": "tech",
+      "interactedAt": "2026-09-05T09:49:00+08:00"
+    },
+    {
+      "contentId": "content_3169485591707754151",
+      "title": "工信部 AI 落地新政全文解读:建全国服务商资源池,大模型、智能体、Token 采购全面加码 - 知乎",
+      "excerpt": "8 月 31 日，工业和信息化部办公厅正式发布《关于开展人工智能应用服务商培育专项行动的通知》，这是继国务院 “人工智能 +” 行动之后，针对 AI 落地 “最后一公里” 出台的专项配套政策。 整份政策的核心逻辑非常清晰：大模型技术已经走到",
+      "url": "https://zhuanlan.zhihu.com/p/2078147823632127895",
+      "voteUpCount": 0,
+      "source": "favorite",
+      "category": "tech",
+      "interactedAt": "2026-09-05T23:02:00+08:00"
+    },
+    {
+      "contentId": "content_-5901010886917430576",
+      "title": "用完千问智能体,我对\"AI Agent\"有了新的理解 - 知乎",
+      "excerpt": "说起今年的AI潮流，最火的概念一定是智能体。 年初龙虾（OpenClaw）现象级爆火，之后各类AI智能体产品密集涌现。IDC在2026年WAIC期间发布的研究报告预计，全年全球活跃的AI智能体数量将攀升至7940万个。今年被业界普遍视为AI",
+      "url": "https://zhuanlan.zhihu.com/p/2071289462185785306",
+      "voteUpCount": 84,
+      "source": "like",
+      "category": "tech",
+      "interactedAt": "2026-09-05T23:23:00+08:00"
+    }
+  ]
+}
