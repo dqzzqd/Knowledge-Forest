@@ -1,0 +1,81 @@
+/* 知了森林 · 分享卡片 */
+
+.cardpage {
+  min-height: 100dvh;
+  background: var(--mist);
+  padding: clamp(1.5rem, 5vh, 3rem) 1.15rem clamp(3rem, 8vh, 5rem);
+}
+
+.cardpage__inner {
+  width: 100%;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.cardpage__title {
+  font-family: var(--font-cute);
+  font-size: 1.3rem;
+  letter-spacing: 0.1em;
+  color: var(--forest-near);
+}
+
+.cardpage__hint {
+  margin-top: 0.35rem;
+  padding-bottom: 1.3rem;
+  font-size: 0.82rem;
+  color: #6f7568;
+}
+
+.cardwrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.cardwrap__canvas {
+  display: block;
+  width: 100%;
+  max-width: 30rem;
+  border-radius: 18px;
+  box-shadow: 0 14px 34px rgba(47, 85, 65, 0.18);
+}
+
+.cardwrap__btn {
+  border: 0;
+  cursor: pointer;
+  appearance: none;
+  padding: 0.6rem 1.6rem;
+  border-radius: 999px;
+  background: #5ba87a;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  box-shadow: 0 6px 16px rgba(47, 85, 65, 0.22);
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.cardwrap__btn:hover:not(:disabled) {
+  background: #4e9669;
+  transform: translateY(-1px);
+}
+
+.cardwrap__btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.cardwrap__btn:focus-visible {
+  outline: 3px solid var(--forest-near);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cardwrap__btn {
+    transition: none;
+  }
+  .cardwrap__btn:hover:not(:disabled) {
+    transform: none;
+  }
+}

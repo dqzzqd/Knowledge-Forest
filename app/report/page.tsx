@@ -165,6 +165,15 @@ export default async function ReportPage({
           </dl>
         </section>
 
+        <div className="mt-9 flex justify-center">
+          <Link
+            href={`/card?type=report&date=${report.date}`}
+            className="inline-flex items-center rounded-full bg-[#5BA87A] px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#4E9669] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[#2F5541]"
+          >
+            做成分享卡
+          </Link>
+        </div>
+
         <footer className="rpt__foot">
           报告由大模型根据当天的真实收藏写成，标题与链接指向知乎原文。时间线为演示编排。
         </footer>

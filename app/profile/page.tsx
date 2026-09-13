@@ -1,3 +1,4 @@
+import Link from "next/link";
 import SiteNav from "@/components/SiteNav";
 import "./profile.css";
 import { getProfile } from "@/lib/ai/serve";
@@ -83,6 +84,15 @@ export default function ProfilePage() {
             </ul>
           </section>
         ) : null}
+
+        <div className="mt-9 flex justify-center">
+          <Link
+            href="/card?type=profile"
+            className="inline-flex items-center rounded-full bg-[#5BA87A] px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#4E9669] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[#2F5541]"
+          >
+            做成分享卡
+          </Link>
+        </div>
 
         <footer className="portrait__foot">
           <p>
