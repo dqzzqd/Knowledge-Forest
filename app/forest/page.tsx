@@ -1,3 +1,4 @@
+import Link from "next/link";
 import DayReplay from "@/components/DayReplay";
 import { TextureVars } from "@/components/use-asset-url";
 import UserSwitcher from "@/components/UserSwitcher";
@@ -60,6 +61,27 @@ export default async function Forest({
             </span>
           </p>
         </div>
+        {/* 回封面的唯一出口。封面里才有「离开森林」，所以森林页得先能退回去——
+            不然进来就出不去了。样式跟「切换用户」同一套小胶囊，
+            这一页的头部是细长一条，放封面那种大木牌会喧宾夺主。 */}
+        <Link
+          href="/"
+          className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-white/80 px-3 py-1.5 text-xs text-[#2F5541] shadow-sm ring-1 ring-stone-200 backdrop-blur transition-colors hover:bg-white focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[#2F5541]"
+        >
+          <svg
+            className="h-3.5 w-3.5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2.4}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M19 12H5M11 18l-6-6 6-6" />
+          </svg>
+          返回封面
+        </Link>
         <UserSwitcher users={listDemoUsers()} current={userId} />
       </header>
 
