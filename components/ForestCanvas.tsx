@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Cicada from "@/components/Cicada";
+import { useAssetUrl } from "@/components/use-asset-url";
 import "./wood.css";
 import { atmosphereFor, type Atmosphere } from "@/lib/atmosphere";
 import {
@@ -434,6 +435,7 @@ function TreeShape({
 }) {
   const baseColor = CATEGORY_COLORS[tree.category];
   const isDim = activeId !== null && !tree.leaves.some((l) => l.leafId === activeId);
+  const artUrl = useAssetUrl(TREE_ART[tree.art].src);
 
   return (
     <g opacity={isDim ? 0.75 : 1} className="transition-opacity duration-200">
@@ -458,15 +460,18 @@ function TreeShape({
         filter="url(#haze)"
       />
 
-      <image
-        href={TREE_ART[tree.art].src}
-        x={tree.x - tree.width / 2}
-        y={tree.y}
-        width={tree.width}
-        height={tree.height}
-        opacity={tree.opacity}
-        preserveAspectRatio="xMidYMid meet"
-      />
+      {/* 素材没到位就先不画：宁可空着，也不要一个断图图标 */}
+      {artUrl ? (
+        <image
+          href={artUrl}
+          x={tree.x - tree.width / 2}
+          y={tree.y}
+          width={tree.width}
+          height={tree.height}
+          opacity={tree.opacity}
+          preserveAspectRatio="xMidYMid meet"
+        />
+      ) : null}
 
       {/* 树叶：每个小主题一片 */}
       {tree.leaves.map((leaf) => {
@@ -687,9 +692,11 @@ const GRASS_SPOTS: { x: number; y: number; w: number; o: number }[] = [
 ];
 
 function Grass({ atm }: { atm: Atmosphere }) {
+  const grassUrl = useAssetUrl("/grass.webp");
   return (
     <g pointerEvents="none">
       {GRASS_SPOTS.map((g, i) => {
+        if (!grassUrl) return null;
         const w = g.w;
         const h = w / (420 / 202);
         const cx = g.x * W;
@@ -697,7 +704,7 @@ function Grass({ atm }: { atm: Atmosphere }) {
         return (
           <image
             key={i}
-            href="/grass.webp"
+            href={grassUrl}
             x={cx - w / 2}
             y={baseY - h}
             width={w}

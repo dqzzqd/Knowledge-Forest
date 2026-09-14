@@ -32,12 +32,18 @@
   padding-right: 1.5rem;
   /* 底下留一点：否则页脚那行正好压在纸的撕边上 */
   padding-bottom: 1.6rem;
-  background: url("/notebook-paper.webp") left top / 100% 100% no-repeat;
+  background-image: var(--tex-notebook-paper, url("/notebook-paper.webp"));
+  background-position: left top;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 
 @media (max-width: 640px) {
   .notebook__page {
-    background-image: url("/notebook-paper-tall.webp");
+    background-image: var(
+      --tex-notebook-paper-tall,
+      url("/notebook-paper-tall.webp")
+    );
   }
 }
 

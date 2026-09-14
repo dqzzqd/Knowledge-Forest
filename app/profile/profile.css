@@ -62,7 +62,10 @@
   grid-template-columns: auto 1fr;
   gap: 1.35rem;
   align-items: start;
-  background: url("/paper-grain.webp") center / cover no-repeat;
+  background-image: var(--tex-paper-grain, url("/paper-grain.webp"));
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   border: 1px solid var(--rule);
   border-radius: 14px;
   padding: 1.35rem;

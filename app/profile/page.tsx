@@ -1,10 +1,14 @@
 import Link from "next/link";
 import ExitForest from "@/components/ExitForest";
+import { TextureVars } from "@/components/use-asset-url";
 import "./profile.css";
 import { getProfile } from "@/lib/ai/serve";
 import { loadDemoUser, loadForest } from "@/lib/forest";
 import { getDemoUserId } from "@/lib/session";
 import { CATEGORY_COLORS, CATEGORY_LABELS } from "@/lib/contract";
+
+/** 这一页的 CSS 背景素材。模块级常量——每次渲染新建数组会让 effect 反复重跑 */
+const PAGE_TEXTURES = ["/paper-grain.webp", "/wood-pill.webp"] as const;
 
 export default async function ProfilePage() {
   const userId = await getDemoUserId();
@@ -16,6 +20,7 @@ export default async function ProfilePage() {
 
   return (
     <main className="portrait">
+      <TextureVars srcs={PAGE_TEXTURES} />
       <div className="portrait__page">
         <ExitForest />
 

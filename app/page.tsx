@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useAssetUrl } from "@/components/use-asset-url";
 import "./start-page.css";
 
 /** 点「进入应用」后先让按钮过渡走完，再跳页 */
@@ -12,8 +13,6 @@ const TITLE_RATIO = 3014 / 650;
 
 const COVER_BG = "/cover-bg.jpg";
 const COVER_TITLE = "/cover-title.webp";
-/** 冷启动最多重试几次（再多就是服务真挂了，刷下去也没用） */
-const MAX_IMAGE_RETRIES = 3;
 
 export default function StartPage() {
   const router = useRouter();
@@ -22,23 +21,12 @@ export default function StartPage() {
   const closeRef = useRef<HTMLButtonElement>(null);
   const leaveRef = useRef<HTMLButtonElement>(null);
 
-  // 云端冷启动时第一张图可能拉不到，而 SVG 的 <image> 加载失败是**静默的、
-  // 不会自动重试**——于是只剩米白兜底，必须手动刷新才出来。
-  // 这里补一个有上限的自动重试：换一个带 query 的地址强制重新请求。
-  const [bgSrc, setBgSrc] = useState(COVER_BG);
-  const [titleSrc, setTitleSrc] = useState(COVER_TITLE);
-  const retryCount = useRef(0);
-
-  const retryImage = useCallback((which: "bg" | "title") => {
-    if (retryCount.current >= MAX_IMAGE_RETRIES) return;
-    retryCount.current += 1;
-    const n = retryCount.current;
-    const base = which === "bg" ? COVER_BG : COVER_TITLE;
-    window.setTimeout(() => {
-      if (which === "bg") setBgSrc(`${base}?r=${n}`);
-      else setTitleSrc(`${base}?r=${n}`);
-    }, 400);
-  }, []);
+  // 封面两张大图走同一套带重试的加载器（见 components/use-asset-url.ts）。
+  // 原先靠 `<image onError>` 换 `?r=n` 重试，但实测**不可靠**：网关限流返回的
+  // 是 HTTP 200 + 一段 JSON，<image> 拿到之后解码失败，这个 error 事件并不一定
+  // 触发——封面就停在米白兜底上，只能手动刷新。
+  const bgSrc = useAssetUrl(COVER_BG);
+  const titleSrc = useAssetUrl(COVER_TITLE);
 
   // 弹窗打开时把焦点送进去。
   // 用 setTimeout 而不是 rAF：rAF 在窗口不可见时不触发，焦点会静默丢失。
@@ -91,26 +79,28 @@ export default function StartPage() {
         >
           {/* 米白纸底：背景图加载失败时的兜底 */}
           <rect x="0" y="0" width="1600" height="900" fill="#F8F5EC" />
-          {/* 背景图：铺满画布，居中裁切、不变形。加载失败会自动重试 */}
-          <image
-            href={bgSrc}
-            onError={() => retryImage("bg")}
-            x="0"
-            y="0"
-            width="1600"
-            height="900"
-            preserveAspectRatio="xMidYMid slice"
-          />
+          {/* 背景图：铺满画布，居中裁切、不变形。没取到就只留上面那层米白纸底 */}
+          {bgSrc ? (
+            <image
+              href={bgSrc}
+              x="0"
+              y="0"
+              width="1600"
+              height="900"
+              preserveAspectRatio="xMidYMid slice"
+            />
+          ) : null}
           {/* 标题：独立透明 PNG，居中置于顶部 */}
-          <image
-            href={titleSrc}
-            onError={() => retryImage("title")}
-            x="140"
-            y="52"
-            width="1320"
-            height={Math.round(1320 / TITLE_RATIO)}
-            preserveAspectRatio="xMidYMid meet"
-          />
+          {titleSrc ? (
+            <image
+              href={titleSrc}
+              x="140"
+              y="52"
+              width="1320"
+              height={Math.round(1320 / TITLE_RATIO)}
+              preserveAspectRatio="xMidYMid meet"
+            />
+          ) : null}
         </svg>
 
         <section className="forest-entry" aria-label="知了森林入口">

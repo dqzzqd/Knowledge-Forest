@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import ForestCanvas, { Legend } from "@/components/ForestCanvas";
 import SceneBubble, { DiaryIcon, ReportIcon } from "@/components/SceneBubble";
+import { useAssetUrl } from "@/components/use-asset-url";
 // 回放条也用同一份木料；显式引入，不依赖 SceneBubble 间接带上
 import "./wood.css";
 import {
@@ -55,6 +56,8 @@ export default function DayReplay({
   /** 当前小时（0–23）：决定场景的昼夜氛围。由服务端算好传下来 */
   hour?: number;
 }) {
+  const wreathUrl = useAssetUrl("/wreath.webp");
+
   // 进来先看到**完整的森林**。生长过程要用户主动点才播——
   // 自动播放会让人一进页面就懵：画面自己在动，却不知道在看什么。
   const [day, setDay] = useState(TOTAL_DAYS);
@@ -177,12 +180,22 @@ export default function DayReplay({
           href="/profile"
           className="group pointer-events-auto mt-1 flex flex-col items-center gap-0.5 sm:mt-2"
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/wreath.webp"
-            alt=""
-            className="h-14 w-14 object-contain transition-transform duration-200 group-hover:-translate-y-1 lg:h-[4.5rem] lg:w-[4.5rem]"
-          />
+          {/* 素材没到位时用等大白块占位，避免花环位置塌下去 */}
+          {wreathUrl ? (
+            <>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={wreathUrl}
+                alt=""
+                className="h-14 w-14 object-contain transition-transform duration-200 group-hover:-translate-y-1 lg:h-[4.5rem] lg:w-[4.5rem]"
+              />
+            </>
+          ) : (
+            <span
+              className="h-14 w-14 lg:h-[4.5rem] lg:w-[4.5rem]"
+              aria-hidden="true"
+            />
+          )}
           {/* 标签就是下面这行文字，不放在木牌上。
               窄屏要小一号：场景矮，台词气泡的像素位置更靠上，花环大了就压上去 */}
           <span className="text-[10px] font-bold tracking-[0.16em] text-[#2F554A] [text-shadow:0_1px_2px_rgba(255,255,255,0.9),0_0_8px_rgba(255,255,255,0.75)]">

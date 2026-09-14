@@ -1,10 +1,14 @@
 import DayReplay from "@/components/DayReplay";
+import { TextureVars } from "@/components/use-asset-url";
 import UserSwitcher from "@/components/UserSwitcher";
 import { nowIso } from "@/lib/api";
 import { atmosphereFor, hourFromIso } from "@/lib/atmosphere";
 import { deriveCicada } from "@/lib/cicada";
 import { listDemoUsers, loadDemoUser, loadForest } from "@/lib/forest";
 import { getDemoUserId } from "@/lib/session";
+
+/** 这一页的 CSS 背景素材。模块级常量——每次渲染新建数组会让 effect 反复重跑 */
+const PAGE_TEXTURES = ["/plank.webp", "/bar.webp", "/board.webp"] as const;
 
 export default async function Forest({
   searchParams,
@@ -30,6 +34,7 @@ export default async function Forest({
 
   return (
     <main className="flex min-h-[100dvh] flex-col bg-gradient-to-b from-[#EAF3E4] to-[#DCE9D0]">
+      <TextureVars srcs={PAGE_TEXTURES} />
       {/* 细头部：森林才是主角，身份压成一行就够。
           这一页不放站点导航——两个气泡 + 圆形精灵就是导航。 */}
       <header className="mx-auto flex w-full max-w-[1500px] items-center gap-3 px-4 pt-4 pb-2 sm:px-6">

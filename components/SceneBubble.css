@@ -12,7 +12,7 @@
      再收一档（214→196）：木牌是入口，树才是主角，这一排别压过树冠 */
   width: clamp(148px, 15vw, 196px);
   aspect-ratio: 763 / 389;
-  background-image: url("/plank.webp");
+  background-image: var(--tex-plank, url("/plank.webp"));
   background-size: 100% 100%;
   background-repeat: no-repeat;
   text-decoration: none;

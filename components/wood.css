@@ -62,7 +62,7 @@
    贴图 public/bar.webp（深色木纹长条）。背景铺满整块，
    高度由内容决定，所以木纹会随高度轻微压扁——深色细纹上看不出来。 */
 .bar-wood {
-  background-image: url("/bar.webp");
+  background-image: var(--tex-bar, url("/bar.webp"));
   background-size: 100% 100%;
   background-repeat: no-repeat;
   border-radius: 11px;
@@ -76,7 +76,7 @@
    卡片高度随内容变，所以背景铺满整块——木纹轻微拉伸看不出来，
    但圆角会比原图略微变形，这是这个做法的代价。 */
 .board-card {
-  background-image: url("/board.webp");
+  background-image: var(--tex-board, url("/board.webp"));
   background-size: 100% 100%;
   background-repeat: no-repeat;
   border-radius: 13px;
@@ -92,7 +92,10 @@
    底色是深木（平均 rgb(133,66,30)），字必须用浅木色才读得清
    （对比度约 7:1），和 `.wood-ink` 正好相反。 */
 .wood-pill {
-  background: url("/wood-pill.webp") center / 100% 100% no-repeat;
+  background-image: var(--tex-wood-pill, url("/wood-pill.webp"));
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   color: #ffe9c9;
   text-shadow: 0 1px 2px rgba(40, 20, 6, 0.6);
   filter: drop-shadow(0 4px 8px rgba(35, 64, 46, 0.3));

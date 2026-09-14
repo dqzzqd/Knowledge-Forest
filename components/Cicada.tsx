@@ -1,6 +1,7 @@
 "use client";
 
 import type { CicadaState } from "@/lib/contract";
+import { useAssetUrl } from "@/components/use-asset-url";
 import {
   BUBBLE_FONT_SIZE,
   BUBBLE_GAP,
@@ -42,6 +43,7 @@ const SPRITE_SRC = "/cicada-640.webp";
  */
 export default function Cicada({ cicada, anchor }: CicadaProps) {
   const { action, line } = cicada;
+  const spriteUrl = useAssetUrl(SPRITE_SRC);
 
   const lines = bubbleLines(line);
   const bubbleW = bubbleWidth(line);
@@ -57,16 +59,20 @@ export default function Cicada({ cicada, anchor }: CicadaProps) {
       style={{ transform: `translate(${anchor.x}px, ${anchor.y}px)` }}
     >
       <g className="cicada__body">
-        {/* 贴图：身体略微上移，让视觉重心落在锚点上 */}
-        <image
-          className="cicada__sprite"
-          href={SPRITE_SRC}
-          x={-SPRITE_W / 2}
-          y={SPRITE_TOP}
-          width={SPRITE_W}
-          height={SPRITE_H}
-          preserveAspectRatio="xMidYMid meet"
-        />
+        {/* 贴图：身体略微上移，让视觉重心落在锚点上。
+            素材没到位就先不画——精灵飞行动画照常，只是暂时没有身体，
+            总好过一个断图。 */}
+        {spriteUrl ? (
+          <image
+            className="cicada__sprite"
+            href={spriteUrl}
+            x={-SPRITE_W / 2}
+            y={SPRITE_TOP}
+            width={SPRITE_W}
+            height={SPRITE_H}
+            preserveAspectRatio="xMidYMid meet"
+          />
+        ) : null}
 
         {action === "water" ? <Droplets /> : null}
         {action === "prune" ? <Snips /> : null}

@@ -1,9 +1,13 @@
 import ExitForest from "@/components/ExitForest";
+import { TextureVars } from "@/components/use-asset-url";
 import ShareCard from "@/components/ShareCard";
 import "./card.css";
 import { getProfile, getReport } from "@/lib/ai/serve";
 import { loadDemoUser, loadForest } from "@/lib/forest";
 import { getDemoUserId } from "@/lib/session";
+
+/** 这一页的 CSS 背景素材。模块级常量——每次渲染新建数组会让 effect 反复重跑 */
+const PAGE_TEXTURES = ["/wood-pill.webp", "/parchment.webp"] as const;
 
 /**
  * GET /card?type=profile|report&date=YYYY-MM-DD
@@ -52,6 +56,7 @@ export default async function CardPage({
 
   return (
     <main className="cardpage">
+      <TextureVars srcs={PAGE_TEXTURES} />
       <div className="cardpage__inner">
         <ExitForest />
         <h1 className="cardpage__title">

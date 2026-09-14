@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { loadAsset } from "@/components/use-asset-url";
 import {
   CATEGORY_COLORS,
   CATEGORY_LABELS,
@@ -181,12 +182,18 @@ function drawSeal(ctx: CanvasRenderingContext2D, x: number, y: number, text: str
  */
 let parchment: Promise<HTMLImageElement | null> | null = null;
 function loadParchment(): Promise<HTMLImageElement | null> {
-  parchment ??= new Promise((resolve) => {
-    const img = new Image();
-    img.onload = () => resolve(img);
-    img.onerror = () => resolve(null);
-    img.src = BG_SRC;
-  });
+  // 走同一套带重试的加载器：网关限流时它同样会返回一段 JSON，
+  // 直接 new Image() 只试一次，拿不到就永远退回纯色底。
+  parchment ??= loadAsset(BG_SRC).then(
+    (url) =>
+      new Promise<HTMLImageElement | null>((resolve) => {
+        const img = new Image();
+        img.onload = () => resolve(img);
+        img.onerror = () => resolve(null);
+        img.src = url;
+      }),
+    () => null,
+  );
   return parchment;
 }
 

@@ -1,11 +1,19 @@
 import type { CSSProperties } from "react";
 import ExitForest from "@/components/ExitForest";
+import { TextureVars } from "@/components/use-asset-url";
 import "./diary.css";
 import { DIARY_WINDOW_DAYS, getDiary } from "@/lib/ai/serve";
 import { loadDemoUser } from "@/lib/forest";
 import { getDemoUserId } from "@/lib/session";
 import { TOTAL_DAYS, dayToDate } from "@/lib/replay";
 import type { DiaryEventType } from "@/lib/contract";
+
+/** 这一页的 CSS 背景素材。模块级常量——每次渲染新建数组会让 effect 反复重跑 */
+const PAGE_TEXTURES = [
+  "/notebook-paper.webp",
+  "/notebook-paper-tall.webp",
+  "/wood-pill.webp",
+] as const;
 
 const EVENT_LABEL: Record<DiaryEventType, string> = {
   newTree: "新树",
@@ -30,6 +38,7 @@ export default async function DiaryPage() {
 
   return (
     <main className="notebook">
+      <TextureVars srcs={PAGE_TEXTURES} />
       <div className="notebook__page">
         <ExitForest />
 
