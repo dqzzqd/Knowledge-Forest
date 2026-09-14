@@ -251,6 +251,40 @@ export default function ForestCanvas({
   const [activeId, setActiveId] = useState<string | null>(null);
   const trees = useMemo(() => buildScene(forest), [forest]);
 
+  // 卡片要贴着**被点的那片叶子**出现，而不是固定在角上。
+  // 落点全部在 hover 事件里算：叶子的 cx/cy 是 SVG 用户坐标（0–1200 × 0–760），
+  // 视口一变就和屏幕对不上，得直接量 getBoundingClientRect；
+  // 而且渲染期不能读 ref（React 的反模式，lint 也会拦）。
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const [cardPos, setCardPos] = useState<{ left: number; top: number } | null>(null);
+
+  /**
+   * 算出卡片该落哪：优先放叶子**右边**，右边放不下翻到左边；垂直居中并夹在容器内。
+   * 窄屏（< 640px）返回 null，交给 CSS 走底部整条的老版式——手机上贴着叶子放会挤成一团。
+   */
+  const positionCard = (el: Element | null) => {
+    const wrap = wrapRef.current;
+    if (!el || !wrap) return null;
+    const box = wrap.getBoundingClientRect();
+    const leaf = el.getBoundingClientRect();
+    if (box.width < 640) return null;
+
+    const x = leaf.left + leaf.width / 2 - box.left;
+    const y = leaf.top + leaf.height / 2 - box.top;
+
+    // 卡片宽度是 CSS 里写死的 11.5rem(184px)；高度随内容变，用估值夹取即可
+    const CARD_W = 184;
+    const CARD_H = 168;
+    const GAP = 24;
+    const PAD = 12;
+
+    const flip = x + GAP + CARD_W > box.width - PAD;
+    return {
+      left: Math.max(PAD, Math.min(flip ? x - GAP - CARD_W : x + GAP, box.width - CARD_W - PAD)),
+      top: Math.max(PAD, Math.min(y - CARD_H / 2, box.height - CARD_H - PAD)),
+    };
+  };
+
   // 鼠标移开叶子就收起卡片。但**不能立刻收**——
   // 从叶子移到卡片上也会触发"离开"，那样就点不到浇水/修剪了。
   // 所以延时收，指针一进卡片就取消。
@@ -263,7 +297,9 @@ export default function ForestCanvas({
   };
   const scheduleClose = () => {
     cancelClose();
-    closeTimer.current = window.setTimeout(() => setActiveId(null), 280);
+    // 420ms 而不是 280：卡片紧贴叶子虽然近，但从叶子挪到按钮上仍要一点时间，
+    // 太快收会让人点不到「浇点水 / 修剪掉」。
+    closeTimer.current = window.setTimeout(() => setActiveId(null), 420);
   };
   useEffect(() => cancelClose, []);
 
@@ -299,7 +335,7 @@ export default function ForestCanvas({
   }, [cicada, trees]);
 
   return (
-    <div className="relative h-full w-full">
+    <div ref={wrapRef} className="relative h-full w-full">
       <svg
         viewBox={`0 0 ${W} ${H}`}
         preserveAspectRatio="xMidYMid meet"
@@ -370,9 +406,10 @@ export default function ForestCanvas({
           <TreeShape
             key={tree.treeId}
             tree={tree}
-            onLeaf={(l) => {
+            onLeaf={(l, el) => {
               cancelClose();
               setActiveId(l?.leafId ?? null);
+              setCardPos(l ? positionCard(el ?? null) : null);
             }}
             onLeafLeave={scheduleClose}
             activeId={active?.leafId ?? null}
@@ -404,6 +441,7 @@ export default function ForestCanvas({
       <LeafCard
         leaf={active}
         atm={atm}
+        pos={cardPos}
         onClose={() => setActiveId(null)}
         onEnter={cancelClose}
         onLeave={scheduleClose}
@@ -429,7 +467,8 @@ function TreeShape({
   activeId,
 }: {
   tree: PlacedTree;
-  onLeaf: (l: PlacedLeaf | null) => void;
+  /** 第二参是叶子元素本身：卡片要靠它算出「贴着叶子」的落点 */
+  onLeaf: (l: PlacedLeaf | null, el?: Element | null) => void;
   onLeafLeave: () => void;
   activeId: string | null;
 }) {
@@ -470,6 +509,9 @@ function TreeShape({
           height={tree.height}
           opacity={tree.opacity}
           preserveAspectRatio="xMidYMid meet"
+          /* 插画是纯装饰，**不能吃指针事件**：它是矩形，透明的地方照样拦截鼠标，
+             会把压在下面的叶子变成点不到的死区 */
+          pointerEvents="none"
         />
       ) : null}
 
@@ -482,9 +524,9 @@ function TreeShape({
           <g
             key={leaf.leafId}
             className="cursor-pointer"
-            onMouseEnter={() => onLeaf(leaf)}
+            onMouseEnter={(e) => onLeaf(leaf, e.currentTarget)}
             onMouseLeave={onLeafLeave}
-            onClick={() => onLeaf(leaf)}
+            onClick={(e) => onLeaf(leaf, e.currentTarget)}
           >
             {/* 命中区，比叶子本身大得多，好点 */}
             <circle cx={leaf.cx} cy={leaf.cy} r={22} fill="transparent" />
@@ -726,6 +768,7 @@ function Grass({ atm }: { atm: Atmosphere }) {
 function LeafCard({
   leaf,
   atm,
+  pos,
   onClose,
   onEnter,
   onLeave,
@@ -735,6 +778,8 @@ function LeafCard({
   leaf: PlacedLeaf | null;
   /** 用于提示文字取色：白天深字、夜里浅字，跟着时段走 */
   atm: Atmosphere;
+  /** 贴着叶子的落点（容器内像素）。窄屏为 null，改走底部整条版式 */
+  pos: { left: number; top: number } | null;
   onClose: () => void;
   /** 指针进卡片：取消"移开叶子就收起"的延时，否则点不到按钮 */
   onEnter: () => void;
@@ -761,7 +806,12 @@ function LeafCard({
   // 叶子本身已经带着大类颜色，把大类名写出来，就省掉了单独的图例
   return (
     <div
-      className="board-card absolute bottom-3 left-3 right-3 p-2.5 sm:bottom-[6.5rem] sm:left-[5%] sm:right-auto sm:w-[11.5rem]"
+      className={
+        pos
+          ? "board-card absolute w-[11.5rem] p-2.5"
+          : "board-card absolute bottom-3 left-3 right-3 p-2.5 sm:bottom-[6.5rem] sm:left-[5%] sm:right-auto sm:w-[11.5rem]"
+      }
+      style={pos ? { left: pos.left, top: pos.top } : undefined}
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
     >
