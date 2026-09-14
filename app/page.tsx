@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useAssetUrl } from "@/components/use-asset-url";
+import { useAssetUrl, TextureVars } from "@/components/use-asset-url";
 import "./start-page.css";
 
 /** 点「进入应用」后先让按钮过渡走完，再跳页 */
@@ -13,6 +13,9 @@ const TITLE_RATIO = 3014 / 650;
 
 const COVER_BG = "/cover-bg.jpg";
 const COVER_TITLE = "/cover-title.webp";
+
+/** 这一页的 CSS 背景素材（两块入口木牌）。模块级常量——每次渲染新建数组会让 effect 反复重跑 */
+const PAGE_TEXTURES = ["/plank-entry.webp"] as const;
 
 export default function StartPage() {
   const router = useRouter();
@@ -69,6 +72,7 @@ export default function StartPage() {
 
   return (
     <main className="scene">
+      <TextureVars srcs={PAGE_TEXTURES} />
       {/* 画框：按钮要相对「画面」定位，屏幕比例变化时才不会和背景错位 */}
       <div className="book-frame">
         <svg

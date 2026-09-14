@@ -56,55 +56,45 @@
   display: flex;
   justify-content: space-between;
   gap: 18px;
-  width: min(700px, calc(100% - 56px));
+  /* 收窄一点：木板是 2.65:1，太宽会被横向拉长（横纹拉伸不明显，但也没必要） */
+  width: min(520px, calc(100% - 56px));
   transform: translate(-50%, -50%);
 }
 
 .entry-card {
   position: relative;
   display: flex;
-  /* 不再平分宽度：按内容收缩，两块才有"一小块一小块"的感觉 */
-  flex: 0 0 auto;
-  gap: 11px;
+  /* 两块等宽：同一块木板一分为二，才像一对门板 */
+  flex: 1 1 0;
+  gap: 12px;
   align-items: center;
-  min-height: 60px;
-  padding: 10px 20px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  color: var(--forest-dark);
-  background: var(--paper-light);
-  box-shadow:
-    0 7px 18px var(--shadow),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.42);
+  min-height: 86px;
+  padding: 14px 24px;
+  /* 圆角由贴图自带。自己再画一圈 border-radius，会跟木板的边错开 */
+  border: 0;
+  border-radius: 0;
+  color: #3b2410;
+  background-image: var(--tex-plank-entry, url("/plank-entry.webp"));
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  /* 用 drop-shadow 而不是 box-shadow：方块的阴影会从木板的直角边框里透出来 */
+  filter: drop-shadow(0 8px 16px rgba(64, 44, 24, 0.34));
   cursor: pointer;
   font: inherit;
   text-align: left;
   transition:
     transform 0.22s ease,
-    box-shadow 0.22s ease,
-    background 0.22s ease;
-}
-
-.entry-card::before {
-  position: absolute;
-  top: -26px;
-  right: -18px;
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  background: rgba(205, 218, 171, 0.24);
-  content: "";
+    filter 0.22s ease;
 }
 
 .entry-card:hover {
   transform: translateY(-4px);
-  background: #fffef7;
-  box-shadow: 0 11px 22px rgba(73, 91, 65, 0.22);
+  filter: drop-shadow(0 12px 22px rgba(64, 44, 24, 0.42)) brightness(1.05);
 }
 
 .entry-card:active {
-  transform: translateY(-1px) scale(0.985);
+  transform: translateY(-1px) scale(0.988);
 }
 
 .entry-card:focus-visible,
@@ -114,34 +104,33 @@
   outline-offset: 3px;
 }
 
-.entry-card--enter {
-  border-color: rgba(82, 127, 79, 0.48);
-  background: rgba(235, 244, 215, 0.9);
-}
-
+/* 两块都是木板了，靠**圆牌的颜色**和文字深浅分出主次：
+   进入是主操作（深木牌），离开是次操作（浅木牌）。 */
 .entry-card--enter .entry-card__icon {
-  background: #5a8956;
+  background: #7d5220;
+  box-shadow: 0 4px 9px rgba(58, 36, 14, 0.3);
 }
 
 .entry-card--leave {
-  color: #68745f;
+  color: #5a4530;
 }
 
 .entry-card--leave .entry-card__icon {
-  background: #889776;
+  background: #a3855c;
+  box-shadow: 0 4px 9px rgba(58, 36, 14, 0.22);
 }
 
 .entry-card__icon {
   position: relative;
   z-index: 1;
   display: grid;
-  flex: 0 0 38px;
+  flex: 0 0 42px;
   place-items: center;
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   color: #fffdf1;
-  box-shadow: 0 4px 9px rgba(70, 99, 64, 0.18);
+  box-shadow: 0 4px 9px rgba(58, 36, 14, 0.26);
 }
 
 .entry-card__icon svg {
@@ -165,14 +154,14 @@
 
 .entry-card strong {
   font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.08em;
 }
 
 .entry-card small {
   margin-top: 3px;
-  color: #899681;
+  color: #7d5c33;
   font-size: 11px;
   letter-spacing: 0.05em;
 }
@@ -181,7 +170,7 @@
   position: absolute;
   right: 13px;
   bottom: 8px;
-  color: rgba(93, 137, 82, 0.56);
+  color: rgba(146, 98, 40, 0.55);
   font-size: 13px;
 }
 
@@ -352,9 +341,10 @@
 
   .entry-card {
     gap: 8px;
-    min-height: 52px;
+    min-height: 56px;
     padding: 8px 13px;
-    border-radius: 15px;
+    /* 圆角由木板贴图自带；再写一个 border-radius 会把贴图自己的圆角裁掉一圈 */
+    border-radius: 0;
   }
 
   .entry-card__icon {
