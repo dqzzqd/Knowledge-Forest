@@ -51,22 +51,40 @@ npm run lint    # 代码检查
 
 ```
 .
-├── app/                    # Next.js App Router
-│   ├── layout.tsx          # 根布局
-│   ├── page.tsx            # 森林主页面（服务端组件）
+├── app/                        # Next.js App Router
+│   ├── page.tsx                # 封面页（客户端组件）
+│   ├── forest/page.tsx         # 森林主页面（服务端组件）
+│   ├── diary/ profile/ report/ card/       # 农夫日记 / 灵魂画像 / 光合作用报告 / 分享卡
+│   ├── api/                    # REST 路由（forest / diary / report / profile / trees / feedback）
+│   ├── layout.tsx
 │   └── globals.css
 ├── components/
-│   └── ForestCanvas.tsx    # 森林渲染（SVG，客户端组件）
+│   ├── ForestCanvas.tsx        # 森林渲染（SVG，客户端组件）
+│   ├── DayReplay.tsx           # 按天回放 + 底部木条
+│   ├── Cicada.tsx              # 知了精灵
+│   ├── SceneBubble.tsx         # 两块入口木牌
+│   ├── ShareCard.tsx           # 分享卡（canvas 绘制，导出 PNG）
+│   ├── UserSwitcher.tsx        # 演示用户切换
+│   ├── ExitForest.tsx          # 内页出口「回森林」
+│   └── use-asset-url.ts        # 素材加载器：带重试，绕开网关限流
 ├── lib/
-│   ├── contract.ts         # 类型契约（唯一事实来源）
-│   └── forest.ts           # 演示数据加载（仅服务端）
-├── mock-data/              # 演示数据集（详见其 README）
-│   ├── mock/               # 3 个用户全量 + 90 个按天切片
-│   ├── expected-forest/    # 预生成森林（演示兜底）
-│   ├── avatars/            # 用户头像
-│   └── raw/                # 原始抓取结果（数据来源凭证）
-├── public/avatars/         # 对外提供的头像
-└── docs/                   # 项目文档
+│   ├── contract.ts             # 类型契约（唯一事实来源）
+│   ├── forest.ts               # 演示数据加载（仅服务端）
+│   ├── replay.ts               # 按天回放：生长与事件
+│   ├── cicada.ts               # 精灵决策（纯函数、零随机）
+│   ├── cicada-placement.ts     # 精灵落点代价函数（避让树名/树冠）
+│   ├── feedback.ts             # 修剪/浇水叠加（不可变）
+│   ├── atmosphere.ts           # 昼夜氛围
+│   └── ai/                     # AI 产物读取 + 确定性降级
+├── mock-data/                  # 演示数据集（详见其 README）
+│   ├── mock/                   # 3 个用户全量 + 90 个按天切片
+│   ├── expected-forest/        # 预生成森林（演示兜底）
+│   ├── ai/                     # AI 三件套产物（离线生成，运行时只读）
+│   ├── avatars/                # 用户头像
+│   └── raw/                    # 原始抓取结果（数据来源凭证）
+├── public/                     # 贴图、头像、封面素材
+└── docs/                       # 项目文档
+    ├── 产品说明计划书.md        ← 提交用的产品说明
     ├── 项目交接简报.md
     ├── 接口契约.md
     ├── 产品需求文档.md
@@ -120,6 +138,7 @@ npm run lint    # 代码检查
 
 | 文档 | 内容 |
 |------|------|
+| [**产品说明计划书**](docs/产品说明计划书.md) | **提交用的产品说明**：创作思路、核心体验、技术方案、与知乎生态的契合点、完成度与后续计划 |
 | [项目交接简报](docs/项目交接简报.md) | 用大白话讲清这个项目是什么（给 AI 读，再由 AI 讲给人听） |
 | [接口契约](docs/接口契约.md) | 字段名、枚举、API、AI 调用的**唯一事实来源** |
 | [产品需求文档](docs/产品需求文档.md) | 背景、用户、功能优先级、范围界定 |
