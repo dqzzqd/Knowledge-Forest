@@ -142,6 +142,51 @@ function buildScene(forest: ForestSnapshot): PlacedTree[] {
     })
     .filter((b): b is NonNullable<typeof b> => b !== null);
 
+  /**
+   * 摆不下就整体缩小。
+   *
+   * 下面的「推开 → 平移 → 夹紧」只在**排得下**的时候成立。user-c 有 10 棵树，
+   * 按原始尺寸排开要 2066px，可用宽度只有 1132px——推开后末端越界 934px，
+   * 一起左移再夹紧，就会把 6 棵树压进 x=125~250 那一小段里叠成一坨。
+   *
+   * 但**差一点点不算**：user-a/b 只超出约 4%，靠左右平移就吸收了。
+   * 树的大小是刻意调过的（缩太多画面会显得空），不该为这点溢出去动它。
+   * 所以只在超出 15% 以上、平移已经救不回来时，才一次缩到刚好放下。
+   */
+  const available = W - 2 * EDGE;
+  const OVERFLOW_TOLERANCE = 1.15;
+
+  const spanAt = (fit: number) => {
+    const row = boxes
+      .map((b) => ({ x: b.x, w: b.width * fit }))
+      .sort((a, b) => a.x - b.x);
+    for (let i = 1; i < row.length; i++) {
+      const need = row[i - 1].x + ((row[i - 1].w + row[i].w) / 2) * MIN_GAP;
+      if (row[i].x < need) row[i].x = need;
+    }
+    const first = row[0];
+    const last = row[row.length - 1];
+    return last.x + last.w / 2 - (first.x - first.w / 2);
+  };
+
+  let fit = 1;
+  if (boxes.length > 1 && spanAt(1) > available * OVERFLOW_TOLERANCE) {
+    // 跨度大致随缩放系数线性变化，迭代几次就收敛
+    for (let pass = 0; pass < 4; pass++) {
+      const span = spanAt(fit);
+      if (span <= available) break;
+      fit *= available / span;
+    }
+    // 留个下限：真到了这一步说明数据离谱，宁可轻微重叠也别把树缩成芝麻
+    fit = Math.max(fit, 0.45);
+  }
+  if (fit < 1) {
+    for (const b of boxes) {
+      b.width *= fit;
+      b.height *= fit;
+    }
+  }
+
   // 第二遍：横向让位。布局给的 x 有的挨得很近，加上树的宽度就会互相压住——
   // 曾经把最大那棵的树名整块盖掉。从左往右依次推开。
   const byX = boxes.map((b) => ({ ...b })).sort((a, b) => a.x - b.x);
