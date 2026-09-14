@@ -103,7 +103,7 @@ npm run lint    # 代码检查
 | 框架 | Next.js 16（App Router） + TypeScript |
 | 样式 | Tailwind CSS v4 |
 | 可视化 | SVG（手绘治愈风，不引入 3D） |
-| AI | Claude API（主题聚类 · 摘要 · 叙事） |
+| AI | 大模型离线生成产物（OpenAI 兼容接口，本项目用 `deepseek-chat`），运行时只读 |
 | 数据 | 演示阶段为 JSON 文件，不引入数据库 |
 
 设计原则：**AI 只负责语义判断，森林的状态与布局由确定性代码控制**——AI 可以失败，森林不能崩。

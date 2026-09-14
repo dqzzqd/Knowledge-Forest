@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ExitForest from "@/components/ExitForest";
+import { TextureVars } from "@/components/use-asset-url";
 import "./report.css";
 import { availableReportDates, getReport } from "@/lib/ai/serve";
 import { loadDemoUser } from "@/lib/forest";
@@ -10,6 +11,9 @@ import {
   CATEGORY_LABELS,
   type ContentItem,
 } from "@/lib/contract";
+
+/** 这一页的 CSS 背景素材。模块级常量——每次渲染新建数组会让 effect 反复重跑 */
+const PAGE_TEXTURES = ["/paper-grain.webp", "/wood-pill.webp"] as const;
 
 export default async function ReportPage({
   searchParams,
@@ -62,6 +66,7 @@ export default async function ReportPage({
 
   return (
     <main className="sheet">
+      <TextureVars srcs={PAGE_TEXTURES} />
       <div className="sheet__page">
         <ExitForest />
 
@@ -174,7 +179,7 @@ export default async function ReportPage({
         </div>
 
         <footer className="rpt__foot">
-          报告由大模型根据当天的真实收藏写成，标题与链接指向知乎原文。时间线为演示编排。
+          报告由大模型根据当天的真实收藏写成；少数日期若没有模型产物，则由确定性规则按真实数据降级生成。标题与链接指向知乎原文。时间线为演示编排。
         </footer>
       </div>
     </main>
